@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, ExternalLink, Clock, Monitor, Loader2, BookOpen, GraduationCap, Zap, AlertCircle } from 'lucide-react'
 import { learningAPI } from '../../services/api'
 
-const levelConfig = {
+export const levelConfig = {
   beginner: {
     label: 'Beginner',
     icon: BookOpen,
@@ -36,7 +36,7 @@ const levelConfig = {
   },
 }
 
-const platformColors = {
+export const platformColors = {
   'freeCodeCamp (YouTube)': 'bg-gray-900 text-white',
   'freeCodeCamp': 'bg-gray-900 text-white',
   'Harvard OpenCourseWare': 'bg-red-700 text-white',
@@ -55,7 +55,7 @@ const platformColors = {
   'Kaggle Learn (Free)': 'bg-cyan-600 text-white',
 }
 
-const getPlatformColor = (platform) => {
+export const getPlatformColor = (platform) => {
   for (const [key, value] of Object.entries(platformColors)) {
     if (platform.toLowerCase().includes(key.toLowerCase())) {
       return value
@@ -72,15 +72,15 @@ const CourseModal = ({ skill, onClose }) => {
   const [saving, setSaving] = useState(false)
   const [saveSuccess, setSaveSuccess] = useState(false)
 
-  const handleSaveToQueue = async () => {
+  const handleAddToLearningList = async () => {
     setSaving(true)
     try {
       await learningAPI.addSkill({ skillName: skill })
       setSaveSuccess(true)
       setTimeout(() => setSaveSuccess(false), 3000)
     } catch (err) {
-      console.error('Failed to save to queue', err)
-      alert(err.response?.data?.message || 'Failed to save to learning queue')
+      console.error('Failed to add skill to learning list', err)
+      alert(err.response?.data?.message || 'Failed to add skill to learning list')
     } finally {
       setSaving(false)
     }
@@ -225,7 +225,7 @@ const CourseModal = ({ skill, onClose }) => {
                 {/* Footer Action */}
                 <div className="px-6 py-4 border-t border-border bg-surface-alt flex justify-end">
                   <button
-                    onClick={handleSaveToQueue}
+                    onClick={handleAddToLearningList}
                     disabled={saving || saveSuccess}
                     className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
                       saveSuccess 
@@ -234,11 +234,11 @@ const CourseModal = ({ skill, onClose }) => {
                     } disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer`}
                   >
                     {saving ? (
-                      <><Loader2 size={16} className="animate-spin" /> Saving...</>
+                      <><Loader2 size={16} className="animate-spin" /> Adding...</>
                     ) : saveSuccess ? (
-                      <>Saved to Queue!</>
+                      <>Added to Learning List!</>
                     ) : (
-                      <><BookOpen size={16} /> Save to Learning Queue</>
+                      <><BookOpen size={16} /> Add to Learning List</>
                     )}
                   </button>
                 </div>
@@ -251,7 +251,7 @@ const CourseModal = ({ skill, onClose }) => {
   )
 }
 
-const CourseCard = ({ course, level }) => {
+export const CourseCard = ({ course, level }) => {
   const config = levelConfig[level]
 
   return (

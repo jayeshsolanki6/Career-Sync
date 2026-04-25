@@ -1,4 +1,5 @@
 import LearningItem from '../models/learning.model.js';
+import Analysis from '../models/analysis.model.js';
 import { generateLearningRoadmap } from '../services/learning.service.js';
 import { getCoursesForSkill } from '../services/course.service.js';
 
@@ -39,14 +40,29 @@ export const getLearningList = async (req, res) => {
 
 export const generateRoadmap = async (req, res) => {
   try {
-    const { skillName, links } = req.body;
+    const { skillName } = req.body;
 
-    if (!skillName || !links || links.length === 0) {
-      return res.status(400).json({ success: false, message: 'Skill name and links are required' });
+    if (!skillName) {
+      return res.status(400).json({ success: false, message: 'Skill name is required' });
     }
 
-    // Call service to generate roadmap
-    const roadmapMarkdown = await generateLearningRoadmap(skillName, links);
+    // Fetch the user's latest analysis to inject context into the prompt
+    const latestAnalysis = await Analysis.findOne({ userId: req.user._id }).sort({ createdAt: -1 });
+    const currentSkills = latestAnalysis?.matchingSkills || [];
+    const targetRole = latestAnalysis?.shortSummary
+      ? latestAnalysis.shortSummary.split(' ').slice(0, 5).join(' ')
+      : 'Software Engineer';
+
+    // Fetch curated course data from dataset to inject into prompt
+    const courseData = getCoursesForSkill(skillName);
+    const courses = courseData?.levels || {};
+
+    // Generate roadmap with full context
+    const roadmapMarkdown = await generateLearningRoadmap(skillName, {
+      currentSkills,
+      targetRole,
+      courses,
+    });
 
     // Save roadmap to the LearningItem
     const item = await LearningItem.findOneAndUpdate(
@@ -56,8 +72,6 @@ export const generateRoadmap = async (req, res) => {
     );
 
     if (!item) {
-      // If item doesn't exist, maybe they generated without saving? 
-      // Safest is to just return the roadmap anyway.
       return res.status(200).json({ success: true, data: { roadmap: roadmapMarkdown } });
     }
 
@@ -112,5 +126,35 @@ export const getCoursesForSkillController = async (req, res) => {
     return res.status(500).json({
       message: error.message || 'Failed to fetch course recommendations.',
     });
+  }
+};
+
+/**
+ * PATCH /api/learning/:id/status
+ * Update the status of a learning item.
+ */
+export const updateSkillStatus = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    const validStatuses = ['To Learn', 'In Progress', 'Completed'];
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({ success: false, message: 'Invalid status value.' });
+    }
+
+    const item = await LearningItem.findOneAndUpdate(
+      { _id: id, userId: req.user._id },
+      { status },
+      { new: true }
+    );
+
+    if (!item) {
+      return res.status(404).json({ success: false, message: 'Learning item not found.' });
+    }
+
+    res.status(200).json({ success: true, data: item });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
   }
 };

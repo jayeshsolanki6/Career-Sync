@@ -66,7 +66,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <Button size="lg" icon={ArrowRight} onClick={() => navigate('/auth')}>
+          <Button size="lg" icon={ArrowRight} onClick={() => navigate('/auth?mode=signup')}>
             Get Started Free
           </Button>
           <Button variant="secondary" size="lg" onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}>

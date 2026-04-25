@@ -1,12 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import Logo from '../components/common/Logo'
 import LoginForm from '../components/auth/LoginForm'
 import SignupForm from '../components/auth/SignupForm'
 
 const AuthPage = () => {
-  const [isLogin, setIsLogin] = useState(true)
+  const [searchParams] = useSearchParams()
+  const mode = searchParams.get('mode')
+  const [isLogin, setIsLogin] = useState(mode !== 'signup')
+
+  useEffect(() => {
+    setIsLogin(mode !== 'signup')
+  }, [mode])
 
   return (
     <motion.div
@@ -42,22 +48,6 @@ const AuthPage = () => {
               Smart resume analysis, skill gap detection, and personalized learning paths — all in one platform.
             </p>
           </div>
-
-          {/* Testimonial-like card */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 max-w-md">
-            <p className="text-white/80 text-sm leading-relaxed italic mb-4">
-              &quot;CareerSync helped me identify the exact skills I was missing for my dream role. I landed the job within 3 weeks.&quot;
-            </p>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-xs font-bold">
-                A
-              </div>
-              <div>
-                <p className="text-sm font-medium text-white">Alex Chen</p>
-                <p className="text-xs text-white/50">Software Engineer at Google</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -82,9 +72,6 @@ const AuthPage = () => {
             )}
           </motion.div>
 
-          <p className="text-center text-xs text-text-muted mt-6">
-            By continuing, you agree to our Terms of Service and Privacy Policy.
-          </p>
         </div>
       </div>
     </motion.div>

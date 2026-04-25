@@ -13,7 +13,7 @@ const Navbar = () => {
           <Button variant="ghost" size="sm" onClick={() => navigate('/auth')}>
             Log in
           </Button>
-          <Button size="sm" onClick={() => navigate('/auth')}>
+          <Button size="sm" onClick={() => navigate('/auth?mode=signup')}>
             Sign up
           </Button>
         </div>
