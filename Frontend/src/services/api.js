@@ -34,4 +34,8 @@ export const learningAPI = {
   getCoursesForSkill: (skill) => API.get(`/learning/courses/${encodeURIComponent(skill)}`),
 }
 
-export default API
+export const jobsAPI = {
+  search: (params) => API.get('/jobs/search', { params }),
+  getDetails: (jobId) => API.get(`/jobs/${jobId}`),
+}
+

@@ -10,67 +10,27 @@ const dataset = JSON.parse(readFileSync(datasetPath, 'utf-8'));
 
 /**
  * Build a normalized lookup map for fast skill → courses resolution.
- * Handles case-insensitive matching and common aliases.
+ * Handles case-insensitive matching and explicit aliases from the dataset.
  */
 const buildSkillMap = (courses) => {
   const map = new Map();
 
   for (const entry of courses) {
-    const normalizedName = entry.skill_name.toLowerCase().trim();
-    map.set(normalizedName, entry);
-
-    // Add common alias variants (e.g. "react.js" → "React.js", "node" → "Node.js")
-    const aliases = generateAliases(entry.skill_name);
-    for (const alias of aliases) {
-      if (!map.has(alias)) {
-        map.set(alias, entry);
+    // entry.skill_names contains all the names and aliases
+    // if (Array.isArray(entry.skill_names)) {
+    for (const name of entry.skill_names) {
+      const normalizedName = name.toLowerCase().trim();
+      if (!map.has(normalizedName)) {
+        map.set(normalizedName, entry);
       }
     }
+    // }
   }
 
   return map;
 };
 
-const generateAliases = (skillName) => {
-  const aliases = [];
-  const lower = skillName.toLowerCase();
-
-  // "React.js" → "react", "reactjs"
-  if (lower.endsWith('.js')) {
-    aliases.push(lower.replace('.js', ''));
-    aliases.push(lower.replace('.', ''));
-  }
-
-  // "Node.js" → "node", "nodejs"
-  if (lower.includes('.')) {
-    aliases.push(lower.replace(/\./g, ''));
-  }
-
-  // "Go (Golang)" → "go", "golang"
-  const parenMatch = lower.match(/^(.+?)\s*\((.+?)\)$/);
-  if (parenMatch) {
-    aliases.push(parenMatch[1].trim());
-    aliases.push(parenMatch[2].trim());
-  }
-
-  // "Amazon Web Services" → "aws", "amazon web services"
-  // "Machine Learning" → "ml"
-  const acronymMap = {
-    'amazon web services': ['aws'],
-    'machine learning': ['ml'],
-    'artificial intelligence': ['ai'],
-    'natural language processing': ['nlp'],
-    'continuous integration/continuous deployment': ['ci/cd', 'cicd'],
-    'ci/cd': ['continuous integration/continuous deployment', 'cicd'],
-    'rest api': ['restful api', 'rest apis', 'restful apis'],
-  };
-
-  if (acronymMap[lower]) {
-    aliases.push(...acronymMap[lower]);
-  }
-
-  return aliases;
-};
+// Removed generateAliases since we use the explicit skill_names from the dataset
 
 const skillMap = buildSkillMap(dataset.courses);
 
@@ -87,7 +47,7 @@ export const getCoursesForSkill = (skillName) => {
 
   if (entry) {
     return {
-      skill_name: entry.skill_name,
+      skill_name: entry.skill_names ? entry.skill_names[0] : skillName, // Use primary name
       levels: entry.levels,
     };
   }
@@ -96,7 +56,7 @@ export const getCoursesForSkill = (skillName) => {
   for (const [key, value] of skillMap) {
     if (key.includes(normalized) || normalized.includes(key)) {
       return {
-        skill_name: value.skill_name,
+        skill_name: value.skill_names ? value.skill_names[0] : key,
         levels: value.levels,
       };
     }

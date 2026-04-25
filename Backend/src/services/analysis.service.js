@@ -54,11 +54,22 @@ ${jdText}
 
 Provide your analysis in the following JSON format (return ONLY valid JSON, no markdown or extra text):
 {
+  "targetRole": "The extracted targeted job role or title from the JD",
   "shortSummary": "A 2-3 sentence summary of how well the resume matches the job",
   "matchingSkills": ["skill1", "skill2"],
   "missingSkills": ["skill1", "skill2"],
   "requiredSkills": ["skill1", "skill2"],
   "importantMissingSkillsToLearn": ["skill1", "skill2"],
+  "phraseImprovementSuggestions": [
+    {
+      "weakPhrase": "A weak resume bullet or phrase copied from resume",
+      "betterAlternatives": [
+        "A stronger rewrite option 1",
+        "A stronger rewrite option 2"
+      ],
+      "rationale": "Why this rewrite is stronger"
+    }
+  ],
   "resumeTailoringsuggestions": [
     "specific suggestion for tailoring resume"
   ],
@@ -77,9 +88,12 @@ Rules:
 - missingSkills: Skills in JD but NOT in resume. (Account for synonymous skills as above).
 - requiredSkills: All skills mentioned in JD. Unify variations of the same skill.
 - importantMissingSkillsToLearn: A subset of missingSkills. The most critical skills from 'missingSkills' that the candidate must absolutely learn to be qualified for this job. Recommend 3-5 high priority skills.
+- phraseImprovementSuggestions: Return 2-5 weak resume phrases from the candidate's resume and provide two stronger alternatives for each, plus a concise rationale.
+- requiredExperience: Extract work experience requirement from JD.
+- currentExperience: Extract ONLY professional working experience from resume (full-time, part-time, internship, contract, freelance client work).
+- EXCLUDE academic projects, personal projects, hackathons, coursework, and portfolio/demo projects from currentExperience calculation.
+- If only project work is present and no professional work exists, set currentExperience.years to 0 and explain that only project experience was found.
 - resumeTailoringsuggestions: Actionable ways to improve resume for this role
-- requiredExperience: Extract from JD
-- currentExperience: Extract from resume
 - Return ONLY valid JSON, no markdown formatting like \`\`\`json \`\`\`, no extra text
 - Only extract skills that are EXPLICITLY written or semantically equivalent in the resume text
 - Do NOT infer, assume, or guess unrelated skills

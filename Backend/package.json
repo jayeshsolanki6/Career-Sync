@@ -12,6 +12,7 @@
   "type": "module",
   "dependencies": {
     "@google/genai": "^1.49.0",
+    "axios": "^1.15.2",
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
@@ -24,5 +25,8 @@
     "openai": "^6.33.0",
     "pdf-parse": "^2.4.5",
     "word-extractor": "^1.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

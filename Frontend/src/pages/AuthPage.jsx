@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
 import { useSearchParams } from 'react-router-dom'
 import Logo from '../components/common/Logo'
 import LoginForm from '../components/auth/LoginForm'
 import SignupForm from '../components/auth/SignupForm'
+import { motion } from 'framer-motion'
 
 const AuthPage = () => {
   const [searchParams] = useSearchParams()

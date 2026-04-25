@@ -12,6 +12,14 @@ const analysisSchema = new Schema(
     requiredSkills: [{ type: String }],
     importantMissingSkillsToLearn: [{ type: String }],
     resumeTailoringsuggestions: [{ type: String }],
+    targetRole: { type: String },
+    phraseImprovementSuggestions: [
+      {
+        weakPhrase: { type: String },
+        betterAlternatives: [{ type: String }],
+        rationale: { type: String }
+      }
+    ],
     requiredExperience: {
       years: { type: Number },
       details: { type: String },

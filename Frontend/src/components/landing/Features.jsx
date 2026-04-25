@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
 import { FileSearch, Target, BookOpen, ArrowUpRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const features = [
   {

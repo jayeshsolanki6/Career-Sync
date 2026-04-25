@@ -14,7 +14,11 @@ const userSchema = new Schema({
         type : String,
         required : true,
         minLength : 6,
-    }
+    },
+    targetRoles: [{
+        type: String,
+        trim: true,
+    }]
 }, {timestamps : true})
 
 const User = model("User", userSchema);

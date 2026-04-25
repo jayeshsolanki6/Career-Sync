@@ -5,12 +5,14 @@ import Overview from '../components/dashboard/Overview'
 import NewAnalysis from '../components/dashboard/NewAnalysis'
 import AnalysisHistory from '../components/dashboard/AnalysisHistory'
 import LearningSkills from '../components/dashboard/LearningSkills'
+import JobBoard from '../components/dashboard/JobBoard'
 
 const sections = {
   'overview': Overview,
   'new-analysis': NewAnalysis,
   'learning': LearningSkills,
   'history': AnalysisHistory,
+  'jobs': JobBoard,
 }
 
 const DashboardPage = () => {

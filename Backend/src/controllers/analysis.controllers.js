@@ -40,6 +40,8 @@ export const uploadResumeAndJdController = async (req, res) => {
       missingSkills: analysis.missingSkills,
       requiredSkills: analysis.requiredSkills,
       importantMissingSkillsToLearn: analysis.importantMissingSkillsToLearn,
+      targetRole: analysis.targetRole,
+      phraseImprovementSuggestions: analysis.phraseImprovementSuggestions,
       resumeTailoringsuggestions: analysis.resumeTailoringsuggestions,
       requiredExperience: analysis.requiredExperience,
       currentExperience: analysis.currentExperience,
@@ -47,6 +49,20 @@ export const uploadResumeAndJdController = async (req, res) => {
     });
     
     await newAnalysis.save();
+
+    const normalizedTargetRole = analysis.targetRole?.trim();
+    if (normalizedTargetRole) {
+      req.user.targetRoles = req.user.targetRoles || [];
+      const hasRole = req.user.targetRoles.some(
+        (role) => role?.toLowerCase() === normalizedTargetRole.toLowerCase()
+      );
+
+      if (!hasRole) {
+        req.user.targetRoles.push(normalizedTargetRole);
+      }
+
+      await req.user.save();
+    }
 
     return res.status(200).json({
       message: 'Upload received successfully.',

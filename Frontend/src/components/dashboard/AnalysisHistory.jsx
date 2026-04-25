@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Clock, FileText, Inbox, Loader2, RefreshCw, ChevronDown, ChevronUp, CheckCircle2, XCircle, AlertTriangle, Lightbulb, TrendingUp, GraduationCap } from 'lucide-react'
+import { AnimatePresence } from 'framer-motion'
+import { Clock, Inbox, Loader2, RefreshCw, ChevronDown, ChevronUp, CheckCircle2, XCircle, AlertTriangle, Lightbulb, TrendingUp, GraduationCap } from 'lucide-react'
 import { analysisAPI } from '../../services/api'
 import CourseModal from './CourseModal'
+import { motion } from 'framer-motion'
 
 const AnalysisHistory = () => {
   const [history, setHistory] = useState([])
@@ -127,11 +128,10 @@ const AnalysisHistory = () => {
                 {/* Summary Row */}
                 <div
                   onClick={() => setExpandedId(isExpanded ? null : item._id)}
-                  className={`flex items-center gap-4 p-4 bg-white rounded-2xl border transition-all duration-200 cursor-pointer ${
-                    isExpanded
+                  className={`flex items-center gap-4 p-4 bg-white rounded-2xl border transition-all duration-200 cursor-pointer ${isExpanded
                       ? 'border-primary-300 shadow-md rounded-b-none'
                       : 'border-border hover:border-primary-200 hover:shadow-sm'
-                  }`}
+                    }`}
                 >
                   {/* Score Badge */}
                   <div className={`w-12 h-12 rounded-xl ${scoreStyle.bg} flex flex-col items-center justify-center flex-shrink-0 border ${scoreStyle.border}`}>

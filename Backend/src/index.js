@@ -7,6 +7,7 @@ import { connectDB } from './config/db.js'
 import authRoutes from './routes/auth.routes.js'
 import analysisRoutes from './routes/analysis.routes.js'
 import learningRoutes from './routes/learning.routes.js'
+import jobRoutes from './routes/job.routes.js'
 
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(cors({
 app.use('/api/auth', authRoutes);
 app.use('/api/upload', analysisRoutes);
 app.use('/api/learning', learningRoutes);
+app.use('/api/jobs', jobRoutes);
 
 app.listen(PORT, () => {
     connectDB();

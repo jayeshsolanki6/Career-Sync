@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { X, ExternalLink, Clock, Monitor, Loader2, BookOpen, GraduationCap, Zap, AlertCircle } from 'lucide-react'
 import { learningAPI } from '../../services/api'
+import { motion } from 'framer-motion'
 
 export const levelConfig = {
   beginner: {
@@ -36,7 +37,7 @@ export const levelConfig = {
   },
 }
 
-export const platformColors = {
+const platformColors = {
   'freeCodeCamp (YouTube)': 'bg-gray-900 text-white',
   'freeCodeCamp': 'bg-gray-900 text-white',
   'Harvard OpenCourseWare': 'bg-red-700 text-white',
@@ -55,7 +56,7 @@ export const platformColors = {
   'Kaggle Learn (Free)': 'bg-cyan-600 text-white',
 }
 
-export const getPlatformColor = (platform) => {
+const getPlatformColor = (platform) => {
   for (const [key, value] of Object.entries(platformColors)) {
     if (platform.toLowerCase().includes(key.toLowerCase())) {
       return value
@@ -179,17 +180,15 @@ const CourseModal = ({ skill, onClose }) => {
                         <button
                           key={key}
                           onClick={() => setActiveLevel(key)}
-                          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${
-                            isActive
+                          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${isActive
                               ? `bg-white shadow-sm ${config.text} ring-1 ${config.ring}`
                               : 'text-text-muted hover:text-text-secondary hover:bg-white/50'
-                          }`}
+                            }`}
                         >
                           <Icon size={14} />
                           {config.label}
-                          <span className={`ml-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
-                            isActive ? config.badge : 'bg-gray-100 text-gray-500'
-                          }`}>
+                          <span className={`ml-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold ${isActive ? config.badge : 'bg-gray-100 text-gray-500'
+                            }`}>
                             {count}
                           </span>
                         </button>
@@ -227,11 +226,10 @@ const CourseModal = ({ skill, onClose }) => {
                   <button
                     onClick={handleAddToLearningList}
                     disabled={saving || saveSuccess}
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
-                      saveSuccess 
-                        ? 'bg-emerald-500 text-white shadow-sm' 
+                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${saveSuccess
+                        ? 'bg-emerald-500 text-white shadow-sm'
                         : 'bg-primary-600 text-white hover:bg-primary-700 hover:shadow-md active:scale-95'
-                    } disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer`}
+                      } disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer`}
                   >
                     {saving ? (
                       <><Loader2 size={16} className="animate-spin" /> Adding...</>

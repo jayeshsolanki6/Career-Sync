@@ -1,13 +1,15 @@
-import { FilePlus2, History, BookOpen, LogOut, ChevronLeft, ChevronRight, BarChart3, LayoutDashboard } from 'lucide-react'
+import { FilePlus2, History, BookOpen, LogOut, ChevronLeft, ChevronRight, BarChart3, LayoutDashboard, Wifi } from 'lucide-react'
 import { useState } from 'react'
 import Logo from '../common/Logo'
 import { useAuth } from '../../context/AuthContext'
+import { motion } from 'framer-motion'
 
 const navItems = [
   { id: 'overview', label: 'Dashboard', icon: LayoutDashboard },
   { id: 'new-analysis', label: 'New Analysis', icon: FilePlus2 },
   { id: 'history', label: 'History', icon: History },
   { id: 'learning', label: 'Learning Skills', icon: BookOpen },
+  { id: 'jobs', label: 'Live Jobs', icon: Wifi },
 ]
 
 const Sidebar = ({ activeSection, onSectionChange }) => {
@@ -37,8 +39,8 @@ const Sidebar = ({ activeSection, onSectionChange }) => {
               key={item.id}
               onClick={() => onSectionChange(item.id)}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer ${isActive
-                  ? 'bg-primary-50 text-primary-700 shadow-sm'
-                  : 'text-text-secondary hover:bg-surface-hover hover:text-text-primary'
+                ? 'bg-primary-50 text-primary-700 shadow-sm'
+                : 'text-text-secondary hover:bg-surface-hover hover:text-text-primary'
                 } ${collapsed ? 'justify-center' : ''}`}
               title={collapsed ? item.label : undefined}
             >

@@ -1,10 +1,13 @@
 import { useState, useRef } from 'react'
-import { Upload, FileText, X, ArrowRight, Loader2, RotateCcw, CheckCircle2, XCircle, Lightbulb, TrendingUp, AlertTriangle, GraduationCap } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { Upload, FileText, X, ArrowRight, Loader2, RotateCcw, CheckCircle2, XCircle, Lightbulb, TrendingUp, AlertTriangle, GraduationCap, Briefcase, FileSearch } from 'lucide-react'
 import Button from '../common/Button'
 import { uploadAPI } from '../../services/api'
 import CourseModal from './CourseModal'
+import { motion } from 'framer-motion'
 
+// Using shadcn/ui components (assumes they are manually aliased correctly or accessible)
+// If we run into import alias issues we can inline the core tailwind styles or use generic HTML, 
+// but we'll try to stick to standard Tailwind classes for maximum compatibility if components aren't perfectly aligned
 const NewAnalysis = () => {
   const [resumeFile, setResumeFile] = useState(null)
   const [jdFile, setJdFile] = useState(null)
@@ -58,9 +61,8 @@ const NewAnalysis = () => {
 
   const FileDropZone = ({ file, onFileChange, onClear, inputRef, label }) => (
     <div
-      className={`relative border-2 border-dashed rounded-2xl p-8 text-center transition-all duration-200 cursor-pointer ${
-        file ? 'border-primary-300 bg-primary-50/50' : 'border-border hover:border-primary-300 hover:bg-primary-50/30'
-      }`}
+      className={`relative border-2 border-dashed rounded-2xl p-8 text-center transition-all duration-200 cursor-pointer ${file ? 'border-primary-300 bg-primary-50/50' : 'border-border hover:border-primary-300 hover:bg-primary-50/30'
+        }`}
       onClick={() => inputRef.current?.click()}
       onDragOver={(e) => e.preventDefault()}
       onDrop={(e) => onFileChange(e)}
@@ -136,17 +138,15 @@ const NewAnalysis = () => {
             <div className="flex bg-surface-alt rounded-lg p-0.5 border border-border">
               <button
                 onClick={() => setJdMode('file')}
-                className={`px-3 py-1 text-xs font-medium rounded-md transition-all cursor-pointer ${
-                  jdMode === 'file' ? 'bg-white text-text-primary shadow-sm' : 'text-text-muted hover:text-text-secondary'
-                }`}
+                className={`px-3 py-1 text-xs font-medium rounded-md transition-all cursor-pointer ${jdMode === 'file' ? 'bg-white text-text-primary shadow-sm' : 'text-text-muted hover:text-text-secondary'
+                  }`}
               >
                 Upload File
               </button>
               <button
                 onClick={() => setJdMode('text')}
-                className={`px-3 py-1 text-xs font-medium rounded-md transition-all cursor-pointer ${
-                  jdMode === 'text' ? 'bg-white text-text-primary shadow-sm' : 'text-text-muted hover:text-text-secondary'
-                }`}
+                className={`px-3 py-1 text-xs font-medium rounded-md transition-all cursor-pointer ${jdMode === 'text' ? 'bg-white text-text-primary shadow-sm' : 'text-text-muted hover:text-text-secondary'
+                  }`}
               >
                 Paste Text
               </button>
@@ -191,6 +191,13 @@ const AnalysisResult = ({ result, onReset }) => {
   const { analysis, score } = result
   const [selectedSkill, setSelectedSkill] = useState(null)
 
+  const phraseSuggestions = analysis.phraseImprovementSuggestions ||
+    analysis.actionVerbSuggestions?.map((item) => ({
+      weakPhrase: item.oldVerb,
+      betterAlternatives: [item.suggestedVerb].filter(Boolean),
+      rationale: 'Uses stronger and more impactful wording.',
+    })) || []
+
   // Determine score gradient color
   const getScoreColor = (val) => {
     if (val >= 80) return { from: '#10b981', to: '#059669', text: 'text-emerald-600' }
@@ -214,17 +221,23 @@ const AnalysisResult = ({ result, onReset }) => {
       className="max-w-4xl mx-auto space-y-6"
     >
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-text-primary">Analysis Results</h1>
-          <p className="text-text-secondary text-sm mt-1">{analysis.shortSummary}</p>
+          {analysis.targetRole && (
+            <div className="inline-flex mt-2 items-center gap-1.5 px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-xs font-bold uppercase tracking-wider border border-primary-100">
+              <Briefcase size={14} />
+              Target Role: {analysis.targetRole}
+            </div>
+          )}
+          <p className="text-text-secondary text-sm mt-2 leading-relaxed max-w-2xl">{analysis.shortSummary}</p>
         </div>
         <Button variant="secondary" onClick={onReset} icon={RotateCcw}>New Analysis</Button>
       </div>
 
       {/* Overall Score Card — enhanced */}
-      <div className="bg-white rounded-2xl border border-border overflow-hidden shadow-sm">
-        <div className="bg-gradient-to-r from-primary-50 via-accent-50 to-primary-50 px-6 py-4 border-b border-border/50">
+      <div className="bg-white rounded-3xl border border-border/80 overflow-hidden shadow-sm ring-1 ring-black/5">
+        <div className="bg-linear-to-r from-primary-50 via-accent-50 to-primary-50 px-6 py-4 border-b border-border/50">
           <p className="text-xs font-semibold text-primary-600 uppercase tracking-wider flex items-center gap-1.5">
             <TrendingUp size={14} />
             Overall Match Score
@@ -233,7 +246,7 @@ const AnalysisResult = ({ result, onReset }) => {
         <div className="p-6">
           <div className="flex items-center gap-8">
             {/* Circular Score */}
-            <div className="relative w-28 h-28 flex-shrink-0">
+            <div className="relative w-28 h-28 shrink-0">
               <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
                 <circle cx="50" cy="50" r="42" fill="none" stroke="#f1f5f9" strokeWidth="8" />
                 <circle
@@ -253,11 +266,6 @@ const AnalysisResult = ({ result, onReset }) => {
             <div className="flex-1">
               <h3 className="text-xl font-bold" style={{ color: score.interpretation.color }}>{score.interpretation.level}</h3>
               <p className="text-sm text-text-secondary mt-1 leading-relaxed">{score.interpretation.description}</p>
-              <div className="mt-3 px-3 py-2 bg-surface-alt rounded-xl">
-                <p className="text-xs text-text-muted">
-                  <span className="font-semibold text-text-secondary">Recommendation:</span> {score.interpretation.recommendation}
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -268,7 +276,7 @@ const AnalysisResult = ({ result, onReset }) => {
         {filteredBreakdown.map(([key, val]) => {
           const itemColor = getScoreColor(val.score)
           return (
-            <div key={key} className="bg-white rounded-2xl border border-border p-5 hover:shadow-sm transition-shadow">
+            <div key={key} className="bg-white rounded-2xl border border-border/80 p-5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
               <div className="flex items-center justify-between mb-3">
                 <p className="text-xs font-semibold text-text-muted uppercase tracking-wider">
                   {key.replace(/([A-Z])/g, ' $1').trim()}
@@ -292,25 +300,25 @@ const AnalysisResult = ({ result, onReset }) => {
 
       {/* Skills Section — clickable for course recommendations */}
       <div className="grid sm:grid-cols-2 gap-4">
-        <SkillList 
-          title="Matching Skills" 
-          skills={analysis.matchingSkills} 
-          variant="success" 
+        <SkillList
+          title="Matching Skills"
+          skills={analysis.matchingSkills}
+          variant="success"
           icon={<CheckCircle2 size={16} className="text-emerald-500" />}
           onSkillClick={setSelectedSkill}
         />
-        <SkillList 
-          title="Missing Skills" 
-          skills={analysis.missingSkills} 
+        <SkillList
+          title="Missing Skills"
+          skills={analysis.missingSkills}
           variant="danger"
           icon={<XCircle size={16} className="text-red-400" />}
           onSkillClick={setSelectedSkill}
         />
         {analysis.importantMissingSkillsToLearn && analysis.importantMissingSkillsToLearn.length > 0 && (
           <div className="sm:col-span-2">
-            <SkillList 
-              title="Important Missing Skills To Learn" 
-              skills={analysis.importantMissingSkillsToLearn} 
+            <SkillList
+              title="Important Missing Skills To Learn"
+              skills={analysis.importantMissingSkillsToLearn}
               variant="warning"
               icon={<AlertTriangle size={16} className="text-amber-500" />}
               onSkillClick={setSelectedSkill}
@@ -322,24 +330,65 @@ const AnalysisResult = ({ result, onReset }) => {
 
       {/* Suggestions — enhanced */}
       {analysis.resumeTailoringsuggestions?.length > 0 && (
-        <div className="bg-white rounded-2xl border border-border overflow-hidden">
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50 px-6 py-4 border-b border-border/50">
-            <h3 className="text-xs font-semibold text-amber-700 uppercase tracking-wider flex items-center gap-1.5">
-              <Lightbulb size={14} />
+        <div className="bg-white rounded-3xl border border-border/80 overflow-hidden shadow-sm ring-1 ring-black/5">
+          <div className="bg-linear-to-r from-amber-50 to-orange-50 px-6 py-4 border-b border-border/50">
+            <h3 className="text-sm font-bold text-amber-800 flex items-center gap-2">
+              <Lightbulb size={16} />
               Resume Tailoring Suggestions
             </h3>
           </div>
           <div className="p-6">
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {analysis.resumeTailoringsuggestions.map((s, i) => (
                 <li key={i} className="flex gap-3 text-sm text-text-secondary">
-                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary-50 text-primary-600 flex items-center justify-center text-[10px] font-bold mt-0.5">
+                  <span className="shrink-0 w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold mt-0.5 shadow-sm">
                     {i + 1}
                   </span>
-                  <span className="leading-relaxed">{s}</span>
+                  <span className="leading-relaxed pt-0.5">{s}</span>
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      )}
+
+      {/* Formatting Insights (Weak Phrases) */}
+      {phraseSuggestions.length > 0 && (
+        <div className="bg-white rounded-3xl border border-border/80 overflow-hidden shadow-sm ring-1 ring-black/5">
+          <div className="bg-linear-to-r from-indigo-50 to-sky-50 px-6 py-4 border-b border-border/50">
+            <h3 className="text-sm font-bold text-indigo-800 flex items-center gap-2">
+              <FileSearch size={16} />
+              Formatting Insights
+            </h3>
+          </div>
+          <div className="p-6 space-y-4">
+            {phraseSuggestions.map((suggestion, i) => (
+              <div key={i} className="rounded-2xl border border-border/80 bg-linear-to-br from-white to-surface-alt/70 p-4 space-y-3 shadow-xs">
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-text-muted mb-1">Weak Phrase</p>
+                  <p className="text-sm text-text-primary leading-relaxed">"{suggestion.weakPhrase}"</p>
+                </div>
+
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-text-muted mb-2">Better Alternatives</p>
+                  <ul className="space-y-2">
+                    {(suggestion.betterAlternatives || []).map((alternative, altIndex) => (
+                      <li key={altIndex} className="flex items-start gap-2 text-sm text-indigo-800 bg-white border border-indigo-200/70 rounded-lg px-3 py-2 shadow-xs">
+                        <ArrowRight size={14} className="mt-0.5 shrink-0" />
+                        <span className="leading-relaxed">{alternative}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {suggestion.rationale && (
+                  <div className="rounded-lg bg-white border border-border px-3 py-2">
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-text-muted mb-1">Rationale</p>
+                    <p className="text-xs text-text-secondary leading-relaxed">{suggestion.rationale}</p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       )}
@@ -372,8 +421,8 @@ const SkillList = ({ title, skills, variant, icon, onSkillClick, showCourseHint 
   }
 
   return (
-    <div className="bg-white rounded-2xl border border-border overflow-hidden">
-      <div className={`bg-gradient-to-r ${headerBg} px-5 py-3 border-b border-border/50 flex items-center gap-2`}>
+    <div className="bg-white rounded-3xl border border-border/80 overflow-hidden shadow-sm ring-1 ring-black/5">
+      <div className={`bg-linear-to-r ${headerBg} px-5 py-3 border-b border-border/50 flex items-center gap-2`}>
         {icon}
         <h3 className="text-xs font-semibold text-text-primary uppercase tracking-wider">{title}</h3>
         <span className="ml-auto text-xs font-bold text-text-muted bg-white/80 px-2 py-0.5 rounded-full">
@@ -392,7 +441,7 @@ const SkillList = ({ title, skills, variant, icon, onSkillClick, showCourseHint 
             <button
               key={skill}
               onClick={() => onSkillClick?.(skill)}
-              className={`group inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border transition-all duration-200 cursor-pointer ${colors} ${hoverColor} active:scale-95`}
+              className={`group inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border transition-all duration-200 cursor-pointer ${colors} ${hoverColor} hover:-translate-y-0.5 active:scale-95`}
               title={`View courses for ${skill}`}
             >
               {skill}

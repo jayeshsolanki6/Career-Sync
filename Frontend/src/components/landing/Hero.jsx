@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import { ArrowRight, Sparkles, BarChart3, BookOpen } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { ArrowRight, Sparkles, BarChart3, BookOpen } from 'lucide-react'
 import Button from '../common/Button'
 
 const Hero = () => {
@@ -55,7 +55,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Upload your resume and job description. Our AI analyzes skill gaps, generates a match score, 
+          Upload your resume and job description. Our AI analyzes skill gaps, generates a match score,
           and creates a personalized learning path to help you land the role.
         </motion.p>
 

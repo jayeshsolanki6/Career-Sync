@@ -1,16 +1,16 @@
 import { useState, useEffect, useMemo } from 'react'
-import { motion } from 'framer-motion'
-import { 
-  Target, Activity, Zap, FilePlus2, ChevronRight, 
+import {
+  Target, Activity, Zap, FilePlus2, ChevronRight,
   GraduationCap, Clock, Award, Loader2, TrendingUp, TrendingDown, Minus, ArrowUpRight, ArrowDownRight, RefreshCw
 } from 'lucide-react'
-import { 
+import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer
 } from 'recharts'
 import { useAuth } from '../../context/AuthContext'
 import { analysisAPI } from '../../services/api'
 import Button from '../common/Button'
 import CourseModal from './CourseModal'
+import { motion } from 'framer-motion'
 
 /* ═══════════════════════════════════════════
    Custom Tooltip for Charts
@@ -36,7 +36,7 @@ const ChartTooltip = ({ active, payload, label, formatter }) => {
 /* ═══════════════════════════════════════════
    Stat Card
    ═══════════════════════════════════════════ */
-const StatCard = ({ icon: Icon, label, value, subtext, trend, color, delay = 0 }) => {
+const StatCard = ({ icon: IconComponent, label, value, subtext, trend, color, delay = 0 }) => {
   const trendColors = {
     up: 'text-emerald-600 bg-emerald-50',
     down: 'text-red-500 bg-red-50',
@@ -53,7 +53,7 @@ const StatCard = ({ icon: Icon, label, value, subtext, trend, color, delay = 0 }
     >
       <div className="flex items-start justify-between mb-3">
         <div className={`w-10 h-10 rounded-xl flex items-center justify-center`} style={{ background: `${color}15` }}>
-          <Icon size={20} style={{ color }} />
+          <IconComponent size={20} style={{ color }} />
         </div>
         {trend && (
           <div className={`flex items-center gap-0.5 px-2 py-1 rounded-lg text-[11px] font-semibold ${trendColors[trend.direction]}`}>
@@ -72,7 +72,7 @@ const StatCard = ({ icon: Icon, label, value, subtext, trend, color, delay = 0 }
 /* ═══════════════════════════════════════════
    Chart Wrapper
    ═══════════════════════════════════════════ */
-const ChartCard = ({ title, subtitle, icon: Icon, children, delay = 0, className = '' }) => (
+const ChartCard = ({ title, subtitle, icon: IconComponent, children, delay = 0, className = '' }) => (
   <motion.div
     initial={{ opacity: 0, y: 12 }}
     animate={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ const ChartCard = ({ title, subtitle, icon: Icon, children, delay = 0, className
   >
     <div className="px-6 py-4 border-b border-border/50 bg-gradient-to-r from-surface-alt to-white flex-shrink-0">
       <div className="flex items-center gap-2">
-        {Icon && <Icon size={15} className="text-primary-500" />}
+        {IconComponent && <IconComponent size={15} className="text-primary-500" />}
         <h3 className="text-xs font-bold text-text-primary uppercase tracking-wider">{title}</h3>
       </div>
       {subtitle && <p className="text-[11px] text-text-muted mt-0.5">{subtitle}</p>}
@@ -177,7 +177,7 @@ const Overview = ({ onNavigate }) => {
 
     const topMatching = Object.entries(matchingFreq).sort(([, a], [, b]) => b - a).slice(0, 5).map(([skill, count]) => ({ skill, count }))
     const topMissing = Object.entries(missingFreq).sort(([, a], [, b]) => b - a).slice(0, 5).map(([skill, count]) => ({ skill, count }))
-    
+
     const topMissingSkill = latestAnalysis?.importantMissingSkillsToLearn?.[0] || latestAnalysis?.missingSkills?.[0]
 
     return {
@@ -231,8 +231,8 @@ const Overview = ({ onNavigate }) => {
     )
   }
 
-  const { 
-    scoreTimeline, totalAnalyses, avgScore, bestScore, latestScore, 
+  const {
+    scoreTimeline, totalAnalyses, avgScore, bestScore, latestScore,
     scoreDelta, overallTrend, topMatching, topMissing, recentAnalyses, topMissingSkill
   } = analytics
 
@@ -284,7 +284,7 @@ const Overview = ({ onNavigate }) => {
 
       {/* ─── Main Content Split ─── */}
       <div className="grid lg:grid-cols-12 gap-6">
-        
+
         {/* Left Column: Score Progression */}
         <div className="lg:col-span-8 flex flex-col min-h-[380px]">
           <ChartCard
@@ -319,7 +319,7 @@ const Overview = ({ onNavigate }) => {
         {/* Right Column: Actions & History */}
         <div className="lg:col-span-4 space-y-6 flex flex-col">
           {/* Actionable Next Step */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
             className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl p-6 text-white shadow-md relative overflow-hidden"
           >
@@ -329,7 +329,7 @@ const Overview = ({ onNavigate }) => {
                 <Target size={16} />
                 <span className="text-[11px] font-extrabold uppercase tracking-widest">Next Action</span>
               </div>
-              
+
               {topMissingSkill ? (
                 <>
                   <h3 className="text-lg font-bold mb-2">
@@ -338,7 +338,7 @@ const Overview = ({ onNavigate }) => {
                   <p className="text-xs text-primary-100 leading-relaxed mb-5">
                     This was a key missing skill in your last scan. Add it to your repertoire to boost your score.
                   </p>
-                  <button 
+                  <button
                     onClick={() => setSelectedSkill(topMissingSkill)}
                     className="w-full flex items-center justify-center gap-2 py-2.5 bg-white text-primary-700 font-bold text-sm rounded-xl hover:bg-primary-50 transition-colors shadow-sm cursor-pointer"
                   >
@@ -352,7 +352,7 @@ const Overview = ({ onNavigate }) => {
                   <p className="text-xs text-primary-100 leading-relaxed mb-5">
                     Your last analysis showed a strong skill match. Great job!
                   </p>
-                  <button 
+                  <button
                     onClick={() => onNavigate('learning')}
                     className="w-full flex items-center justify-center gap-2 py-2.5 bg-white text-primary-700 font-bold text-sm rounded-xl hover:bg-primary-50 transition-colors shadow-sm cursor-pointer"
                   >
@@ -365,7 +365,7 @@ const Overview = ({ onNavigate }) => {
           </motion.div>
 
           {/* Recent Activity List */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }}
             className="bg-white rounded-2xl border border-border overflow-hidden flex-1 flex flex-col"
           >
@@ -374,14 +374,14 @@ const Overview = ({ onNavigate }) => {
                 <Clock size={14} className="text-primary-500" />
                 Recent Scans
               </h3>
-              <button 
+              <button
                 onClick={() => onNavigate('history')}
                 className="text-[11px] font-bold text-primary-600 hover:text-primary-700 flex items-center gap-1 transition-colors cursor-pointer"
               >
                 View All <ChevronRight size={12} />
               </button>
             </div>
-            
+
             <div className="p-2 flex-1">
               <div className="space-y-1">
                 {recentAnalyses.map((item) => {

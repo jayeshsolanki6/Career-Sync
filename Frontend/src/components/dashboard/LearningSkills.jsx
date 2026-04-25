@@ -1,9 +1,10 @@
-import { useState, useEffect, useMemo, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect, useCallback } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import { BookOpen, Plus, Search, Sparkles, Loader2, Bot, RefreshCw, Trash2, TrendingUp, Award, Target, Circle, CheckCircle2, AlertCircle } from 'lucide-react'
 import Button from '../common/Button'
 import { learningAPI, analysisAPI } from '../../services/api'
 import { levelConfig, CourseCard } from './CourseModal'
+import { motion } from 'framer-motion'
 
 const ProgressRing = ({ progress, size = 44, stroke = 3.5, trackClass = 'text-gray-100', fillClass = 'text-primary-500' }) => {
   const r = (size - stroke) / 2
@@ -11,11 +12,11 @@ const ProgressRing = ({ progress, size = 44, stroke = 3.5, trackClass = 'text-gr
   const offset = circ - (progress / 100) * circ
   return (
     <svg width={size} height={size}>
-      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="currentColor" strokeWidth={stroke} className={trackClass} />
-      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="currentColor" strokeWidth={stroke}
+      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="currentColor" strokeWidth={stroke} className={trackClass} />
+      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="currentColor" strokeWidth={stroke}
         strokeDasharray={circ} strokeDashoffset={offset} strokeLinecap="round"
         className={`${fillClass} transition-all duration-700`}
-        transform={`rotate(-90 ${size/2} ${size/2})`} />
+        transform={`rotate(-90 ${size / 2} ${size / 2})`} />
     </svg>
   )
 }
@@ -49,7 +50,7 @@ const LearningSkills = () => {
     analysisAPI.getHistory().then(r => {
       const h = r.data.data
       if (h?.length) setPrioritySkills(h[0].importantMissingSkillsToLearn || [])
-    }).catch(() => {})
+    }).catch(() => { })
   }, [])
 
   useEffect(() => {
@@ -106,7 +107,7 @@ const LearningSkills = () => {
   }
 
   const handleDelete = async (id) => {
-    await learningAPI.removeSkill(id).catch(() => {})
+    await learningAPI.removeSkill(id).catch(() => { })
     if (selectedItem?._id === id) setSelectedItem(null)
     fetchList()
   }

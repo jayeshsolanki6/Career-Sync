@@ -1,37 +1,6 @@
 {
-  "metadata": {
-    "total_skills": 182,
-    "courses_per_skill": 6,
-    "total_courses": 1092,
-    "levels": [
-      "beginner",
-      "intermediate",
-      "advanced"
-    ],
-    "courses_per_level": 2,
-    "source_platforms": [
-      "freeCodeCamp (YouTube)",
-      "Harvard OpenCourseWare",
-      "Coursera (Audit)",
-      "edX (Audit)",
-      "MIT OpenCourseWare",
-      "Khan Academy",
-      "Google Digital Garage",
-      "Microsoft Learn",
-      "AWS Training",
-      "Scrimba",
-      "Hugging Face",
-      "DeepLearning.AI",
-      "Stanford Online",
-      "DataCamp (Free)",
-      "Kaggle Learn (Free)"
-    ],
-    "note": "All courses listed are FREE. Coursera and edX courses can be audited for free. YouTube courses are completely free.",
-    "created_for": "AI Career Assistant Platform - RAG Implementation"
-  },
   "courses": [
     {
-      "skill_name": "Python",
       "levels": {
         "beginner": [
           {
@@ -81,10 +50,16 @@
             "duration": "8 hours"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Python",
+        "Python3",
+        "Py",
+        "Python Programming",
+        "Python Scripting"
+      ]
     },
     {
-      "skill_name": "JavaScript",
       "levels": {
         "beginner": [
           {
@@ -134,10 +109,16 @@
             "duration": "1.5 hours"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "JavaScript",
+        "JS",
+        "ECMAScript",
+        "Vanilla JavaScript",
+        "Java Script"
+      ]
     },
     {
-      "skill_name": "TypeScript",
       "levels": {
         "beginner": [
           {
@@ -187,10 +168,14 @@
             "duration": "4 hours"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "TypeScript",
+        "TS",
+        "Type Script"
+      ]
     },
     {
-      "skill_name": "Java",
       "levels": {
         "beginner": [
           {
@@ -240,10 +225,15 @@
             "duration": "10 hours"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Java",
+        "Java Programming",
+        "Core Java",
+        "Java SE"
+      ]
     },
     {
-      "skill_name": "C",
       "levels": {
         "beginner": [
           {
@@ -288,15 +278,19 @@
           {
             "title": "Systems Programming in C",
             "platform": "MIT OpenCourseWare",
-            "url": "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-s081-operating-system-engineering-fall-2020/",
+            "url": "https://ocw.mit.edu/courses/6-s081-operating-system-engineering-fall-2020/",
             "description": "Advanced systems programming with C",
             "duration": "14 weeks"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "C",
+        "C Programming",
+        "C Language"
+      ]
     },
     {
-      "skill_name": "C++",
       "levels": {
         "beginner": [
           {
@@ -346,10 +340,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "C++",
+        "CPP",
+        "C Plus Plus",
+        "C++ Programming",
+        "CPP Programming"
+      ]
     },
     {
-      "skill_name": ".NET",
       "levels": {
         "beginner": [
           {
@@ -399,10 +399,18 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        ".NET",
+        "DotNet",
+        "Dot Net",
+        ".NET Framework",
+        ".NET Core",
+        "NET Framework",
+        ".Net / c#"
+      ]
     },
     {
-      "skill_name": "C#",
       "levels": {
         "beginner": [
           {
@@ -452,10 +460,16 @@
             "duration": "1 hour"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "C#",
+        "CSharp",
+        "C Sharp",
+        "C-Sharp",
+        "CS"
+      ]
     },
     {
-      "skill_name": "Go (Golang)",
       "levels": {
         "beginner": [
           {
@@ -505,10 +519,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Go",
+        "Golang",
+        "Go Programming",
+        "Go Language"
+      ]
     },
     {
-      "skill_name": "Rust",
       "levels": {
         "beginner": [
           {
@@ -546,7 +565,7 @@
           {
             "title": "Rust for Systems Programming",
             "platform": "Jon Gjengset (YouTube)",
-            "url": "https://www.youtube.com/c/JonGjengset",
+            "url": "https://www.youtube.com/@jonooi",
             "description": "Advanced Rust systems programming",
             "duration": "Self-paced"
           },
@@ -558,10 +577,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Rust",
+        "Rust Programming",
+        "Rust Lang",
+        "Rust Language"
+      ]
     },
     {
-      "skill_name": "Kotlin",
       "levels": {
         "beginner": [
           {
@@ -611,10 +635,14 @@
             "duration": "2 hours"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Kotlin",
+        "Kotlin Programming",
+        "Kotlin Lang"
+      ]
     },
     {
-      "skill_name": "Swift",
       "levels": {
         "beginner": [
           {
@@ -652,7 +680,7 @@
           {
             "title": "Advanced Swift Programming",
             "platform": "Swift by Sundell (YouTube)",
-            "url": "https://www.youtube.com/c/SwiftbySundell",
+            "url": "https://www.youtube.com/@SwiftbySundell",
             "description": "Advanced Swift patterns and architecture",
             "duration": "Self-paced"
           },
@@ -664,10 +692,15 @@
             "duration": "1 hour"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Swift",
+        "Swift Programming",
+        "iOS Swift",
+        "Swift Lang"
+      ]
     },
     {
-      "skill_name": "HTML",
       "levels": {
         "beginner": [
           {
@@ -717,10 +750,15 @@
             "duration": "1.5 hours"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "HTML",
+        "HTML5",
+        "Hypertext Markup Language",
+        "HTML Markup"
+      ]
     },
     {
-      "skill_name": "CSS",
       "levels": {
         "beginner": [
           {
@@ -770,10 +808,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "CSS",
+        "CSS3",
+        "Cascading Style Sheets",
+        "Stylesheets"
+      ]
     },
     {
-      "skill_name": "React.js",
       "levels": {
         "beginner": [
           {
@@ -823,10 +866,18 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "React",
+        "React.js",
+        "ReactJS",
+        "React Js",
+        "React Development",
+        "React Web",
+        "React.js Development"
+      ]
     },
     {
-      "skill_name": "Vue.js",
       "levels": {
         "beginner": [
           {
@@ -876,10 +927,17 @@
             "duration": "1 hour"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Vue",
+        "Vue.js",
+        "VueJS",
+        "Vue Js",
+        "Vue 3",
+        "Vue Development"
+      ]
     },
     {
-      "skill_name": "Angular",
       "levels": {
         "beginner": [
           {
@@ -924,15 +982,21 @@
           {
             "title": "Angular Performance and Optimization",
             "platform": "Angular University (YouTube)",
-            "url": "https://www.youtube.com/c/AngularUniversity",
+            "url": "https://www.youtube.com/@AngularUniversity",
             "description": "Optimizing Angular applications",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Angular",
+        "AngularJS",
+        "Angular.js",
+        "Angular 2+",
+        "Angular Development"
+      ]
     },
     {
-      "skill_name": "Next.js",
       "levels": {
         "beginner": [
           {
@@ -970,7 +1034,7 @@
           {
             "title": "Advanced Next.js Patterns",
             "platform": "Lee Robinson (YouTube)",
-            "url": "https://www.youtube.com/c/LeeRobinson",
+            "url": "https://www.youtube.com/@leerob",
             "description": "Advanced Next.js architecture",
             "duration": "Self-paced"
           },
@@ -982,10 +1046,17 @@
             "duration": "1 hour"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Next",
+        "Next.js",
+        "NextJS",
+        "Next Js",
+        "Next.js Development",
+        "NextJS Development"
+      ]
     },
     {
-      "skill_name": "Tailwind CSS",
       "levels": {
         "beginner": [
           {
@@ -1014,7 +1085,7 @@
           {
             "title": "Tailwind CSS Customization",
             "platform": "Adam Wathan (YouTube)",
-            "url": "https://www.youtube.com/c/AdamWathan",
+            "url": "https://www.youtube.com/@AdamWathan",
             "description": "Customizing Tailwind configuration",
             "duration": "Self-paced"
           }
@@ -1023,7 +1094,7 @@
           {
             "title": "Tailwind CSS Plugin Development",
             "platform": "Tailwind Labs (YouTube)",
-            "url": "https://www.youtube.com/c/TailwindLabs",
+            "url": "https://www.youtube.com/@TailwindLabs",
             "description": "Creating Tailwind plugins",
             "duration": "Self-paced"
           },
@@ -1035,10 +1106,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Tailwind",
+        "Tailwind CSS",
+        "TailwindCSS",
+        "Tailwindcss",
+        "Tailwind Styling"
+      ]
     },
     {
-      "skill_name": "Node.js",
       "levels": {
         "beginner": [
           {
@@ -1083,15 +1160,21 @@
           {
             "title": "Advanced Node.js Concepts",
             "platform": "Node.js Conference (YouTube)",
-            "url": "https://www.youtube.com/c/Nodejs",
+            "url": "https://www.youtube.com/@nodejs",
             "description": "Advanced Node.js patterns",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Node",
+        "Node.js",
+        "NodeJS",
+        "Node Js",
+        "Node.js Development"
+      ]
     },
     {
-      "skill_name": "Express.js",
       "levels": {
         "beginner": [
           {
@@ -1129,22 +1212,28 @@
           {
             "title": "Express.js Security Best Practices",
             "platform": "OWASP (YouTube)",
-            "url": "https://www.youtube.com/c/OWASPGLOBAL",
+            "url": "https://www.youtube.com/@OWASPGLOBAL",
             "description": "Securing Express.js applications",
             "duration": "Self-paced"
           },
           {
             "title": "Express.js Performance Optimization",
             "platform": "Node.js YouTube",
-            "url": "https://www.youtube.com/c/Nodejs",
+            "url": "https://www.youtube.com/@nodejs",
             "description": "Optimizing Express applications",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Express",
+        "Express.js",
+        "ExpressJS",
+        "Express Js",
+        "Express Framework"
+      ]
     },
     {
-      "skill_name": "Django",
       "levels": {
         "beginner": [
           {
@@ -1182,22 +1271,28 @@
           {
             "title": "Advanced Django Patterns",
             "platform": "DjangoCon (YouTube)",
-            "url": "https://www.youtube.com/c/DjangoConUS",
+            "url": "https://www.youtube.com/@DjangoConUS",
             "description": "Advanced Django techniques",
             "duration": "Self-paced"
           },
           {
             "title": "Django Performance Optimization",
             "platform": "Django Software Foundation (YouTube)",
-            "url": "https://www.youtube.com/c/DjangoSoftwareFoundation",
+            "url": "https://www.youtube.com/@DjangoSoftwareFoundation",
             "description": "Optimizing Django applications",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Django",
+        "Django Python",
+        "Django Framework",
+        "Django Web",
+        "Python Django"
+      ]
     },
     {
-      "skill_name": "Flask",
       "levels": {
         "beginner": [
           {
@@ -1247,10 +1342,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Flask",
+        "Flask Python",
+        "Flask Framework",
+        "Python Flask"
+      ]
     },
     {
-      "skill_name": "FastAPI",
       "levels": {
         "beginner": [
           {
@@ -1279,7 +1379,7 @@
           {
             "title": "FastAPI Authentication",
             "platform": "Tiangolo (YouTube)",
-            "url": "https://www.youtube.com/c/Tiangolo",
+            "url": "https://www.youtube.com/@tiangolo",
             "description": "Authentication in FastAPI",
             "duration": "Self-paced"
           }
@@ -1300,10 +1400,14 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "FastAPI",
+        "Fast API",
+        "FastAPI Python"
+      ]
     },
     {
-      "skill_name": "SQL",
       "levels": {
         "beginner": [
           {
@@ -1353,10 +1457,24 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "SQL",
+        "Structured Query Language",
+        "SQL Database",
+        "SQL Queries",
+        "MySQL",
+        "PostgreSQL",
+        "Postgres",
+        "SQLite",
+        "MariaDB",
+        "Oracle SQL",
+        "T-SQL",
+        "PL/SQL",
+        "TransSQL"
+      ]
     },
     {
-      "skill_name": "PostgreSQL",
       "levels": {
         "beginner": [
           {
@@ -1385,7 +1503,7 @@
           {
             "title": "PostgreSQL Administration",
             "platform": "Crunchy Data (YouTube)",
-            "url": "https://www.youtube.com/c/CrunchyData",
+            "url": "https://www.youtube.com/@CrunchyData",
             "description": "PostgreSQL DBA skills",
             "duration": "Self-paced"
           }
@@ -1394,7 +1512,7 @@
           {
             "title": "PostgreSQL Performance Tuning",
             "platform": "PostgreSQL Conference (YouTube)",
-            "url": "https://www.youtube.com/c/PostgreSQL",
+            "url": "https://www.youtube.com/@PostgreSQL",
             "description": "Optimizing PostgreSQL performance",
             "duration": "Self-paced"
           },
@@ -1406,10 +1524,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "PostgreSQL",
+        "Postgres",
+        "Postgres SQL",
+        "Postgre SQL",
+        "PSQL"
+      ]
     },
     {
-      "skill_name": "MongoDB",
       "levels": {
         "beginner": [
           {
@@ -1459,10 +1583,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "MongoDB",
+        "Mongo",
+        "Mongo DB",
+        "MongoDB Atlas",
+        "NoSQL MongoDB"
+      ]
     },
     {
-      "skill_name": "Redis",
       "levels": {
         "beginner": [
           {
@@ -1491,7 +1621,7 @@
           {
             "title": "Redis Caching Strategies",
             "platform": "ByteByteGo (YouTube)",
-            "url": "https://www.youtube.com/c/ByteByteGo",
+            "url": "https://www.youtube.com/@ByteByteGo",
             "description": "Caching patterns with Redis",
             "duration": "Self-paced"
           }
@@ -1500,7 +1630,7 @@
           {
             "title": "Redis Cluster and Sentinel",
             "platform": "Redis Documentation",
-            "url": "https://redis.io/docs/manual/scaling/",
+            "url": "https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/",
             "description": "Redis distributed architecture",
             "duration": "Self-paced"
           },
@@ -1512,10 +1642,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Redis",
+        "Redis Cache",
+        "Redis Database",
+        "RedisDB"
+      ]
     },
     {
-      "skill_name": "Docker",
       "levels": {
         "beginner": [
           {
@@ -1553,22 +1688,27 @@
           {
             "title": "Docker Security Best Practices",
             "platform": "DockerCon (YouTube)",
-            "url": "https://www.youtube.com/c/Docker",
+            "url": "https://www.youtube.com/@Dockerio",
             "description": "Securing Docker containers",
             "duration": "Self-paced"
           },
           {
             "title": "Docker Performance Optimization",
             "platform": "Docker Documentation",
-            "url": "https://docs.docker.com/develop/dev-best-practices/",
+            "url": "https://docs.docker.com/build/building/best-practices/",
             "description": "Optimizing Docker containers",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Docker",
+        "Docker Containers",
+        "Containerization",
+        "Docker Engine"
+      ]
     },
     {
-      "skill_name": "Kubernetes",
       "levels": {
         "beginner": [
           {
@@ -1597,7 +1737,7 @@
           {
             "title": "Kubernetes for Developers",
             "platform": "IBM Developer (YouTube)",
-            "url": "https://www.youtube.com/c/IBMDeveloper",
+            "url": "https://www.youtube.com/@IBMDeveloper",
             "description": "Application deployment on Kubernetes",
             "duration": "Self-paced"
           }
@@ -1606,22 +1746,28 @@
           {
             "title": "Advanced Kubernetes Patterns",
             "platform": "KubeCon (YouTube)",
-            "url": "https://www.youtube.com/c/CloudNativeComputingFoundation",
+            "url": "https://www.youtube.com/@CloudNativeComputingFdn",
             "description": "Advanced Kubernetes architecture",
             "duration": "Self-paced"
           },
           {
             "title": "Kubernetes Operators",
             "platform": "Red Hat (YouTube)",
-            "url": "https://www.youtube.com/c/RedHat",
+            "url": "https://www.youtube.com/@RedHat",
             "description": "Building Kubernetes operators",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Kubernetes",
+        "K8s",
+        "Kube",
+        "K8",
+        "Kubernetes Orchestration"
+      ]
     },
     {
-      "skill_name": "Pandas",
       "levels": {
         "beginner": [
           {
@@ -1650,7 +1796,7 @@
           {
             "title": "Pandas for Data Science",
             "platform": "Data School (YouTube)",
-            "url": "https://www.youtube.com/c/dataschool",
+            "url": "https://www.youtube.com/@dataschool",
             "description": "Pandas best practices",
             "duration": "Self-paced"
           }
@@ -1659,7 +1805,7 @@
           {
             "title": "Advanced Pandas Techniques",
             "platform": "PyData (YouTube)",
-            "url": "https://www.youtube.com/c/PyData",
+            "url": "https://www.youtube.com/@PyDataTV",
             "description": "Advanced Pandas patterns",
             "duration": "Self-paced"
           },
@@ -1671,10 +1817,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Pandas",
+        "Pandas Python",
+        "Python Pandas",
+        "Pandas Library"
+      ]
     },
     {
-      "skill_name": "NumPy",
       "levels": {
         "beginner": [
           {
@@ -1703,7 +1854,7 @@
           {
             "title": "NumPy for Data Science",
             "platform": "Data School (YouTube)",
-            "url": "https://www.youtube.com/c/dataschool",
+            "url": "https://www.youtube.com/@dataschool",
             "description": "NumPy best practices",
             "duration": "Self-paced"
           }
@@ -1712,7 +1863,7 @@
           {
             "title": "NumPy Broadcasting and Vectorization",
             "platform": "PyData (YouTube)",
-            "url": "https://www.youtube.com/c/PyData",
+            "url": "https://www.youtube.com/@PyDataTV",
             "description": "Advanced NumPy patterns",
             "duration": "Self-paced"
           },
@@ -1724,10 +1875,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "NumPy",
+        "NumPy Python",
+        "Python NumPy",
+        "Numpy",
+        "NumPy Library"
+      ]
     },
     {
-      "skill_name": "Machine Learning",
       "levels": {
         "beginner": [
           {
@@ -1756,7 +1913,7 @@
           {
             "title": "Applied Machine Learning",
             "platform": "Columbia University (edX - Audit)",
-            "url": "https://www.edx.org/professional-certificate/columbiax-applied-machine-learning",
+            "url": "https://www.edx.org/professional-certificate/applied-machine-learning",
             "description": "Applied ML with Python",
             "duration": "4 courses"
           }
@@ -1772,15 +1929,20 @@
           {
             "title": "Machine Learning Engineering",
             "platform": "Made With ML (YouTube)",
-            "url": "https://www.youtube.com/c/MadeWithML",
+            "url": "https://www.youtube.com/@madewithml",
             "description": "ML engineering best practices",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Machine Learning",
+        "ML",
+        "Machine Learning Algorithms",
+        "ML Algorithms"
+      ]
     },
     {
-      "skill_name": "Deep Learning",
       "levels": {
         "beginner": [
           {
@@ -1830,10 +1992,16 @@
             "duration": "5 courses"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Deep Learning",
+        "DL",
+        "Neural Networks",
+        "Deep Neural Networks",
+        "DeepLearning"
+      ]
     },
     {
-      "skill_name": "TensorFlow",
       "levels": {
         "beginner": [
           {
@@ -1871,22 +2039,28 @@
           {
             "title": "Advanced TensorFlow",
             "platform": "TensorFlow YouTube",
-            "url": "https://www.youtube.com/c/TensorFlow",
+            "url": "https://www.youtube.com/@TensorFlow",
             "description": "Advanced TensorFlow patterns",
             "duration": "Self-paced"
           },
           {
             "title": "TensorFlow Model Optimization",
             "platform": "TensorFlow Documentation",
-            "url": "https://www.tensorflow.org/model_optimization",
+            "url": "https://www.tensorflow.org/model_optimization/guide",
             "description": "Optimizing TensorFlow models",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "TensorFlow",
+        "Tensor Flow",
+        "TF",
+        "Google TensorFlow",
+        "TensorFlow 2"
+      ]
     },
     {
-      "skill_name": "PyTorch",
       "levels": {
         "beginner": [
           {
@@ -1924,7 +2098,7 @@
           {
             "title": "Advanced PyTorch",
             "platform": "PyTorch Conference (YouTube)",
-            "url": "https://www.youtube.com/c/PyTorch",
+            "url": "https://www.youtube.com/@pytorch",
             "description": "Advanced PyTorch patterns",
             "duration": "Self-paced"
           },
@@ -1936,10 +2110,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "PyTorch",
+        "Py Torch",
+        "Torch",
+        "PyTorch Framework",
+        "Facebook PyTorch"
+      ]
     },
     {
-      "skill_name": "Scikit-learn",
       "levels": {
         "beginner": [
           {
@@ -1952,7 +2132,7 @@
           {
             "title": "Machine Learning with Scikit-learn",
             "platform": "Data School (YouTube)",
-            "url": "https://www.youtube.com/c/dataschool",
+            "url": "https://www.youtube.com/@dataschool",
             "description": "Scikit-learn tutorial series",
             "duration": "Self-paced"
           }
@@ -1968,7 +2148,7 @@
           {
             "title": "Scikit-learn Pipelines",
             "platform": "Kevin Markham (YouTube)",
-            "url": "https://www.youtube.com/c/KevinMarkham",
+            "url": "https://www.youtube.com/@KevinMarkham",
             "description": "ML pipelines with scikit-learn",
             "duration": "Self-paced"
           }
@@ -1977,7 +2157,7 @@
           {
             "title": "Custom Scikit-learn Estimators",
             "platform": "PyData (YouTube)",
-            "url": "https://www.youtube.com/c/PyData",
+            "url": "https://www.youtube.com/@PyDataTV",
             "description": "Building custom estimators",
             "duration": "Self-paced"
           },
@@ -1989,10 +2169,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Scikit-learn",
+        "Sklearn",
+        "Scikitlearn",
+        "SciKit Learn",
+        "Scikit Learn"
+      ]
     },
     {
-      "skill_name": "Git",
       "levels": {
         "beginner": [
           {
@@ -2030,7 +2216,7 @@
           {
             "title": "Advanced Git",
             "platform": "GitKraken (YouTube)",
-            "url": "https://www.youtube.com/c/GitKraken",
+            "url": "https://www.youtube.com/@GitKrakenOfficial",
             "description": "Advanced Git techniques",
             "duration": "Self-paced"
           },
@@ -2042,10 +2228,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Git",
+        "Version Control",
+        "Source Control",
+        "Git VCS"
+      ]
     },
     {
-      "skill_name": "GitHub",
       "levels": {
         "beginner": [
           {
@@ -2058,7 +2249,7 @@
           {
             "title": "How to Use GitHub",
             "platform": "GitHub (YouTube)",
-            "url": "https://www.youtube.com/c/GitHub",
+            "url": "https://www.youtube.com/@GitHub",
             "description": "Official GitHub tutorial",
             "duration": "Self-paced"
           }
@@ -2074,7 +2265,7 @@
           {
             "title": "GitHub Advanced Features",
             "platform": "GitHub (YouTube)",
-            "url": "https://www.youtube.com/c/GitHub",
+            "url": "https://www.youtube.com/@GitHub",
             "description": "Advanced GitHub features",
             "duration": "Self-paced"
           }
@@ -2095,10 +2286,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "GitHub",
+        "Git Hub",
+        "GitHub Platform",
+        "GH"
+      ]
     },
     {
-      "skill_name": "Matplotlib",
       "levels": {
         "beginner": [
           {
@@ -2127,7 +2323,7 @@
           {
             "title": "Data Visualization with Python",
             "platform": "Data School (YouTube)",
-            "url": "https://www.youtube.com/c/dataschool",
+            "url": "https://www.youtube.com/@dataschool",
             "description": "Python data visualization",
             "duration": "Self-paced"
           }
@@ -2148,10 +2344,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Matplotlib",
+        "Matplotlib Python",
+        "Python Matplotlib",
+        "MatPlotLib"
+      ]
     },
     {
-      "skill_name": "Seaborn",
       "levels": {
         "beginner": [
           {
@@ -2164,7 +2365,7 @@
           {
             "title": "Data Visualization with Seaborn",
             "platform": "Data School (YouTube)",
-            "url": "https://www.youtube.com/c/dataschool",
+            "url": "https://www.youtube.com/@dataschool",
             "description": "Seaborn visualization basics",
             "duration": "Self-paced"
           }
@@ -2196,15 +2397,19 @@
           {
             "title": "Seaborn and Matplotlib Integration",
             "platform": "PyData (YouTube)",
-            "url": "https://www.youtube.com/c/PyData",
+            "url": "https://www.youtube.com/@PyDataTV",
             "description": "Advanced visualization patterns",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Seaborn",
+        "Seaborn Python",
+        "Python Seaborn"
+      ]
     },
     {
-      "skill_name": "Natural Language Processing (NLP)",
       "levels": {
         "beginner": [
           {
@@ -2233,7 +2438,7 @@
           {
             "title": "Hugging Face NLP Course",
             "platform": "Hugging Face (Free)",
-            "url": "https://huggingface.co/course",
+            "url": "https://huggingface.co/learn/nlp-course",
             "description": "Comprehensive NLP course",
             "duration": "Self-paced"
           }
@@ -2254,10 +2459,16 @@
             "duration": "20 lectures"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "NLP",
+        "Natural Language Processing",
+        "Text Processing",
+        "Computational Linguistics",
+        "Natural Language"
+      ]
     },
     {
-      "skill_name": "Computer Vision",
       "levels": {
         "beginner": [
           {
@@ -2307,10 +2518,15 @@
             "duration": "2 hours"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Computer Vision",
+        "CV",
+        "Image Processing",
+        "Vision AI"
+      ]
     },
     {
-      "skill_name": "OpenCV",
       "levels": {
         "beginner": [
           {
@@ -2360,10 +2576,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "OpenCV",
+        "Open CV",
+        "OpenCV Python",
+        "Computer Vision OpenCV"
+      ]
     },
     {
-      "skill_name": "Linux / Bash Scripting",
       "levels": {
         "beginner": [
           {
@@ -2401,7 +2622,7 @@
           {
             "title": "Linux System Administration",
             "platform": "Linux Foundation (edX - Audit)",
-            "url": "https://www.edx.org/professional-certificate/linuxfoundationx-linux-system-administration",
+            "url": "https://www.edx.org/professional-certificate/linuxfoundationx-linux-system-administration-1",
             "description": "Professional Linux administration",
             "duration": "3 courses"
           },
@@ -2413,10 +2634,20 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Linux",
+        "Bash",
+        "Bash Scripting",
+        "Shell Scripting",
+        "Unix",
+        "Command Line",
+        "Terminal",
+        "Linux Administration",
+        "Shell"
+      ]
     },
     {
-      "skill_name": "Data Structures & Algorithms",
       "levels": {
         "beginner": [
           {
@@ -2438,7 +2669,7 @@
           {
             "title": "LeetCode Patterns",
             "platform": "NeetCode (YouTube)",
-            "url": "https://www.youtube.com/c/NeetCode",
+            "url": "https://www.youtube.com/@NeetCode",
             "description": "Common coding interview patterns",
             "duration": "Self-paced"
           },
@@ -2466,10 +2697,18 @@
             "duration": "4 courses"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "DSA",
+        "Data Structures and Algorithms",
+        "Data Structures",
+        "Algorithms",
+        "DS and Algo",
+        "Coding Interview",
+        "Tech Interview Prep"
+      ]
     },
     {
-      "skill_name": "Object-Oriented Programming",
       "levels": {
         "beginner": [
           {
@@ -2498,7 +2737,7 @@
           {
             "title": "SOLID Principles",
             "platform": "ArjanCodes (YouTube)",
-            "url": "https://www.youtube.com/c/ArjanCodes",
+            "url": "https://www.youtube.com/@ArjanCodes",
             "description": "SOLID OOP principles",
             "duration": "Self-paced"
           }
@@ -2519,10 +2758,16 @@
             "duration": "2 hours"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "OOP",
+        "Object Oriented Programming",
+        "Object-Oriented",
+        "OOP Concepts",
+        "OOP Principles"
+      ]
     },
     {
-      "skill_name": "System Design",
       "levels": {
         "beginner": [
           {
@@ -2544,7 +2789,7 @@
           {
             "title": "System Design Interview",
             "platform": "ByteByteGo (YouTube)",
-            "url": "https://www.youtube.com/c/ByteByteGo",
+            "url": "https://www.youtube.com/@ByteByteGo",
             "description": "System design interview prep",
             "duration": "Self-paced"
           },
@@ -2560,7 +2805,7 @@
           {
             "title": "Advanced System Design",
             "platform": "System Design Interview (YouTube)",
-            "url": "https://www.youtube.com/c/SystemDesignInterview",
+            "url": "https://www.youtube.com/@SystemDesignInterview",
             "description": "Advanced system design patterns",
             "duration": "Self-paced"
           },
@@ -2572,10 +2817,19 @@
             "duration": "14 weeks"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "System Design",
+        "Distributed Systems",
+        "System Architecture",
+        "Software Architecture",
+        "HLD",
+        "High Level Design",
+        "Low Level Design",
+        "LLD"
+      ]
     },
     {
-      "skill_name": "AWS (Amazon Web Services)",
       "levels": {
         "beginner": [
           {
@@ -2620,15 +2874,21 @@
           {
             "title": "AWS Well-Architected Framework",
             "platform": "AWS Documentation",
-            "url": "https://aws.amazon.com/architecture/well-architected/",
+            "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html",
             "description": "AWS best practices",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "AWS",
+        "Amazon Web Services",
+        "Amazon AWS",
+        "AWS Cloud",
+        "AWS Services"
+      ]
     },
     {
-      "skill_name": "CI/CD Pipelines",
       "levels": {
         "beginner": [
           {
@@ -2666,7 +2926,7 @@
           {
             "title": "Advanced CI/CD Patterns",
             "platform": "DevOps Toolkit (YouTube)",
-            "url": "https://www.youtube.com/c/DevOpsToolkit",
+            "url": "https://www.youtube.com/@DevOpsToolkit",
             "description": "Advanced CI/CD strategies",
             "duration": "Self-paced"
           },
@@ -2678,10 +2938,19 @@
             "duration": "2 hours"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "CI/CD",
+        "CICD",
+        "CI-CD",
+        "Continuous Integration",
+        "Continuous Deployment",
+        "Continuous Delivery",
+        "CI/CD Pipeline",
+        "DevOps Pipeline"
+      ]
     },
     {
-      "skill_name": "GraphQL",
       "levels": {
         "beginner": [
           {
@@ -2731,10 +3000,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "GraphQL",
+        "Graph QL",
+        "GraphQL API",
+        "GQL"
+      ]
     },
     {
-      "skill_name": "REST API Design",
       "levels": {
         "beginner": [
           {
@@ -2763,7 +3037,7 @@
           {
             "title": "API Security",
             "platform": "OWASP (YouTube)",
-            "url": "https://www.youtube.com/c/OWASPGLOBAL",
+            "url": "https://www.youtube.com/@OWASPGLOBAL",
             "description": "Securing REST APIs",
             "duration": "Self-paced"
           }
@@ -2772,22 +3046,30 @@
           {
             "title": "API Architecture Patterns",
             "platform": "ByteByteGo (YouTube)",
-            "url": "https://www.youtube.com/c/ByteByteGo",
+            "url": "https://www.youtube.com/@ByteByteGo",
             "description": "Advanced API patterns",
             "duration": "Self-paced"
           },
           {
             "title": "API Rate Limiting and Caching",
             "platform": "System Design Interview (YouTube)",
-            "url": "https://www.youtube.com/c/SystemDesignInterview",
+            "url": "https://www.youtube.com/@SystemDesignInterview",
             "description": "API optimization patterns",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "REST",
+        "REST API",
+        "RESTful API",
+        "RESTful Design",
+        "API Design",
+        "REST Architecture",
+        "REST APIs"
+      ]
     },
     {
-      "skill_name": "Android Development",
       "levels": {
         "beginner": [
           {
@@ -2837,10 +3119,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Android",
+        "Android Development",
+        "Android App Development",
+        "Native Android",
+        "Android Programming"
+      ]
     },
     {
-      "skill_name": "iOS Development",
       "levels": {
         "beginner": [
           {
@@ -2853,7 +3141,7 @@
           {
             "title": "SwiftUI Tutorial for Beginners",
             "platform": "CodeWithChris (YouTube)",
-            "url": "https://www.youtube.com/c/CodeWithChris",
+            "url": "https://www.youtube.com/@CodeWithChris",
             "description": "SwiftUI basics",
             "duration": "Self-paced"
           }
@@ -2869,7 +3157,7 @@
           {
             "title": "SwiftUI Advanced",
             "platform": "Paul Hudson (YouTube)",
-            "url": "https://www.youtube.com/c/PaulHudson",
+            "url": "https://www.youtube.com/@twostraws",
             "description": "Advanced SwiftUI",
             "duration": "Self-paced"
           }
@@ -2885,15 +3173,21 @@
           {
             "title": "iOS Performance Optimization",
             "platform": "Apple Documentation",
-            "url": "https://developer.apple.com/documentation/performance",
+            "url": "https://developer.apple.com/documentation/xcode/improving-your-app-s-performance",
             "description": "iOS performance tuning",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "iOS",
+        "iOS Development",
+        "iOS App Development",
+        "iPhone Development",
+        "Apple Development"
+      ]
     },
     {
-      "skill_name": "React Native",
       "levels": {
         "beginner": [
           {
@@ -2931,7 +3225,7 @@
           {
             "title": "React Native Performance",
             "platform": "React Native EU (YouTube)",
-            "url": "https://www.youtube.com/c/ReactNativeEU",
+            "url": "https://www.youtube.com/@ReactNativeEU",
             "description": "React Native optimization",
             "duration": "Self-paced"
           },
@@ -2943,10 +3237,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "React Native",
+        "ReactNative",
+        "RN",
+        "React Mobile"
+      ]
     },
     {
-      "skill_name": "Flutter",
       "levels": {
         "beginner": [
           {
@@ -2996,10 +3295,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Flutter",
+        "Flutter Dart",
+        "Google Flutter",
+        "Flutter SDK"
+      ]
     },
     {
-      "skill_name": "Figma",
       "levels": {
         "beginner": [
           {
@@ -3012,7 +3316,7 @@
           {
             "title": "Figma Crash Course",
             "platform": "DesignCourse (YouTube)",
-            "url": "https://www.youtube.com/c/DesignCourse",
+            "url": "https://www.youtube.com/@DesignCourse",
             "description": "Quick Figma introduction",
             "duration": "1 hour"
           }
@@ -3049,10 +3353,14 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Figma",
+        "Figma Design",
+        "Figma Tool"
+      ]
     },
     {
-      "skill_name": "UI Design",
       "levels": {
         "beginner": [
           {
@@ -3065,7 +3373,7 @@
           {
             "title": "UI Design Tutorial",
             "platform": "DesignCourse (YouTube)",
-            "url": "https://www.youtube.com/c/DesignCourse",
+            "url": "https://www.youtube.com/@DesignCourse",
             "description": "UI design principles",
             "duration": "Self-paced"
           }
@@ -3090,7 +3398,7 @@
           {
             "title": "Advanced UI Design",
             "platform": "DesignCourse (YouTube)",
-            "url": "https://www.youtube.com/c/DesignCourse",
+            "url": "https://www.youtube.com/@DesignCourse",
             "description": "Advanced UI patterns",
             "duration": "Self-paced"
           },
@@ -3102,10 +3410,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "UI Design",
+        "User Interface Design",
+        "UI",
+        "Interface Design",
+        "Visual Design"
+      ]
     },
     {
-      "skill_name": "UX Design",
       "levels": {
         "beginner": [
           {
@@ -3155,10 +3469,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "UX Design",
+        "User Experience Design",
+        "UX",
+        "User Experience",
+        "Experience Design"
+      ]
     },
     {
-      "skill_name": "Network Security",
       "levels": {
         "beginner": [
           {
@@ -3196,7 +3516,7 @@
           {
             "title": "Advanced Network Security",
             "platform": "SANS (Free Resources)",
-            "url": "https://www.sans.org/free-resources/",
+            "url": "https://www.sans.org/security-resources/",
             "description": "Advanced security concepts",
             "duration": "Self-paced"
           },
@@ -3208,10 +3528,17 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Network Security",
+        "Cybersecurity",
+        "Cyber Security",
+        "InfoSec",
+        "Information Security",
+        "Network Defense"
+      ]
     },
     {
-      "skill_name": "Cryptography",
       "levels": {
         "beginner": [
           {
@@ -3261,10 +3588,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Cryptography",
+        "Crypto",
+        "Encryption",
+        "Decryption",
+        "Cryptographic Protocols"
+      ]
     },
     {
-      "skill_name": "OWASP / Web Security",
       "levels": {
         "beginner": [
           {
@@ -3277,7 +3610,7 @@
           {
             "title": "OWASP Top 10",
             "platform": "OWASP (YouTube)",
-            "url": "https://www.youtube.com/c/OWASPGLOBAL",
+            "url": "https://www.youtube.com/@OWASPGLOBAL",
             "description": "OWASP Top 10 vulnerabilities",
             "duration": "Self-paced"
           }
@@ -3302,22 +3635,28 @@
           {
             "title": "Advanced Web Exploitation",
             "platform": "OWASP (YouTube)",
-            "url": "https://www.youtube.com/c/OWASPGLOBAL",
+            "url": "https://www.youtube.com/@OWASPGLOBAL",
             "description": "Advanced web attacks",
             "duration": "Self-paced"
           },
           {
             "title": "Secure Code Review",
             "platform": "SANS (Free Resources)",
-            "url": "https://www.sans.org/free-resources/",
+            "url": "https://www.sans.org/security-resources/",
             "description": "Code review for security",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "OWASP",
+        "Web Security",
+        "Application Security",
+        "AppSec",
+        "Web App Security"
+      ]
     },
     {
-      "skill_name": "Apache Spark",
       "levels": {
         "beginner": [
           {
@@ -3367,10 +3706,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Spark",
+        "Apache Spark",
+        "PySpark",
+        "Spark SQL",
+        "Apache Spark Framework"
+      ]
     },
     {
-      "skill_name": "Data Pipelines / ETL",
       "levels": {
         "beginner": [
           {
@@ -3415,15 +3760,23 @@
           {
             "title": "Data Pipeline Architecture",
             "platform": "ByteByteGo (YouTube)",
-            "url": "https://www.youtube.com/c/ByteByteGo",
+            "url": "https://www.youtube.com/@ByteByteGo",
             "description": "Data pipeline design patterns",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "ETL",
+        "Data Pipeline",
+        "Data Pipelines",
+        "Extract Transform Load",
+        "ETL Pipeline",
+        "Data Engineering Pipeline",
+        "Data Pipeline Engineering"
+      ]
     },
     {
-      "skill_name": "Tableau",
       "levels": {
         "beginner": [
           {
@@ -3473,10 +3826,14 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Tableau",
+        "Tableau Desktop",
+        "Tableau Visualization"
+      ]
     },
     {
-      "skill_name": "Power BI",
       "levels": {
         "beginner": [
           {
@@ -3526,10 +3883,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "PowerBI",
+        "Power BI",
+        "Microsoft Power BI",
+        "MS Power BI"
+      ]
     },
     {
-      "skill_name": "Prompt Engineering",
       "levels": {
         "beginner": [
           {
@@ -3579,10 +3941,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Prompt Engineering",
+        "Prompt Design",
+        "Prompt Crafting",
+        "LLM Prompting",
+        "AI Prompting"
+      ]
     },
     {
-      "skill_name": "LangChain",
       "levels": {
         "beginner": [
           {
@@ -3632,10 +4000,14 @@
             "duration": "4 hours"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "LangChain",
+        "Lang Chain",
+        "LangChain Framework"
+      ]
     },
     {
-      "skill_name": "PHP",
       "levels": {
         "beginner": [
           {
@@ -3685,10 +4057,14 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "PHP",
+        "PHP Programming",
+        "Hypertext Preprocessor"
+      ]
     },
     {
-      "skill_name": "Ruby",
       "levels": {
         "beginner": [
           {
@@ -3738,10 +4114,14 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Ruby",
+        "Ruby Programming",
+        "Ruby Lang"
+      ]
     },
     {
-      "skill_name": "Sass / SCSS",
       "levels": {
         "beginner": [
           {
@@ -3791,10 +4171,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Sass",
+        "SCSS",
+        "Sass/SCSS",
+        "Sassy CSS",
+        "Sass CSS"
+      ]
     },
     {
-      "skill_name": "Bootstrap",
       "levels": {
         "beginner": [
           {
@@ -3844,10 +4230,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Bootstrap",
+        "Bootstrap 5",
+        "Bootstrap CSS",
+        "Bootstrap Framework"
+      ]
     },
     {
-      "skill_name": "Svelte",
       "levels": {
         "beginner": [
           {
@@ -3876,7 +4267,7 @@
           {
             "title": "Svelte Stores",
             "platform": "Svelte Documentation",
-            "url": "https://svelte.dev/tutorial/writable-stores",
+            "url": "https://svelte.dev/tutorial/store",
             "description": "State management in Svelte",
             "duration": "Self-paced"
           }
@@ -3885,7 +4276,7 @@
           {
             "title": "Advanced Svelte Patterns",
             "platform": "Svelte Society (YouTube)",
-            "url": "https://www.youtube.com/c/SvelteSociety",
+            "url": "https://www.youtube.com/@SvelteSociety",
             "description": "Advanced Svelte techniques",
             "duration": "Self-paced"
           },
@@ -3897,10 +4288,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Svelte",
+        "Svelte.js",
+        "SvelteJS",
+        "SvelteKit"
+      ]
     },
     {
-      "skill_name": "Vite",
       "levels": {
         "beginner": [
           {
@@ -3950,10 +4346,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Vite",
+        "Vite.js",
+        "ViteJS",
+        "Vite Build Tool"
+      ]
     },
     {
-      "skill_name": "Nuxt.js",
       "levels": {
         "beginner": [
           {
@@ -3982,7 +4383,7 @@
           {
             "title": "Nuxt.js SSR",
             "platform": "Nuxt Documentation",
-            "url": "https://nuxt.com/docs/concepts/rendering",
+            "url": "https://nuxt.com/docs/guide/concepts/rendering",
             "description": "Server-side rendering with Nuxt",
             "duration": "Self-paced"
           }
@@ -4003,10 +4404,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Nuxt",
+        "Nuxt.js",
+        "NuxtJS",
+        "Nuxt Js",
+        "Nuxt 3"
+      ]
     },
     {
-      "skill_name": "Spring Boot",
       "levels": {
         "beginner": [
           {
@@ -4019,7 +4426,7 @@
           {
             "title": "Spring Boot Crash Course",
             "platform": "Amigoscode (YouTube)",
-            "url": "https://www.youtube.com/c/Amigoscode",
+            "url": "https://www.youtube.com/@amigoscode",
             "description": "Quick Spring Boot intro",
             "duration": "2 hours"
           }
@@ -4035,7 +4442,7 @@
           {
             "title": "Spring Security",
             "platform": "Spring Documentation",
-            "url": "https://spring.io/guides/topicals/spring-security-architecture/",
+            "url": "https://spring.io/guides",
             "description": "Security with Spring Boot",
             "duration": "Self-paced"
           }
@@ -4056,10 +4463,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Spring Boot",
+        "SpringBoot",
+        "Spring Framework",
+        "Spring",
+        "Java Spring"
+      ]
     },
     {
-      "skill_name": "Ruby on Rails",
       "levels": {
         "beginner": [
           {
@@ -4104,15 +4517,20 @@
           {
             "title": "Rails Performance",
             "platform": "Rails Documentation",
-            "url": "https://guides.rubyonrails.org/v7.0/performance_testing.html",
+            "url": "https://guides.rubyonrails.org/v7.1/testing.html",
             "description": "Optimizing Rails apps",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Rails",
+        "Ruby on Rails",
+        "RoR",
+        "Ruby Rails"
+      ]
     },
     {
-      "skill_name": "NestJS",
       "levels": {
         "beginner": [
           {
@@ -4162,10 +4580,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "NestJS",
+        "Nest",
+        "Nest.js",
+        "Nest Js"
+      ]
     },
     {
-      "skill_name": "MySQL",
       "levels": {
         "beginner": [
           {
@@ -4215,10 +4638,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "MySQL",
+        "My SQL",
+        "MariaDB",
+        "MySQL Database"
+      ]
     },
     {
-      "skill_name": "SQLite",
       "levels": {
         "beginner": [
           {
@@ -4268,10 +4696,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "SQLite",
+        "SQLite3",
+        "SQL Lite",
+        "SQLite Database"
+      ]
     },
     {
-      "skill_name": "Elasticsearch",
       "levels": {
         "beginner": [
           {
@@ -4321,10 +4754,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Elasticsearch",
+        "Elastic Search",
+        "ES",
+        "ElasticSearch",
+        "Elastic Stack"
+      ]
     },
     {
-      "skill_name": "Terraform",
       "levels": {
         "beginner": [
           {
@@ -4374,10 +4813,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Terraform",
+        "Terraform IaC",
+        "Infrastructure as Code",
+        "IaC Terraform"
+      ]
     },
     {
-      "skill_name": "Ansible",
       "levels": {
         "beginner": [
           {
@@ -4415,7 +4859,7 @@
           {
             "title": "Ansible Tower",
             "platform": "Red Hat (YouTube)",
-            "url": "https://www.youtube.com/c/RedHat",
+            "url": "https://www.youtube.com/@RedHat",
             "description": "Ansible Tower for enterprise",
             "duration": "Self-paced"
           },
@@ -4427,10 +4871,14 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Ansible",
+        "Ansible Automation",
+        "Ansible Playbooks"
+      ]
     },
     {
-      "skill_name": "Jenkins",
       "levels": {
         "beginner": [
           {
@@ -4480,10 +4928,14 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Jenkins",
+        "Jenkins CI",
+        "Jenkins CI/CD"
+      ]
     },
     {
-      "skill_name": "Nginx",
       "levels": {
         "beginner": [
           {
@@ -4533,10 +4985,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Nginx",
+        "NGINX",
+        "Nginx Web Server",
+        "Nginx Proxy"
+      ]
     },
     {
-      "skill_name": "Firebase Firestore",
       "levels": {
         "beginner": [
           {
@@ -4586,10 +5043,17 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Firestore",
+        "Firebase Firestore",
+        "Firebase",
+        "Firebase Database",
+        "Google Firestore",
+        "Firebase DB"
+      ]
     },
     {
-      "skill_name": "Google Cloud",
       "levels": {
         "beginner": [
           {
@@ -4634,15 +5098,21 @@
           {
             "title": "GCP Data Engineering",
             "platform": "Google Cloud Documentation",
-            "url": "https://cloud.google.com/data-engineering",
+            "url": "https://cloud.google.com/learn/what-is-data-engineering",
             "description": "Data engineering on GCP",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "GCP",
+        "Google Cloud",
+        "Google Cloud Platform",
+        "Google Cloud Services",
+        "GCloud"
+      ]
     },
     {
-      "skill_name": "Microsoft Azure",
       "levels": {
         "beginner": [
           {
@@ -4692,10 +5162,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Azure",
+        "Microsoft Azure",
+        "MS Azure",
+        "Azure Cloud"
+      ]
     },
     {
-      "skill_name": "Convolutional Neural Networks (CNN)",
       "levels": {
         "beginner": [
           {
@@ -4745,10 +5220,16 @@
             "duration": "16 weeks"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "CNN",
+        "Convolutional Neural Network",
+        "ConvNet",
+        "ConvNets",
+        "Convolutional Network"
+      ]
     },
     {
-      "skill_name": "Recurrent Neural Networks (RNN / LSTM)",
       "levels": {
         "beginner": [
           {
@@ -4798,10 +5279,18 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "RNN",
+        "LSTM",
+        "Recurrent Neural Network",
+        "Long Short Term Memory",
+        "GRU",
+        "Recurrent Networks",
+        "RNNs"
+      ]
     },
     {
-      "skill_name": "Transformer Architecture",
       "levels": {
         "beginner": [
           {
@@ -4830,7 +5319,7 @@
           {
             "title": "Hugging Face Transformers",
             "platform": "Hugging Face (Free)",
-            "url": "https://huggingface.co/course",
+            "url": "https://huggingface.co/learn/nlp-course",
             "description": "Using transformers library",
             "duration": "Self-paced"
           }
@@ -4851,10 +5340,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Transformer",
+        "Transformers",
+        "Attention Mechanism",
+        "Self-Attention",
+        "Transformer Model"
+      ]
     },
     {
-      "skill_name": "Transfer Learning",
       "levels": {
         "beginner": [
           {
@@ -4904,10 +5399,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Transfer Learning",
+        "Fine Tuning",
+        "Fine-tuning",
+        "Pre-trained Models",
+        "TransferLearning"
+      ]
     },
     {
-      "skill_name": "BERT / Transformers (HuggingFace)",
       "levels": {
         "beginner": [
           {
@@ -4920,7 +5421,7 @@
           {
             "title": "Hugging Face Transformers",
             "platform": "Hugging Face (Free)",
-            "url": "https://huggingface.co/course",
+            "url": "https://huggingface.co/learn/nlp-course",
             "description": "Using Hugging Face",
             "duration": "Self-paced"
           }
@@ -4957,10 +5458,17 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "BERT",
+        "Hugging Face",
+        "HuggingFace",
+        "Transformers Library",
+        "HuggingFace Transformers",
+        "BERT Model"
+      ]
     },
     {
-      "skill_name": "Large Language Models (LLMs)",
       "levels": {
         "beginner": [
           {
@@ -5010,10 +5518,19 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "LLM",
+        "LLMs",
+        "Large Language Model",
+        "Large Language Models",
+        "Foundation Models",
+        "Generative AI",
+        "GenAI",
+        "Gen AI"
+      ]
     },
     {
-      "skill_name": "Retrieval-Augmented Generation (RAG)",
       "levels": {
         "beginner": [
           {
@@ -5063,10 +5580,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "RAG",
+        "Retrieval Augmented Generation",
+        "Retrieval-Augmented Generation",
+        "RAG System",
+        "RAG Architecture"
+      ]
     },
     {
-      "skill_name": "Vector Databases (Pinecone, Weaviate, FAISS)",
       "levels": {
         "beginner": [
           {
@@ -5116,10 +5639,22 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Vector Database",
+        "Vector DB",
+        "Pinecone",
+        "Weaviate",
+        "FAISS",
+        "Vector Store",
+        "Vector Search",
+        "ChromaDB",
+        "Qdrant",
+        "Milvus",
+        "Vector Similarity Search"
+      ]
     },
     {
-      "skill_name": "Object Detection (YOLO, Faster R-CNN)",
       "levels": {
         "beginner": [
           {
@@ -5169,10 +5704,18 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Object Detection",
+        "YOLO",
+        "Faster R-CNN",
+        "Object Recognition",
+        "YOLOv8",
+        "YOLO v8",
+        "Detection"
+      ]
     },
     {
-      "skill_name": "Image Segmentation",
       "levels": {
         "beginner": [
           {
@@ -5222,10 +5765,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Image Segmentation",
+        "Semantic Segmentation",
+        "Instance Segmentation",
+        "Panoptic Segmentation",
+        "Segmentation"
+      ]
     },
     {
-      "skill_name": "Design Patterns",
       "levels": {
         "beginner": [
           {
@@ -5275,10 +5824,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Design Patterns",
+        "Software Design Patterns",
+        "Gang of Four",
+        "GoF Patterns",
+        "Architectural Patterns"
+      ]
     },
     {
-      "skill_name": "Test-Driven Development (TDD)",
       "levels": {
         "beginner": [
           {
@@ -5328,10 +5883,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "TDD",
+        "Test Driven Development",
+        "Test-First Development",
+        "Red-Green-Refactor"
+      ]
     },
     {
-      "skill_name": "Unit Testing",
       "levels": {
         "beginner": [
           {
@@ -5381,10 +5941,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Unit Testing",
+        "Unit Tests",
+        "Component Testing",
+        "Module Testing"
+      ]
     },
     {
-      "skill_name": "Agile Methodology",
       "levels": {
         "beginner": [
           {
@@ -5434,10 +5999,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Agile",
+        "Agile Methodology",
+        "Agile Development",
+        "Agile Practices",
+        "Agile Framework"
+      ]
     },
     {
-      "skill_name": "Scrum",
       "levels": {
         "beginner": [
           {
@@ -5482,15 +6053,20 @@
           {
             "title": "Scrum Metrics",
             "platform": "Scrum.org",
-            "url": "https://www.scrum.org/resources/blog/metrics-scrum",
+            "url": "https://www.scrum.org/resources/blog",
             "description": "Measuring Scrum success",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Scrum",
+        "Scrum Framework",
+        "Scrum Methodology",
+        "Scrum Process"
+      ]
     },
     {
-      "skill_name": "Code Review",
       "levels": {
         "beginner": [
           {
@@ -5512,7 +6088,7 @@
           {
             "title": "Code Review Tools",
             "platform": "GitHub (YouTube)",
-            "url": "https://www.youtube.com/c/GitHub",
+            "url": "https://www.youtube.com/@GitHub",
             "description": "Using code review tools",
             "duration": "Self-paced"
           },
@@ -5540,10 +6116,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Code Review",
+        "Peer Review",
+        "Pull Request Review",
+        "Code Inspection"
+      ]
     },
     {
-      "skill_name": "Penetration Testing",
       "levels": {
         "beginner": [
           {
@@ -5593,10 +6174,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Penetration Testing",
+        "Pentesting",
+        "Pen Testing",
+        "Ethical Hacking",
+        "Security Testing"
+      ]
     },
     {
-      "skill_name": "Cloud Security",
       "levels": {
         "beginner": [
           {
@@ -5634,7 +6221,7 @@
           {
             "title": "Cloud Security Architecture",
             "platform": "SANS (Free Resources)",
-            "url": "https://www.sans.org/free-resources/",
+            "url": "https://www.sans.org/security-resources/",
             "description": "Advanced cloud security",
             "duration": "Self-paced"
           },
@@ -5646,10 +6233,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Cloud Security",
+        "Cloud Sec",
+        "Cloud Security Posture",
+        "CSPM"
+      ]
     },
     {
-      "skill_name": "Identity & Access Management (IAM)",
       "levels": {
         "beginner": [
           {
@@ -5699,10 +6291,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "IAM",
+        "Identity and Access Management",
+        "Access Control",
+        "Authentication",
+        "Authorization"
+      ]
     },
     {
-      "skill_name": "Data Analysis",
       "levels": {
         "beginner": [
           {
@@ -5752,10 +6350,16 @@
             "duration": "2 hours"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Data Analysis",
+        "Data Analytics",
+        "Analytics",
+        "Data Analyst",
+        "Analyze Data"
+      ]
     },
     {
-      "skill_name": "Data Cleaning",
       "levels": {
         "beginner": [
           {
@@ -5768,7 +6372,7 @@
           {
             "title": "Data Cleaning with Pandas",
             "platform": "Data School (YouTube)",
-            "url": "https://www.youtube.com/c/dataschool",
+            "url": "https://www.youtube.com/@dataschool",
             "description": "Cleaning data with Pandas",
             "duration": "Self-paced"
           }
@@ -5805,10 +6409,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Data Cleaning",
+        "Data Preprocessing",
+        "Data Cleansing",
+        "Data Wrangling",
+        "Data Preparation"
+      ]
     },
     {
-      "skill_name": "Exploratory Data Analysis (EDA)",
       "levels": {
         "beginner": [
           {
@@ -5821,7 +6431,7 @@
           {
             "title": "EDA with Pandas",
             "platform": "Data School (YouTube)",
-            "url": "https://www.youtube.com/c/dataschool",
+            "url": "https://www.youtube.com/@dataschool",
             "description": "EDA with Pandas",
             "duration": "Self-paced"
           }
@@ -5858,10 +6468,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "EDA",
+        "Exploratory Data Analysis",
+        "Data Exploration",
+        "Exploratory Analysis"
+      ]
     },
     {
-      "skill_name": "Feature Engineering",
       "levels": {
         "beginner": [
           {
@@ -5874,7 +6489,7 @@
           {
             "title": "Feature Engineering with Pandas",
             "platform": "Data School (YouTube)",
-            "url": "https://www.youtube.com/c/dataschool",
+            "url": "https://www.youtube.com/@dataschool",
             "description": "Feature engineering in practice",
             "duration": "Self-paced"
           }
@@ -5906,15 +6521,20 @@
           {
             "title": "Feature Engineering for Deep Learning",
             "platform": "TensorFlow Documentation",
-            "url": "https://www.tensorflow.org/tutorials/structured_data/feature_columns",
+            "url": "https://www.tensorflow.org/tutorials/structured_data/preprocessing_layers",
             "description": "Feature engineering for neural networks",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Feature Engineering",
+        "Feature Extraction",
+        "Feature Selection",
+        "Feature Creation"
+      ]
     },
     {
-      "skill_name": "Statistical Analysis",
       "levels": {
         "beginner": [
           {
@@ -5964,10 +6584,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Statistics",
+        "Statistical Analysis",
+        "Statistical Methods",
+        "Statistical Modeling",
+        "Stats"
+      ]
     },
     {
-      "skill_name": "A/B Testing",
       "levels": {
         "beginner": [
           {
@@ -6017,10 +6643,17 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "A/B Testing",
+        "AB Testing",
+        "Split Testing",
+        "Experimentation",
+        "Hypothesis Testing",
+        "A/B Test"
+      ]
     },
     {
-      "skill_name": "Plotly",
       "levels": {
         "beginner": [
           {
@@ -6070,10 +6703,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Plotly",
+        "Plotly Python",
+        "Python Plotly",
+        "Plotly.js"
+      ]
     },
     {
-      "skill_name": "D3.js",
       "levels": {
         "beginner": [
           {
@@ -6123,10 +6761,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "D3",
+        "D3.js",
+        "D3JS",
+        "Data Driven Documents",
+        "D3 Visualization"
+      ]
     },
     {
-      "skill_name": "Supervised Learning",
       "levels": {
         "beginner": [
           {
@@ -6176,10 +6820,14 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Supervised Learning",
+        "Supervised ML",
+        "Labeled Data Learning"
+      ]
     },
     {
-      "skill_name": "Unsupervised Learning",
       "levels": {
         "beginner": [
           {
@@ -6229,10 +6877,14 @@
             "duration": "3 courses"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Unsupervised Learning",
+        "Unsupervised ML",
+        "Pattern Discovery"
+      ]
     },
     {
-      "skill_name": "Reinforcement Learning",
       "levels": {
         "beginner": [
           {
@@ -6282,10 +6934,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Reinforcement Learning",
+        "RL",
+        "Q-Learning",
+        "Deep RL",
+        "Reinforcement"
+      ]
     },
     {
-      "skill_name": "Model Evaluation & Validation",
       "levels": {
         "beginner": [
           {
@@ -6335,10 +6993,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Model Evaluation",
+        "Model Validation",
+        "ML Evaluation",
+        "Model Metrics",
+        "Model Performance"
+      ]
     },
     {
-      "skill_name": "Hyperparameter Tuning",
       "levels": {
         "beginner": [
           {
@@ -6388,10 +7052,17 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Hyperparameter Tuning",
+        "Hyperparameter Optimization",
+        "HPO",
+        "Grid Search",
+        "Random Search",
+        "Bayesian Optimization"
+      ]
     },
     {
-      "skill_name": "Cross-Validation",
       "levels": {
         "beginner": [
           {
@@ -6441,10 +7112,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Cross-Validation",
+        "Cross Validation",
+        "K-Fold Cross Validation",
+        "K-Fold"
+      ]
     },
     {
-      "skill_name": "Dimensionality Reduction (PCA, t-SNE)",
       "levels": {
         "beginner": [
           {
@@ -6494,10 +7170,17 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Dimensionality Reduction",
+        "PCA",
+        "t-SNE",
+        "UMAP",
+        "Principal Component Analysis",
+        "Feature Reduction"
+      ]
     },
     {
-      "skill_name": "Clustering (K-Means, DBSCAN)",
       "levels": {
         "beginner": [
           {
@@ -6547,10 +7230,17 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Clustering",
+        "K-Means",
+        "DBSCAN",
+        "Cluster Analysis",
+        "KMeans",
+        "Unsupervised Clustering"
+      ]
     },
     {
-      "skill_name": "Regression Analysis",
       "levels": {
         "beginner": [
           {
@@ -6600,10 +7290,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Regression",
+        "Linear Regression",
+        "Logistic Regression",
+        "Regression Analysis",
+        "Regression Models"
+      ]
     },
     {
-      "skill_name": "Classification",
       "levels": {
         "beginner": [
           {
@@ -6653,10 +7349,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Classification",
+        "Classifier",
+        "Binary Classification",
+        "Multi-class Classification",
+        "Classification Model"
+      ]
     },
     {
-      "skill_name": "XGBoost / LightGBM",
       "levels": {
         "beginner": [
           {
@@ -6706,10 +7408,18 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "XGBoost",
+        "LightGBM",
+        "XGB",
+        "Gradient Boosting",
+        "GBM",
+        "CatBoost",
+        "Gradient Boosted Trees"
+      ]
     },
     {
-      "skill_name": "Generative Adversarial Networks (GANs)",
       "levels": {
         "beginner": [
           {
@@ -6759,10 +7469,16 @@
             "duration": "3 courses"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "GAN",
+        "GANs",
+        "Generative Adversarial Network",
+        "Generative Adversarial Networks",
+        "Generative Model"
+      ]
     },
     {
-      "skill_name": "Autoencoders",
       "levels": {
         "beginner": [
           {
@@ -6812,10 +7528,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Autoencoder",
+        "Autoencoders",
+        "Auto-encoder",
+        "Variational Autoencoder",
+        "VAE"
+      ]
     },
     {
-      "skill_name": "Text Classification",
       "levels": {
         "beginner": [
           {
@@ -6865,10 +7587,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Text Classification",
+        "Text Categorization",
+        "Document Classification",
+        "Sentiment Classification",
+        "Topic Classification"
+      ]
     },
     {
-      "skill_name": "Named Entity Recognition (NER)",
       "levels": {
         "beginner": [
           {
@@ -6918,10 +7646,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "NER",
+        "Named Entity Recognition",
+        "Entity Recognition",
+        "Named Entity",
+        "Entity Extraction"
+      ]
     },
     {
-      "skill_name": "Sentiment Analysis",
       "levels": {
         "beginner": [
           {
@@ -6971,10 +7705,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Sentiment Analysis",
+        "Opinion Mining",
+        "Emotion Detection",
+        "Sentiment Classification"
+      ]
     },
     {
-      "skill_name": "Text Summarization",
       "levels": {
         "beginner": [
           {
@@ -7024,10 +7763,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Text Summarization",
+        "Summarization",
+        "Document Summarization",
+        "Abstractive Summarization",
+        "Extractive Summarization"
+      ]
     },
     {
-      "skill_name": "Machine Translation",
       "levels": {
         "beginner": [
           {
@@ -7077,10 +7822,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Machine Translation",
+        "Neural Machine Translation",
+        "NMT",
+        "Language Translation",
+        "Automatic Translation"
+      ]
     },
     {
-      "skill_name": "Facial Recognition",
       "levels": {
         "beginner": [
           {
@@ -7130,10 +7881,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Facial Recognition",
+        "Face Recognition",
+        "Face Detection",
+        "Facial Authentication",
+        "Face Identification"
+      ]
     },
     {
-      "skill_name": "Optical Character Recognition (OCR)",
       "levels": {
         "beginner": [
           {
@@ -7183,10 +7940,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "OCR",
+        "Optical Character Recognition",
+        "Text Recognition",
+        "Image to Text",
+        "Tesseract"
+      ]
     },
     {
-      "skill_name": "MLOps",
       "levels": {
         "beginner": [
           {
@@ -7231,15 +7994,21 @@
           {
             "title": "Model Monitoring",
             "platform": "Evidently AI",
-            "url": "https://evidentlyai.com/",
+            "url": "https://www.evidentlyai.com/",
             "description": "Monitoring ML in production",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "MLOps",
+        "ML Ops",
+        "Machine Learning Operations",
+        "ML Operations",
+        "ML Engineering"
+      ]
     },
     {
-      "skill_name": "MLflow",
       "levels": {
         "beginner": [
           {
@@ -7289,10 +8058,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "MLflow",
+        "ML Flow",
+        "MLFlow",
+        "MLflow Tracking"
+      ]
     },
     {
-      "skill_name": "Apache Airflow",
       "levels": {
         "beginner": [
           {
@@ -7342,10 +8116,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Airflow",
+        "Apache Airflow",
+        "Airflow DAGs",
+        "Airflow Pipelines"
+      ]
     },
     {
-      "skill_name": "Data Warehousing (Snowflake / BigQuery)",
       "levels": {
         "beginner": [
           {
@@ -7395,10 +8174,18 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Data Warehousing",
+        "Snowflake",
+        "BigQuery",
+        "Google BigQuery",
+        "Data Warehouse",
+        "Cloud Data Warehouse",
+        "Redshift"
+      ]
     },
     {
-      "skill_name": "Model Deployment (Flask / FastAPI / Docker)",
       "levels": {
         "beginner": [
           {
@@ -7436,7 +8223,7 @@
           {
             "title": "Kubernetes for ML",
             "platform": "Kubeflow Documentation",
-            "url": "https://www.kubeflow.org/docs/components/serving/",
+            "url": "https://www.kubeflow.org/docs/external-add-ons/kserve/",
             "description": "Serving models on K8s",
             "duration": "Self-paced"
           },
@@ -7448,10 +8235,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Model Deployment",
+        "Deploy ML Models",
+        "ML Model Deployment",
+        "ML Serving",
+        "Model Serving"
+      ]
     },
     {
-      "skill_name": "Wireframing",
       "levels": {
         "beginner": [
           {
@@ -7473,7 +8266,7 @@
           {
             "title": "Low to High Fidelity",
             "platform": "DesignCourse (YouTube)",
-            "url": "https://www.youtube.com/c/DesignCourse",
+            "url": "https://www.youtube.com/@DesignCourse",
             "description": "Progressive wireframing",
             "duration": "Self-paced"
           },
@@ -7501,10 +8294,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Wireframing",
+        "Wireframe",
+        "Wireframes",
+        "Low-fidelity Design"
+      ]
     },
     {
-      "skill_name": "Prototyping",
       "levels": {
         "beginner": [
           {
@@ -7554,10 +8352,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Prototyping",
+        "Prototype",
+        "Interactive Prototype",
+        "High-fidelity Prototype"
+      ]
     },
     {
-      "skill_name": "User Research",
       "levels": {
         "beginner": [
           {
@@ -7607,10 +8410,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "User Research",
+        "UX Research",
+        "User Studies",
+        "User-Centered Research"
+      ]
     },
     {
-      "skill_name": "Usability Testing",
       "levels": {
         "beginner": [
           {
@@ -7660,10 +8468,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Usability Testing",
+        "Usability",
+        "User Testing",
+        "UX Testing"
+      ]
     },
     {
-      "skill_name": "Information Architecture",
       "levels": {
         "beginner": [
           {
@@ -7713,10 +8526,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Information Architecture",
+        "IA",
+        "Content Architecture",
+        "Information Design"
+      ]
     },
     {
-      "skill_name": "Design Systems",
       "levels": {
         "beginner": [
           {
@@ -7766,10 +8584,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Design Systems",
+        "Design System",
+        "Component Library",
+        "UI Kit",
+        "Pattern Library"
+      ]
     },
     {
-      "skill_name": "Accessibility (WCAG)",
       "levels": {
         "beginner": [
           {
@@ -7819,10 +8643,18 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Accessibility",
+        "a11y",
+        "WCAG",
+        "Web Accessibility",
+        "Accessible Design",
+        "ADA Compliance",
+        "Section 508"
+      ]
     },
     {
-      "skill_name": "Interaction Design",
       "levels": {
         "beginner": [
           {
@@ -7872,10 +8704,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Interaction Design",
+        "IxD",
+        "Interactive Design",
+        "UI Interaction"
+      ]
     },
     {
-      "skill_name": "Design Thinking",
       "levels": {
         "beginner": [
           {
@@ -7925,10 +8762,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Design Thinking",
+        "Design Process",
+        "Human-Centered Design",
+        "HCD"
+      ]
     },
     {
-      "skill_name": "Jest / Mocha",
       "levels": {
         "beginner": [
           {
@@ -7978,10 +8820,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Jest",
+        "Mocha",
+        "Jest Testing",
+        "Mocha Testing",
+        "JavaScript Testing"
+      ]
     },
     {
-      "skill_name": "Pytest",
       "levels": {
         "beginner": [
           {
@@ -8031,10 +8879,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Pytest",
+        "PyTest",
+        "Python Testing",
+        "pytest",
+        "Python Test"
+      ]
     },
     {
-      "skill_name": "Selenium",
       "levels": {
         "beginner": [
           {
@@ -8084,10 +8938,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Selenium",
+        "Selenium WebDriver",
+        "Browser Automation",
+        "Selenium Testing"
+      ]
     },
     {
-      "skill_name": "Cypress",
       "levels": {
         "beginner": [
           {
@@ -8137,10 +8996,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Cypress",
+        "Cypress.io",
+        "Cypress Testing",
+        "E2E Testing Cypress"
+      ]
     },
     {
-      "skill_name": "WebSockets",
       "levels": {
         "beginner": [
           {
@@ -8190,10 +9054,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "WebSockets",
+        "WebSocket",
+        "Real-time Communication",
+        "Socket.io",
+        "Web Socket"
+      ]
     },
     {
-      "skill_name": "gRPC",
       "levels": {
         "beginner": [
           {
@@ -8222,7 +9092,7 @@
           {
             "title": "Protocol Buffers",
             "platform": "Protocol Buffers Documentation",
-            "url": "https://developers.google.com/protocol-buffers",
+            "url": "https://protobuf.dev/",
             "description": "Protobuf basics",
             "duration": "Self-paced"
           }
@@ -8243,10 +9113,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "gRPC",
+        "gRPC API",
+        "Google RPC",
+        "gRPC Protocol"
+      ]
     },
     {
-      "skill_name": "WebAssembly (Wasm)",
       "levels": {
         "beginner": [
           {
@@ -8296,10 +9171,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "WebAssembly",
+        "Wasm",
+        "Web Assembly",
+        "WASM"
+      ]
     },
     {
-      "skill_name": "WebRTC",
       "levels": {
         "beginner": [
           {
@@ -8349,10 +9229,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "WebRTC",
+        "Web RTC",
+        "Real-time Communication",
+        "Peer Connection"
+      ]
     },
     {
-      "skill_name": "OAuth / JWT",
       "levels": {
         "beginner": [
           {
@@ -8402,10 +9287,18 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "OAuth",
+        "JWT",
+        "JSON Web Token",
+        "OAuth2",
+        "OpenID Connect",
+        "OIDC",
+        "Token Authentication"
+      ]
     },
     {
-      "skill_name": "SSL / TLS / HTTPS",
       "levels": {
         "beginner": [
           {
@@ -8455,10 +9348,17 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "SSL",
+        "TLS",
+        "HTTPS",
+        "SSL/TLS",
+        "Transport Layer Security",
+        "Secure Sockets Layer"
+      ]
     },
     {
-      "skill_name": "Web Security Best Practices",
       "levels": {
         "beginner": [
           {
@@ -8508,10 +9408,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Web Security Best Practices",
+        "Secure Web Development",
+        "Web App Security",
+        "Browser Security"
+      ]
     },
     {
-      "skill_name": "SQL Injection Prevention",
       "levels": {
         "beginner": [
           {
@@ -8561,10 +9466,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "SQL Injection Prevention",
+        "SQLi Prevention",
+        "SQL Injection",
+        "SQLi Protection"
+      ]
     },
     {
-      "skill_name": "Cross-Site Scripting (XSS) Prevention",
       "levels": {
         "beginner": [
           {
@@ -8593,7 +9503,7 @@
           {
             "title": "DOM-based XSS",
             "platform": "PortSwigger",
-            "url": "https://portswigger.net/web-security/cross-site-scripting/dom-based",
+            "url": "https://portswigger.net/web-security/cross-site-scripting",
             "description": "DOM XSS attacks",
             "duration": "Self-paced"
           }
@@ -8614,10 +9524,17 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "XSS Prevention",
+        "Cross-Site Scripting",
+        "XSS",
+        "XSS Protection",
+        "Reflected XSS",
+        "Stored XSS"
+      ]
     },
     {
-      "skill_name": "OWASP Top 10",
       "levels": {
         "beginner": [
           {
@@ -8667,10 +9584,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "OWASP Top 10",
+        "OWASP Top Ten",
+        "Top 10 Security Risks",
+        "OWASP Risks"
+      ]
     },
     {
-      "skill_name": "API Security",
       "levels": {
         "beginner": [
           {
@@ -8720,10 +9642,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "API Security",
+        "API Protection",
+        "Secure API",
+        "API Authentication"
+      ]
     },
     {
-      "skill_name": "Incident Response",
       "levels": {
         "beginner": [
           {
@@ -8736,7 +9663,7 @@
           {
             "title": "NIST Incident Response",
             "platform": "NIST",
-            "url": "https://csrc.nist.gov/publications/detail/sp/800-61/final",
+            "url": "https://csrc.nist.gov/pubs/sp/800/61/final",
             "description": "NIST IR guide",
             "duration": "Self-paced"
           }
@@ -8745,7 +9672,7 @@
           {
             "title": "Incident Response Playbooks",
             "platform": "SANS",
-            "url": "https://www.sans.org/incident-response/",
+            "url": "https://www.sans.org/cyber-security-skills/incident-response/",
             "description": "IR procedures",
             "duration": "Self-paced"
           },
@@ -8761,7 +9688,7 @@
           {
             "title": "Threat Hunting",
             "platform": "SANS Threat Hunting",
-            "url": "https://www.sans.org/cyber-security-courses/threat-hunting/",
+            "url": "https://www.sans.org/cyber-security-skills/threat-hunting/",
             "description": "Proactive threat hunting",
             "duration": "Self-paced"
           },
@@ -8773,10 +9700,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Incident Response",
+        "IR",
+        "Security Incident",
+        "Incident Management",
+        "Security Response"
+      ]
     },
     {
-      "skill_name": "Vulnerability Assessment",
       "levels": {
         "beginner": [
           {
@@ -8826,10 +9759,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Vulnerability Assessment",
+        "Vuln Assessment",
+        "Vulnerability Scanning",
+        "Security Assessment"
+      ]
     },
     {
-      "skill_name": "Risk Assessment",
       "levels": {
         "beginner": [
           {
@@ -8879,10 +9817,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Risk Assessment",
+        "Risk Analysis",
+        "Security Risk",
+        "Risk Management"
+      ]
     },
     {
-      "skill_name": "Security Compliance (GDPR / HIPAA / SOC 2)",
       "levels": {
         "beginner": [
           {
@@ -8904,7 +9847,7 @@
           {
             "title": "SOC 2 Compliance",
             "platform": "AICPA",
-            "url": "https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html",
+            "url": "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2",
             "description": "SOC 2 requirements",
             "duration": "Self-paced"
           },
@@ -8932,10 +9875,18 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Security Compliance",
+        "GDPR",
+        "HIPAA",
+        "SOC 2",
+        "Compliance",
+        "Data Compliance",
+        "Regulatory Compliance"
+      ]
     },
     {
-      "skill_name": "Security Auditing",
       "levels": {
         "beginner": [
           {
@@ -8985,10 +9936,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Security Auditing",
+        "Security Audit",
+        "IT Audit",
+        "Security Review"
+      ]
     },
     {
-      "skill_name": "Ethical Hacking",
       "levels": {
         "beginner": [
           {
@@ -9038,10 +9994,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Ethical Hacking",
+        "White Hat Hacking",
+        "Certified Ethical Hacker",
+        "CEH"
+      ]
     },
     {
-      "skill_name": "Malware Analysis",
       "levels": {
         "beginner": [
           {
@@ -9091,10 +10052,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Malware Analysis",
+        "Malware",
+        "Virus Analysis",
+        "Malware Reverse Engineering"
+      ]
     },
     {
-      "skill_name": "Digital Forensics",
       "levels": {
         "beginner": [
           {
@@ -9139,15 +10105,20 @@
           {
             "title": "Cloud Forensics",
             "platform": "NIST",
-            "url": "https://csrc.nist.gov/publications/detail/sp/800-171/final",
+            "url": "https://csrc.nist.gov/pubs/sp/800/171/final",
             "description": "Cloud evidence collection",
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Digital Forensics",
+        "Computer Forensics",
+        "Cyber Forensics",
+        "DFIR"
+      ]
     },
     {
-      "skill_name": "Threat Intelligence",
       "levels": {
         "beginner": [
           {
@@ -9160,7 +10131,7 @@
           {
             "title": "Introduction to CTI",
             "platform": "SANS",
-            "url": "https://www.sans.org/cyber-security-courses/threat-intelligence/",
+            "url": "https://www.sans.org/cyber-security-skills/threat-intelligence/",
             "description": "Cyber threat intelligence",
             "duration": "Self-paced"
           }
@@ -9197,10 +10168,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Threat Intelligence",
+        "Cyber Threat Intelligence",
+        "CTI",
+        "Threat Hunting"
+      ]
     },
     {
-      "skill_name": "SIEM (Splunk / ELK)",
       "levels": {
         "beginner": [
           {
@@ -9229,7 +10205,7 @@
           {
             "title": "Splunk SPL",
             "platform": "Splunk",
-            "url": "https://docs.splunk.com/Documentation/SPLUNK/latest/SearchReference/WhatsInThisManual",
+            "url": "https://docs.splunk.com/Documentation/Splunk/latest/SearchReference/WhatsInThisManual",
             "description": "Splunk search language",
             "duration": "Self-paced"
           }
@@ -9250,10 +10226,17 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "SIEM",
+        "Splunk",
+        "ELK Stack",
+        "Elastic Stack",
+        "Security Information and Event Management",
+        "Log Analysis"
+      ]
     },
     {
-      "skill_name": "Network Monitoring",
       "levels": {
         "beginner": [
           {
@@ -9303,10 +10286,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Network Monitoring",
+        "Network Analysis",
+        "Traffic Analysis",
+        "Network Traffic Analysis"
+      ]
     },
     {
-      "skill_name": "Penetration Testing Tools (Metasploit / Burp Suite / Nmap)",
       "levels": {
         "beginner": [
           {
@@ -9356,10 +10344,17 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Penetration Testing Tools",
+        "Metasploit",
+        "Burp Suite",
+        "Nmap",
+        "Pen Testing Tools",
+        "Security Tools"
+      ]
     },
     {
-      "skill_name": "Reverse Engineering",
       "levels": {
         "beginner": [
           {
@@ -9409,10 +10404,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Reverse Engineering",
+        "RE",
+        "Software Reverse Engineering",
+        "Binary Analysis"
+      ]
     },
     {
-      "skill_name": "Web Application Firewall (WAF)",
       "levels": {
         "beginner": [
           {
@@ -9462,10 +10462,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "WAF",
+        "Web Application Firewall",
+        "Application Firewall",
+        "Cloudflare WAF"
+      ]
     },
     {
-      "skill_name": "Container Security",
       "levels": {
         "beginner": [
           {
@@ -9515,10 +10520,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Container Security",
+        "Docker Security",
+        "Kubernetes Security",
+        "K8s Security"
+      ]
     },
     {
-      "skill_name": "Serverless Security",
       "levels": {
         "beginner": [
           {
@@ -9568,10 +10578,15 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Serverless Security",
+        "Lambda Security",
+        "Function Security",
+        "FaaS Security"
+      ]
     },
     {
-      "skill_name": "Zero Trust Architecture",
       "levels": {
         "beginner": [
           {
@@ -9609,7 +10624,7 @@
           {
             "title": "Zero Trust Network Access",
             "platform": "Zscaler",
-            "url": "https://www.zscaler.com/resources/security-terms/what-is-zero-trust-network-access-ztna",
+            "url": "https://www.zscaler.com/resources/security-terms-glossary/what-is-zero-trust-network-access",
             "description": "ZTNA implementation",
             "duration": "Self-paced"
           },
@@ -9621,10 +10636,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Zero Trust",
+        "Zero Trust Architecture",
+        "ZTA",
+        "Zero Trust Model",
+        "Never Trust Always Verify"
+      ]
     },
     {
-      "skill_name": "Secure Coding Practices",
       "levels": {
         "beginner": [
           {
@@ -9674,10 +10695,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Secure Coding",
+        "Secure Programming",
+        "Secure Development",
+        "Security by Design",
+        "Defensive Programming"
+      ]
     },
     {
-      "skill_name": "Data Privacy & Encryption",
       "levels": {
         "beginner": [
           {
@@ -9727,7 +10754,16 @@
             "duration": "Self-paced"
           }
         ]
-      }
+      },
+      "skill_names": [
+        "Data Privacy",
+        "Data Protection",
+        "Encryption",
+        "Data Encryption",
+        "Privacy Engineering",
+        "Pseudonymization",
+        "Anonymization"
+      ]
     }
   ]
 }
