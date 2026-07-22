@@ -39,3 +39,11 @@ export const jobsAPI = {
   getDetails: (jobId) => API.get(`/jobs/${jobId}`),
 }
 
+export const profileAPI = {
+  getProfile: () => API.get('/profile'),
+  uploadProfile: (formData) => API.post('/profile/upload', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  }),
+  updateProfile: (data) => API.put('/profile', data),
+}
+

@@ -9,7 +9,6 @@ const analysisSchema = new Schema(
     shortSummary: { type: String },
     matchingSkills: [{ type: String }],
     missingSkills: [{ type: String }],
-    requiredSkills: [{ type: String }],
     importantMissingSkillsToLearn: [{ type: String }],
     resumeTailoringsuggestions: [{ type: String }],
     targetRole: { type: String },

@@ -48,6 +48,14 @@ const extractText = async (file) => {
 };
 
 
+/**
+ * Extracts text from a single uploaded file (multer file object).
+ * Exported so it can be reused by the profile upload flow.
+ */
+export const extractResumeText = async (file) => {
+  return extractText(file);
+};
+
 export const getResumeJdText = async ({ files, body }) => {
   const resume = getFile(files, "resume");
   const jdFile = getFile(files, "jd");

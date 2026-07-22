@@ -8,6 +8,7 @@ import authRoutes from './routes/auth.routes.js'
 import analysisRoutes from './routes/analysis.routes.js'
 import learningRoutes from './routes/learning.routes.js'
 import jobRoutes from './routes/job.routes.js'
+import profileRoutes from './routes/profile.routes.js'
 
 
 const app = express();
@@ -20,7 +21,7 @@ app.use(express.json());
 app.use(cookieparser());
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173', 'http://localhost:5174'],
     credentials: true,
 }))
 
@@ -28,6 +29,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/upload', analysisRoutes);
 app.use('/api/learning', learningRoutes);
 app.use('/api/jobs', jobRoutes);
+app.use('/api/profile', profileRoutes);
 
 app.listen(PORT, () => {
     connectDB();

@@ -6,6 +6,7 @@ import LandingPage from './pages/LandingPage'
 import AuthPage from './pages/AuthPage'
 import DashboardPage from './pages/DashboardPage'
 import NotFoundPage from './pages/NotFoundPage'
+import AnalysisResultPage from './pages/AnalysisResultPage'
 import ProtectedRoute from './components/common/ProtectedRoute'
 
 function App() {
@@ -21,6 +22,14 @@ function App() {
           element={
             <ProtectedRoute>
               <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/analysis/:id"
+          element={
+            <ProtectedRoute>
+              <AnalysisResultPage />
             </ProtectedRoute>
           }
         />

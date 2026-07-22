@@ -46,12 +46,20 @@ export const generateRoadmap = async (req, res) => {
       return res.status(400).json({ success: false, message: 'Skill name is required' });
     }
 
-    // Fetch the user's latest analysis to inject context into the prompt
+    // Fetch the user's Profile and latest Analysis to inject context into the prompt
+    const Profile = (await import('../models/profile.model.js')).default;
+    const profile = await Profile.findOne({ userId: req.user._id });
     const latestAnalysis = await Analysis.findOne({ userId: req.user._id }).sort({ createdAt: -1 });
-    const currentSkills = latestAnalysis?.matchingSkills || [];
-    const targetRole = latestAnalysis?.shortSummary
-      ? latestAnalysis.shortSummary.split(' ').slice(0, 5).join(' ')
-      : 'Software Engineer';
+
+    const currentSkills = profile?.skills?.length ? profile.skills : latestAnalysis?.matchingSkills || [];
+    let targetRole = 'Software Engineer';
+    if (profile?.targetRoles?.length > 0) {
+      targetRole = profile.targetRoles[0];
+    } else if (latestAnalysis?.targetRole) {
+      targetRole = latestAnalysis.targetRole;
+    } else if (latestAnalysis?.shortSummary) {
+      targetRole = latestAnalysis.shortSummary.split(' ').slice(0, 5).join(' ');
+    }
 
     // Fetch curated course data from dataset to inject into prompt
     const courseData = getCoursesForSkill(skillName);

@@ -58,7 +58,6 @@ Provide your analysis in the following JSON format (return ONLY valid JSON, no m
   "shortSummary": "A 2-3 sentence summary of how well the resume matches the job",
   "matchingSkills": ["skill1", "skill2"],
   "missingSkills": ["skill1", "skill2"],
-  "requiredSkills": ["skill1", "skill2"],
   "importantMissingSkillsToLearn": ["skill1", "skill2"],
   "phraseImprovementSuggestions": [
     {

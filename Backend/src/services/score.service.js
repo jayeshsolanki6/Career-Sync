@@ -1,6 +1,7 @@
 const calculateSkillMatchScore = (analysis) => {
   const matchingCount = analysis.matchingSkills?.length || 0;
-  const requiredCount = analysis.requiredSkills?.length || 0;
+  const missingCount = analysis.missingSkills?.length || 0;
+  const requiredCount = matchingCount + missingCount;
 
   if (requiredCount === 0) {
     return 0;
@@ -30,12 +31,16 @@ export const calculateMatchScore = (analysis) => {
   const experienceScore = calculateExperienceAlignmentScore(analysis);
   const overall = Math.round(skillScore * 0.7 + experienceScore * 0.3);
 
+  const matchingCount = analysis.matchingSkills?.length || 0;
+  const missingCount = analysis.missingSkills?.length || 0;
+  const totalRequired = matchingCount + missingCount;
+
   return {
     overall,
     breakdown: {
       skillMatch: {
         score: skillScore,
-        description: `${analysis.matchingSkills?.length || 0}/${analysis.requiredSkills?.length || 0} required skills found`,
+        description: `${matchingCount}/${totalRequired} required skills found`,
       },
       experienceAlignment: {
         score: experienceScore,
