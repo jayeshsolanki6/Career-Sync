@@ -4,8 +4,8 @@ const ScoreRing = ({ score, size = 80, strokeWidth = 7 }) => {
   const dashArray = `${(score / 100) * circ} ${circ}`
 
   const getColors = () => {
-    if (score >= 80) return { stroke: '#6366f1', text: 'text-indigo-600' }
-    if (score >= 60) return { stroke: '#22c55e', text: 'text-green-600' }
+    if (score >= 80) return { stroke: '#0f172a', text: 'text-[#0f172a]' }
+    if (score >= 60) return { stroke: '#10b981', text: 'text-emerald-600' }
     if (score >= 40) return { stroke: '#f59e0b', text: 'text-amber-600' }
     return { stroke: '#ef4444', text: 'text-red-600' }
   }

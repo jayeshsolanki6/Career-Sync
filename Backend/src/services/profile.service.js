@@ -1,20 +1,6 @@
-import OpenAI from 'openai';
-import dotenv from 'dotenv';
-dotenv.config();
+import { callAI } from './ai.service.js';
 
-/**
- * Calls the LLM to extract structured profile data AND perform a baseline
- * resume health analysis from resume text alone (no JD needed).
- *
- * @param {string} resumeText - Raw text extracted from the uploaded resume.
- * @returns {Promise<Object>} - Parsed structured profile + health data.
- */
 export const extractProfileFromResume = async (resumeText) => {
-  const client = new OpenAI({
-    apiKey: process.env.GROQ_API_KEY,
-    baseURL: 'https://api.groq.com/openai/v1',
-  });
-
   const prompt = `You are an expert career counselor and resume analyst. Analyze the following resume and extract structured information.
 
 RESUME:
@@ -59,19 +45,9 @@ Rules:
 - phraseImprovements: Find exactly 3 weak or passive bullet points/phrases from the resume, and provide a tailored, highly impactful rewrite for each, along with a brief reason.
 - Return ONLY valid JSON.`;
 
-  const response = await client.responses.create({
-    model: 'openai/gpt-oss-120b',
-    input: prompt,
-  });
-
-  const text = response.output_text?.trim();
-  if (!text) throw new Error('Empty response from AI profile extraction.');
-
   try {
-    return JSON.parse(text);
-  } catch {
-    // Try stripping accidental markdown fences
-    const cleaned = text.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim();
-    return JSON.parse(cleaned);
+    return await callAI(prompt);
+  } catch (error) {
+    throw new Error(`Profile extraction failed: ${error.message}`);
   }
 };

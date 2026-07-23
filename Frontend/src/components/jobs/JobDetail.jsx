@@ -36,12 +36,12 @@ const Section = ({ title, children }) => (
 const JobDetail = ({ job, profile, analyzing, onAnalyze }) => {
   if (!job) {
     return (
-      <div className="flex flex-col items-center justify-center h-full text-center p-8 bg-gray-50 rounded-xl border border-dashed border-gray-200">
-        <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm border border-gray-200">
-          <Building2 size={28} className="text-indigo-400" />
+      <div className="flex flex-col items-center justify-center h-full text-center p-8 bg-[#f8fafc] rounded-xl border border-dashed border-[#e2e8f0]">
+        <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-xs border border-[#e2e8f0]">
+          <Building2 size={28} className="text-[#0f172a]" />
         </div>
-        <h3 className="text-base font-semibold text-gray-900 mb-1">No Job Selected</h3>
-        <p className="text-sm text-gray-500 max-w-[240px]">
+        <h3 className="text-base font-bold text-[#0f172a] font-display mb-1">No Job Selected</h3>
+        <p className="text-sm text-[#64748b] max-w-[240px]">
           Click on any job card to view full details and apply.
         </p>
       </div>
@@ -49,7 +49,7 @@ const JobDetail = ({ job, profile, analyzing, onAnalyze }) => {
   }
 
   const salary = formatSalary(job.salary)
-  const typeColor = TYPE_COLORS[job.employmentType] || 'bg-gray-50 text-gray-600 border-gray-200'
+  const typeColor = TYPE_COLORS[job.employmentType] || 'bg-[#f8fafc] text-[#475569] border-[#e2e8f0]'
 
   const matchingSkills = []
   const missingSkills = []
@@ -64,57 +64,59 @@ const JobDetail = ({ job, profile, analyzing, onAnalyze }) => {
   }
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col h-full">
+    <div className="bg-white rounded-xl border border-[#e2e8f0] shadow-xs overflow-hidden flex flex-col h-full">
       {/* Header */}
-      <div className="p-6 border-b border-gray-200">
-        <div className="flex items-start gap-4 mb-4">
-          <div className="w-14 h-14 rounded-xl border border-gray-200 bg-gray-50 flex items-center justify-center shrink-0 overflow-hidden">
+      <div className="p-4 border-b border-[#e2e8f0] bg-white shrink-0 space-y-3">
+        <div className="flex items-start gap-3">
+          <div className="w-10 h-10 rounded-lg border border-[#e2e8f0] bg-[#f8fafc] flex items-center justify-center shrink-0 overflow-hidden mt-0.5">
             {job.companyLogo
-              ? <img src={job.companyLogo} alt={job.company} className="w-12 h-12 object-contain" onError={(e) => { e.target.style.display = 'none' }} />
-              : <Building2 size={22} className="text-gray-400" />}
+              ? <img src={job.companyLogo} alt={job.company} className="w-8 h-8 object-contain" onError={(e) => { e.target.style.display = 'none' }} />
+              : <Building2 size={18} className="text-[#94a3b8]" />}
           </div>
           <div className="flex-1 min-w-0">
-            <h2 className="text-xl font-bold text-gray-900 leading-tight">{job.title}</h2>
-            <p className="text-gray-500 font-medium mt-0.5">{job.company}</p>
-            <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2">
-              <span className="flex items-center gap-1.5 text-sm text-gray-400"><MapPin size={13} />{job.location}</span>
-              <span className="flex items-center gap-1.5 text-sm text-gray-400"><Calendar size={13} />{timeAgo(job.postedAt)}</span>
-              {job.publisher && <span className="flex items-center gap-1.5 text-sm text-gray-400"><Star size={13} />{job.publisher}</span>}
+            <h2 className="text-base sm:text-lg font-bold text-[#0f172a] font-display leading-snug">{job.title}</h2>
+            <p className="text-xs sm:text-sm text-[#64748b] font-medium">{job.company}</p>
+            <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-1 text-xs text-[#64748b]">
+              <span className="flex items-center gap-1"><MapPin size={12} />{job.location}</span>
+              <span className="flex items-center gap-1"><Calendar size={12} />{timeAgo(job.postedAt)}</span>
+              {job.publisher && <span className="flex items-center gap-1"><Star size={12} />{job.publisher}</span>}
             </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-4">
-          <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${typeColor}`}>
-            {job.employmentType?.replace('_', '-') || 'N/A'}
-          </span>
-          {job.isRemote && <span className="text-xs font-semibold px-3 py-1 rounded-full border bg-green-50 text-green-700 border-green-200">Remote</span>}
-          {salary && (
-            <span className="text-xs font-semibold px-3 py-1 rounded-full border bg-gray-50 text-gray-600 border-gray-200 flex items-center gap-1">
-              <DollarSign size={10} />{salary}
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[#f1f5f9]">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${typeColor}`}>
+              {job.employmentType?.replace('_', '-') || 'N/A'}
             </span>
-          )}
-        </div>
+            {job.isRemote && <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-emerald-50 text-emerald-700 border-emerald-200">Remote</span>}
+            {salary && (
+              <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-[#f8fafc] text-[#475569] border-[#e2e8f0] flex items-center gap-1">
+                <DollarSign size={10} />{salary}
+              </span>
+            )}
+          </div>
 
-        <div className="flex flex-wrap gap-3">
-          <a
-            href={job.applyLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors"
-          >
-            Apply Now <ExternalLink size={14} />
-          </a>
-          {profile && (
-            <button
-              onClick={onAnalyze}
-              disabled={analyzing}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-medium rounded-lg transition-colors disabled:opacity-60 cursor-pointer"
+          <div className="flex items-center gap-2">
+            <a
+              href={job.applyLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#0f172a] hover:bg-[#1e293b] text-white text-xs font-semibold rounded-lg transition-colors"
             >
-              {analyzing ? <Loader2 size={14} className="animate-spin" /> : <Star size={14} />}
-              {analyzing ? 'Analyzing…' : 'Analyze My Fit'}
-            </button>
-          )}
+              Apply Now <ExternalLink size={13} />
+            </a>
+            {profile && (
+              <button
+                onClick={onAnalyze}
+                disabled={analyzing}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-[#e2e8f0] text-[#0f172a] hover:bg-[#f8fafc] text-xs font-semibold rounded-lg transition-colors disabled:opacity-60 cursor-pointer"
+              >
+                {analyzing ? <Loader2 size={13} className="animate-spin" /> : <Star size={13} />}
+                {analyzing ? 'Analyzing…' : 'Analyze My Fit'}
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -124,8 +126,8 @@ const JobDetail = ({ job, profile, analyzing, onAnalyze }) => {
           <Section title="Qualifications">
             <ul className="space-y-1.5">
               {job.highlights.qualifications.map((q, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                  <CheckCircle2 size={14} className="text-indigo-500 mt-0.5 shrink-0" /> {q}
+                <li key={i} className="flex items-start gap-2 text-sm text-[#475569]">
+                  <CheckCircle2 size={14} className="text-[#0f172a] mt-0.5 shrink-0" /> {q}
                 </li>
               ))}
             </ul>

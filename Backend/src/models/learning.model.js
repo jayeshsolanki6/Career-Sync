@@ -9,7 +9,8 @@ const learningItemSchema = new Schema(
     },
     skillName: {
       type: String,
-      required: true
+      required: true,
+      trim: true,
     },
     status: {
       type: String,

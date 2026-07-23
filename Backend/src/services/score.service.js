@@ -1,54 +1,25 @@
-const calculateSkillMatchScore = (analysis) => {
-  const matchingCount = analysis.matchingSkills?.length || 0;
-  const missingCount = analysis.missingSkills?.length || 0;
-  const requiredCount = matchingCount + missingCount;
-
-  if (requiredCount === 0) {
-    return 0;
-  }
-
-  return Math.round((matchingCount / requiredCount) * 100);
-};
-
-const calculateExperienceAlignmentScore = (analysis) => {
-  const required = analysis.requiredExperience?.years || 0;
-  const current = analysis.currentExperience?.years || 0;
-
-  if (current >= required) {
-    return 100;
-  }
-
-  if (required === 0) {
-    return 0;
-  }
-
-  const experienceRatio = current / required;
-  return Math.round(experienceRatio * 100);
-};
-
-export const calculateMatchScore = (analysis) => {
-  const skillScore = calculateSkillMatchScore(analysis);
-  const experienceScore = calculateExperienceAlignmentScore(analysis);
-  const overall = Math.round(skillScore * 0.7 + experienceScore * 0.3);
-
-  const matchingCount = analysis.matchingSkills?.length || 0;
-  const missingCount = analysis.missingSkills?.length || 0;
-  const totalRequired = matchingCount + missingCount;
+/**
+ * Formats the LLM-generated score object directly.
+ * Performs ZERO calculations — uses the raw scores provided by the LLM response.
+ */
+export function calculateMatchScore(analysis) {
+  const scoreObj = typeof analysis?.score === 'object' ? analysis.score : {};
+  const overall = typeof scoreObj.overall === 'number' ? scoreObj.overall : (typeof analysis?.score === 'number' ? analysis.score : 0);
 
   return {
     overall,
     breakdown: {
       skillMatch: {
-        score: skillScore,
-        description: `${matchingCount}/${totalRequired} required skills found`,
+        score: typeof scoreObj.breakdown?.skillMatch?.score === 'number' ? scoreObj.breakdown.skillMatch.score : overall,
+        description: scoreObj.breakdown?.skillMatch?.description || '',
       },
       experienceAlignment: {
-        score: experienceScore,
-        description: `${analysis.currentExperience?.years || 0} years vs ${analysis.requiredExperience?.years || 0} required`,
+        score: typeof scoreObj.breakdown?.experienceAlignment?.score === 'number' ? scoreObj.breakdown.experienceAlignment.score : 100,
+        description: scoreObj.breakdown?.experienceAlignment?.description || '',
       },
     },
   };
-};
+}
 
 export const generateScoreInterpretation = (score) => {
   if (score >= 80) {
@@ -56,8 +27,7 @@ export const generateScoreInterpretation = (score) => {
       level: 'Excellent Match',
       color: '#10b981',
       recommendation: 'Highly qualified. Consider for interview.',
-      description:
-        'Strong candidate with most required skills and experience alignment.',
+      description: 'Strong candidate with most required skills and experience alignment.',
     };
   } else if (score >= 60) {
     return {
@@ -71,24 +41,21 @@ export const generateScoreInterpretation = (score) => {
       level: 'Moderate Match',
       color: '#f59e0b',
       recommendation: 'Potential. Requires ramp-up and training.',
-      description:
-        'Candidate has foundation but will need time to acquire missing skills.',
+      description: 'Candidate has foundation but will need time to acquire missing skills.',
     };
   } else if (score >= 20) {
     return {
       level: 'Poor Match',
       color: '#ef4444',
       recommendation: 'Consider only if pipeline is empty. Requires mentoring.',
-      description:
-        'Significant gap between candidate profile and role requirements.',
+      description: 'Significant gap between candidate profile and role requirements.',
     };
   } else {
     return {
       level: 'Not a Match',
       color: '#7f1d1d',
       recommendation: 'Not recommended. Major misalignment.',
-      description:
-        'Candidate profile does not align with role requirements.',
+      description: 'Candidate profile does not align with role requirements.',
     };
   }
 };

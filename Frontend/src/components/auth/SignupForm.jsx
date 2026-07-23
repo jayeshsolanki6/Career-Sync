@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { Mail, Lock, User, UserPlus } from 'lucide-react'
 import Input from '../common/Input'
 import Button from '../common/Button'
-import { useAuth } from '../../context/AuthContext'
+import { useAuthStore } from '../../stores/useAuthStore'
 
 const SignupForm = ({ onToggle }) => {
-  const { signup } = useAuth()
+  const signup = useAuthStore((state) => state.signup)
   const [form, setForm] = useState({ fullName: '', email: '', password: '' })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -37,13 +37,13 @@ const SignupForm = ({ onToggle }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-text-primary">Create your account</h2>
-        <p className="text-text-secondary text-sm mt-1.5">Start analyzing your resume in seconds</p>
+      <div className="text-center mb-6">
+        <h2 className="text-2xl font-bold text-[#0f172a] font-display">Create your account</h2>
+        <p className="text-[#475569] text-sm mt-1">Start analyzing your resume in seconds</p>
       </div>
 
       {error && (
-        <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm text-center">
+        <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm text-center">
           {error}
         </div>
       )}
@@ -88,9 +88,9 @@ const SignupForm = ({ onToggle }) => {
         Create Account
       </Button>
 
-      <p className="text-center text-sm text-text-secondary">
+      <p className="text-center text-sm text-[#475569]">
         Already have an account?{' '}
-        <button type="button" onClick={onToggle} className="text-primary-600 font-semibold hover:text-primary-700 transition-colors cursor-pointer">
+        <button type="button" onClick={onToggle} className="text-[#0f172a] font-semibold hover:underline transition-colors cursor-pointer">
           Sign in
         </button>
       </p>

@@ -41,7 +41,7 @@ const HistoryDetail = ({ item, onLearnSkill }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="bg-white border border-t-0 border-indigo-300 rounded-b-xl p-6 space-y-8"
+      className="bg-white border border-t-0 border-[#e2e8f0] rounded-b-xl p-6 space-y-8"
     >
       {/* SECTION 1: HEADER & SECTION 2: EXPERIENCE */}
       <div className="space-y-6">
@@ -49,14 +49,14 @@ const HistoryDetail = ({ item, onLearnSkill }) => {
           <ScoreRing score={item.score} size={80} />
           <div className="flex-1">
             <div className="flex items-center justify-between">
-              <h3 className="text-xl font-bold text-gray-900">{getScoreLabel(item.score)} Match</h3>
+              <h3 className="text-xl font-bold text-[#0f172a] font-display">{getScoreLabel(item.score)} Match</h3>
             </div>
-            <p className="text-sm text-gray-600 mt-1 leading-relaxed">{item.shortSummary}</p>
+            <p className="text-sm text-[#475569] mt-1 leading-relaxed">{item.shortSummary}</p>
             
             {item.targetRole && (
               <div className="mt-3 flex items-center gap-2">
-                <span className="text-[10px] font-bold text-gray-400 uppercase">Target Role:</span>
-                <span className="px-2.5 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-100 rounded-full text-xs font-semibold">
+                <span className="text-[10px] font-bold text-[#64748b] uppercase">Target Role:</span>
+                <span className="px-2.5 py-0.5 bg-[#f8fafc] text-[#0f172a] border border-[#e2e8f0] rounded-full text-xs font-semibold">
                   {item.targetRole}
                 </span>
               </div>
@@ -88,6 +88,40 @@ const HistoryDetail = ({ item, onLearnSkill }) => {
       </div>
 
       <hr className="border-gray-200" />
+
+      {/* SECTION 2.5: ATS KEYWORDS */}
+      {item.atsKeywords?.length > 0 && (
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <h4 className="text-xs font-bold text-[#0f172a] font-display uppercase tracking-wider">ATS EXTRACTED KEYWORDS</h4>
+            <span className="text-[10px] font-semibold text-[#64748b] bg-[#f8fafc] px-2 py-0.5 rounded border border-[#e2e8f0]">
+              {item.atsKeywords.length} tags
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {item.atsKeywords.map((kwItem, idx) => {
+              const kw = typeof kwItem === 'object' && kwItem !== null ? kwItem.skill || '' : String(kwItem || '')
+              const isMatched = item.matchingSkills?.some(s => {
+                const sName = typeof s === 'object' && s !== null ? s.skill || '' : String(s || '')
+                return sName.toLowerCase() === kw.toLowerCase()
+              })
+              return (
+                <span
+                  key={idx}
+                  className={`px-2.5 py-0.5 rounded-md text-xs font-semibold border ${
+                    isMatched
+                      ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                      : 'bg-[#f8fafc] text-[#334155] border-[#e2e8f0]'
+                  }`}
+                >
+                  {kw}
+                </span>
+              )
+            })}
+          </div>
+          <hr className="border-gray-200 mt-4" />
+        </div>
+      )}
 
       {/* SECTION 3: SKILLS BREAKDOWN */}
       <div className="space-y-4">

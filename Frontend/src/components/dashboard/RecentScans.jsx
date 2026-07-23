@@ -2,10 +2,10 @@ import { ChevronRight, Clock } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 const getScoreStyle = (score) => {
-  if (score >= 80) return 'text-indigo-600 bg-indigo-50 border-indigo-200'
-  if (score >= 60) return 'text-green-600 bg-green-50 border-green-200'
-  if (score >= 40) return 'text-amber-600 bg-amber-50 border-amber-200'
-  return 'text-red-600 bg-red-50 border-red-200'
+  if (score >= 80) return 'text-[#0f172a] bg-[#f8fafc] border-[#e2e8f0]'
+  if (score >= 60) return 'text-emerald-700 bg-emerald-50 border-emerald-200'
+  if (score >= 40) return 'text-amber-700 bg-amber-50 border-amber-200'
+  return 'text-red-700 bg-red-50 border-red-200'
 }
 
 const RecentScans = ({ analyses = [], onViewAll }) => {
@@ -14,7 +14,7 @@ const RecentScans = ({ analyses = [], onViewAll }) => {
   if (!analyses.length) {
     return (
       <div className="flex flex-col items-center justify-center h-full min-h-[160px] text-center px-4">
-        <p className="text-gray-400 text-sm">No analyses yet.</p>
+        <p className="text-[#64748b] text-sm">No analyses yet.</p>
       </div>
     )
   }
@@ -22,10 +22,10 @@ const RecentScans = ({ analyses = [], onViewAll }) => {
   return (
     <div className="flex flex-col h-full">
       <div className="flex items-center justify-between mb-3">
-        <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">Recent Scans</p>
+        <p className="text-xs font-semibold uppercase tracking-wide text-[#64748b]">Recent Scans</p>
         <button
           onClick={onViewAll}
-          className="text-xs font-semibold text-indigo-600 hover:text-indigo-700 flex items-center gap-1 transition-colors cursor-pointer"
+          className="text-xs font-semibold text-[#0f172a] hover:underline flex items-center gap-1 transition-colors cursor-pointer"
         >
           View All <ChevronRight size={13} />
         </button>

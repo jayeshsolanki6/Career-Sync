@@ -1,12 +1,16 @@
 import { useState, useRef } from 'react'
-import { X, Upload, FileText, ArrowRight, Loader2, AlertTriangle, User as UserIcon } from 'lucide-react'
+import { X, ArrowRight, Loader2, AlertTriangle, User as UserIcon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { uploadAPI, analysisAPI } from '../../services/api'
-import { useProfile } from '../../context/ProfileContext'
+import { useProfileStore } from '../../stores/useProfileStore'
 import { useNavigate } from 'react-router-dom'
+import FileDropZone from '../common/FileDropZone'
 
+/**
+ * Slide-over drawer component for triggering a new analysis.
+ */
 const AnalysisDrawer = ({ isOpen, onClose }) => {
-  const { profile } = useProfile()
+  const profile = useProfileStore((state) => state.profile)
   const navigate = useNavigate()
   const [resumeFile, setResumeFile] = useState(null)
   const [useAlternativeResume, setUseAlternativeResume] = useState(false)
@@ -48,10 +52,10 @@ const AnalysisDrawer = ({ isOpen, onClose }) => {
 
       await uploadAPI.analyzeResume(formData)
       
-      // Fetch history to get the newly created analysis ID
       const historyRes = await analysisAPI.getHistory()
       const newAnalysisId = historyRes.data.data[0]._id
       
+      handleReset()
       onClose()
       navigate(`/analysis/${newAnalysisId}`)
     } catch (err) {
@@ -112,24 +116,24 @@ const AnalysisDrawer = ({ isOpen, onClose }) => {
                 )}
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-3">Resume</label>
+                  <label className="block text-sm font-bold text-[#0f172a] font-display mb-3">Resume</label>
                   {profile ? (
                     <div className="space-y-3">
                       {!useAlternativeResume ? (
-                        <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4 flex items-center justify-between">
+                        <div className="bg-[#f8fafc] border border-[#e2e8f0] rounded-xl p-4 flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-9 h-9 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center">
+                            <div className="w-9 h-9 bg-white border border-[#e2e8f0] text-[#0f172a] rounded-lg flex items-center justify-center">
                               <UserIcon size={18} />
                             </div>
                             <div>
-                              <p className="text-sm font-semibold text-gray-900">Using Master Profile</p>
-                              <p className="text-xs text-gray-500">Your saved resume will be used.</p>
+                              <p className="text-sm font-bold text-[#0f172a]">Using Master Profile</p>
+                              <p className="text-xs text-[#64748b]">Your saved resume will be used.</p>
                             </div>
                           </div>
                           <button
                             onClick={() => setUseAlternativeResume(true)}
                             disabled={loading}
-                            className="text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors cursor-pointer disabled:opacity-50"
+                            className="text-xs font-semibold text-[#0f172a] hover:underline transition-colors cursor-pointer disabled:opacity-50"
                           >
                             Upload Alternative
                           </button>
@@ -137,11 +141,11 @@ const AnalysisDrawer = ({ isOpen, onClose }) => {
                       ) : (
                         <div className="space-y-2">
                           <div className="flex items-center justify-between">
-                            <p className="text-xs text-gray-500">Uploading an alternative resume for this analysis only.</p>
+                            <p className="text-xs text-[#64748b]">Uploading an alternative resume for this analysis only.</p>
                             <button
                               onClick={() => { setUseAlternativeResume(false); setResumeFile(null) }}
                               disabled={loading}
-                              className="text-xs font-semibold text-indigo-600 hover:text-indigo-700 cursor-pointer disabled:opacity-50"
+                              className="text-xs font-semibold text-[#0f172a] hover:underline cursor-pointer disabled:opacity-50"
                             >
                               Use Master Profile
                             </button>
@@ -179,19 +183,19 @@ const AnalysisDrawer = ({ isOpen, onClose }) => {
 
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <label className="text-sm font-semibold text-gray-900">Job Description</label>
-                    <div className="flex bg-gray-100 rounded-lg p-0.5">
+                    <label className="text-sm font-bold text-[#0f172a] font-display">Job Description</label>
+                    <div className="flex bg-[#f8fafc] border border-[#e2e8f0] rounded-lg p-0.5">
                       <button
                         onClick={() => setJdMode('text')}
                         disabled={loading}
-                        className={`px-3 py-1 text-xs font-medium rounded-md transition-all cursor-pointer disabled:opacity-50 ${jdMode === 'text' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                        className={`px-3 py-1 text-xs font-medium rounded-md transition-all cursor-pointer disabled:opacity-50 ${jdMode === 'text' ? 'bg-white text-[#0f172a] shadow-xs' : 'text-[#64748b] hover:text-[#0f172a]'}`}
                       >
                         Paste Text
                       </button>
                       <button
                         onClick={() => setJdMode('file')}
                         disabled={loading}
-                        className={`px-3 py-1 text-xs font-medium rounded-md transition-all cursor-pointer disabled:opacity-50 ${jdMode === 'file' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                        className={`px-3 py-1 text-xs font-medium rounded-md transition-all cursor-pointer disabled:opacity-50 ${jdMode === 'file' ? 'bg-white text-[#0f172a] shadow-xs' : 'text-[#64748b] hover:text-[#0f172a]'}`}
                       >
                         Upload File
                       </button>
@@ -204,7 +208,7 @@ const AnalysisDrawer = ({ isOpen, onClose }) => {
                       disabled={loading}
                       placeholder="Paste the job description here..."
                       rows={8}
-                      className="w-full rounded-xl border border-gray-200 p-4 text-sm text-gray-900 placeholder:text-gray-400 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 resize-none transition-all disabled:opacity-60"
+                      className="w-full rounded-lg border border-[#e2e8f0] p-4 text-sm text-[#0f172a] placeholder:text-[#94a3b8] outline-none focus:border-[#0f172a] focus:ring-1 focus:ring-[#0f172a] resize-none transition-all disabled:opacity-60 bg-white"
                     />
                   ) : (
                     <FileDropZone
@@ -221,7 +225,7 @@ const AnalysisDrawer = ({ isOpen, onClose }) => {
                 <button
                   onClick={handleSubmit}
                   disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-medium transition-colors disabled:opacity-60 cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-lg text-sm font-medium transition-colors disabled:opacity-60 cursor-pointer"
                 >
                   {loading ? <Loader2 size={16} className="animate-spin" /> : <ArrowRight size={16} />}
                   {loading ? 'Analyzing…' : 'Analyze Resume'}
@@ -234,46 +238,5 @@ const AnalysisDrawer = ({ isOpen, onClose }) => {
     </AnimatePresence>
   )
 }
-
-const FileDropZone = ({ file, onFileChange, onClear, inputRef, label, disabled }) => (
-  <div
-    className={`relative border-2 border-dashed rounded-xl p-6 text-center transition-all duration-200 ${
-      disabled ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'
-    } ${
-      file ? 'border-indigo-300 bg-indigo-50/50' : 'border-gray-200 hover:border-indigo-300 hover:bg-indigo-50/30'
-    }`}
-    onClick={() => !disabled && inputRef.current?.click()}
-    onDragOver={(e) => e.preventDefault()}
-    onDrop={(e) => !disabled && onFileChange(e)}
-  >
-    <input
-      ref={inputRef}
-      type="file"
-      accept=".pdf,.doc,.docx"
-      onChange={onFileChange}
-      className="hidden"
-      disabled={disabled}
-    />
-    {file ? (
-      <div className="flex items-center justify-center gap-3">
-        <FileText size={18} className="text-indigo-600" />
-        <span className="text-sm font-medium text-gray-900">{file.name}</span>
-        <button
-          onClick={(e) => { e.stopPropagation(); onClear() }}
-          disabled={disabled}
-          className="p-1 rounded-full hover:bg-red-50 text-gray-400 hover:text-red-500 transition-colors cursor-pointer disabled:opacity-50"
-        >
-          <X size={14} />
-        </button>
-      </div>
-    ) : (
-      <>
-        <Upload size={24} className="mx-auto text-gray-400 mb-2" />
-        <p className="text-sm font-medium text-gray-700">{label}</p>
-        <p className="text-xs text-gray-400 mt-1">PDF, DOC, or DOCX — Drag & drop or click</p>
-      </>
-    )}
-  </div>
-)
 
 export default AnalysisDrawer

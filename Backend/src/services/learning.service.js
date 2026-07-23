@@ -1,14 +1,9 @@
-import OpenAI from "openai";
 import dotenv from 'dotenv';
+import { callAI } from './ai.service.js';
 dotenv.config();
 
 export const generateLearningRoadmap = async (skillName, context = {}) => {
   try {
-    const client = new OpenAI({
-      apiKey: process.env.GROQ_API_KEY,
-      baseURL: "https://api.groq.com/openai/v1",
-    });
-
     const { currentSkills = [], targetRole = 'Software Engineer' } = context;
 
     const skillsContext = currentSkills.length > 0
@@ -45,14 +40,7 @@ Return ONLY valid JSON with no markdown, no code fences, no extra text:
   "projectIdea": "A specific, concrete portfolio project with a clear description of what they will build and how it demonstrates ${skillName} for a ${targetRole} role."
 }`;
 
-    // Custom API call matching analysis.service.js
-    const response = await client.responses.create({
-      model: "openai/gpt-oss-120b",
-      input: prompt,
-    });
-
-    const outputText = response.output_text;
-    const parsedResponse = JSON.parse(outputText);
+    const parsedResponse = await callAI(prompt);
     return JSON.stringify(parsedResponse);
   } catch (error) {
     throw new Error(`Roadmap generation failed: ${error.message}`);

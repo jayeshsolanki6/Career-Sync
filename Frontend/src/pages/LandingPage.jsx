@@ -1,7 +1,6 @@
 import Navbar from '../components/landing/Navbar'
 import Hero from '../components/landing/Hero'
 import Features from '../components/landing/Features'
-import Footer from '../components/landing/Footer'
 import { motion } from 'framer-motion'
 
 const LandingPage = () => {
@@ -18,7 +17,6 @@ const LandingPage = () => {
         <Hero />
         <Features />
       </main>
-      <Footer />
     </motion.div>
   )
 }

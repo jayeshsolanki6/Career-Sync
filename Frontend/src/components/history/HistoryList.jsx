@@ -20,7 +20,7 @@ const HistoryList = ({ history, loading, error, onRefresh }) => {
         </div>
         <button
           onClick={onRefresh}
-          className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer"
+          className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[#0f172a] text-white rounded-lg hover:bg-[#1e293b] transition-colors cursor-pointer"
         >
           <RefreshCw size={14} /> Try Again
         </button>
@@ -31,11 +31,11 @@ const HistoryList = ({ history, loading, error, onRefresh }) => {
   if (!history.length) {
     return (
       <div className="flex flex-col items-center justify-center py-24 text-center">
-        <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center mb-4">
-          <Inbox size={28} className="text-gray-300" />
+        <div className="w-16 h-16 rounded-2xl bg-[#f8fafc] border border-[#e2e8f0] flex items-center justify-center mb-4">
+          <Inbox size={28} className="text-[#94a3b8]" />
         </div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-1">No analyses yet</h3>
-        <p className="text-sm text-gray-500 max-w-sm">
+        <h3 className="text-lg font-bold text-[#0f172a] font-display mb-1">No analyses yet</h3>
+        <p className="text-sm text-[#64748b] max-w-sm">
           Your analysis history will appear here once you run your first resume analysis.
         </p>
       </div>

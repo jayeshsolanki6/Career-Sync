@@ -11,12 +11,12 @@ const Logo = ({ size = 'md', linkTo = '/' }) => {
   const s = sizes[size]
 
   return (
-    <Link to={linkTo} className="flex items-center gap-2 no-underline group">
-      <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 shadow-md shadow-primary-200 group-hover:shadow-lg group-hover:shadow-primary-300 transition-all duration-300">
-        <Zap size={s.icon} className="text-white" strokeWidth={2.5} />
+    <Link to={linkTo} className="flex items-center gap-2.5 no-underline group">
+      <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#0f172a] text-white transition-transform group-hover:scale-105">
+        <Zap size={s.icon} className="text-[#10b981]" strokeWidth={2.2} />
       </div>
-      <span className={`${s.text} font-bold text-text-primary tracking-tight`}>
-        Career<span className="text-primary-600">Sync</span>
+      <span className={`${s.text} font-bold text-[#0f172a] tracking-tight font-display`}>
+        Career<span className="text-[#475569]">Sync</span>
       </span>
     </Link>
   )

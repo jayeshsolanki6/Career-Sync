@@ -1,6 +1,7 @@
+import { useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
-import { useAuth } from './context/AuthContext'
+import { useAuthStore } from './stores/useAuthStore'
 
 import LandingPage from './pages/LandingPage'
 import AuthPage from './pages/AuthPage'
@@ -10,7 +11,12 @@ import AnalysisResultPage from './pages/AnalysisResultPage'
 import ProtectedRoute from './components/common/ProtectedRoute'
 
 function App() {
-  const { user } = useAuth()
+  const user = useAuthStore((state) => state.user)
+  const checkAuth = useAuthStore((state) => state.checkAuth)
+
+  useEffect(() => {
+    checkAuth()
+  }, [checkAuth])
 
   return (
     <AnimatePresence mode="wait">
@@ -22,6 +28,14 @@ function App() {
           element={
             <ProtectedRoute>
               <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/analysis/new"
+          element={
+            <ProtectedRoute>
+              <Navigate to="/dashboard?section=new-analysis" replace />
             </ProtectedRoute>
           }
         />

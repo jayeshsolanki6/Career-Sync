@@ -11,8 +11,8 @@ const TailoringCard = ({ suggestions = [] }) => {
       </p>
       <ul className="space-y-3">
         {suggestions.map((s, i) => (
-          <li key={i} className="flex gap-3 text-sm text-gray-700">
-            <span className="shrink-0 w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs font-medium mt-0.5">
+          <li key={i} className="flex gap-3 text-sm text-[#334155]">
+            <span className="shrink-0 w-5 h-5 rounded-full bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0] flex items-center justify-center text-xs font-semibold mt-0.5">
               {i + 1}
             </span>
             <span className="leading-relaxed">{s}</span>

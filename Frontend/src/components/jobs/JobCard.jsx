@@ -1,10 +1,10 @@
 import { MapPin, Clock, Building2, DollarSign } from 'lucide-react'
 
 const TYPE_COLORS = {
-  FULLTIME: 'bg-green-50 text-green-700 border-green-200',
-  PARTTIME: 'bg-blue-50 text-blue-700 border-blue-200',
+  FULLTIME: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  PARTTIME: 'bg-[#f8fafc] text-[#0f172a] border-[#e2e8f0]',
   CONTRACTOR: 'bg-amber-50 text-amber-700 border-amber-200',
-  INTERN: 'bg-purple-50 text-purple-700 border-purple-200',
+  INTERN: 'bg-[#f8fafc] text-[#0f172a] border-[#e2e8f0]',
 }
 
 function timeAgo(dateStr) {
@@ -29,7 +29,7 @@ function formatSalary(salary) {
 
 const JobCard = ({ job, isSelected, onClick, profile }) => {
   const salary = formatSalary(job.salary)
-  const typeColor = TYPE_COLORS[job.employmentType] || 'bg-gray-50 text-gray-600 border-gray-200'
+  const typeColor = TYPE_COLORS[job.employmentType] || 'bg-[#f8fafc] text-[#475569] border-[#e2e8f0]'
 
   const matchScore = (() => {
     if (!profile?.skills?.length || !job.requiredSkills?.length) return null
@@ -39,7 +39,7 @@ const JobCard = ({ job, isSelected, onClick, profile }) => {
   })()
 
   const matchColor =
-    matchScore >= 70 ? 'bg-green-50 text-green-700 border-green-200'
+    matchScore >= 70 ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
     : matchScore >= 40 ? 'bg-amber-50 text-amber-700 border-amber-200'
     : 'bg-red-50 text-red-700 border-red-200'
 
@@ -48,8 +48,8 @@ const JobCard = ({ job, isSelected, onClick, profile }) => {
       onClick={() => onClick(job)}
       className={`w-full text-left p-4 rounded-xl border transition-all duration-150 cursor-pointer ${
         isSelected
-          ? 'border-indigo-400 bg-indigo-50 shadow-md'
-          : 'border-gray-200 bg-white hover:border-indigo-300 hover:shadow-sm'
+          ? 'border-[#0f172a] bg-[#f8fafc] shadow-xs'
+          : 'border-[#e2e8f0] bg-white hover:border-[#cbd5e1]'
       }`}
     >
       <div className="flex items-start gap-3 mb-2">

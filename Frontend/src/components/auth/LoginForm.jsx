@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { Mail, Lock, LogIn } from 'lucide-react'
 import Input from '../common/Input'
 import Button from '../common/Button'
-import { useAuth } from '../../context/AuthContext'
+import { useAuthStore } from '../../stores/useAuthStore'
 
 const LoginForm = ({ onToggle }) => {
-  const { login } = useAuth()
+  const login = useAuthStore((state) => state.login)
   const [form, setForm] = useState({ email: '', password: '' })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -31,13 +31,13 @@ const LoginForm = ({ onToggle }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-text-primary">Welcome back</h2>
-        <p className="text-text-secondary text-sm mt-1.5">Sign in to continue your analysis</p>
+      <div className="text-center mb-6">
+        <h2 className="text-2xl font-bold text-[#0f172a] font-display">Welcome back</h2>
+        <p className="text-[#475569] text-sm mt-1">Sign in to continue your analysis</p>
       </div>
 
       {error && (
-        <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm text-center">
+        <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm text-center">
           {error}
         </div>
       )}
@@ -70,9 +70,9 @@ const LoginForm = ({ onToggle }) => {
         Sign In
       </Button>
 
-      <p className="text-center text-sm text-text-secondary">
+      <p className="text-center text-sm text-[#475569]">
         Don&apos;t have an account?{' '}
-        <button type="button" onClick={onToggle} className="text-primary-600 font-semibold hover:text-primary-700 transition-colors cursor-pointer">
+        <button type="button" onClick={onToggle} className="text-[#0f172a] font-semibold hover:underline transition-colors cursor-pointer">
           Create one
         </button>
       </p>
