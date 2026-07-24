@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { TrendingUp, CheckCircle } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { learningAPI } from '../../services/api'
 import SkillsBreakdown from '../analysis/SkillsBreakdown'
 import TailoringCard from '../analysis/TailoringCard'
@@ -14,7 +14,7 @@ const getScoreLabel = (score) => {
   return 'Needs Work'
 }
 
-const HistoryDetail = ({ item, onLearnSkill }) => {
+const HistoryDetail = ({ item }) => {
   const [adding, setAdding] = useState(false)
   const [message, setMessage] = useState('')
 
@@ -27,7 +27,7 @@ const HistoryDetail = ({ item, onLearnSkill }) => {
       try {
         await learningAPI.addSkill({ skillName: skill })
         addedCount++
-      } catch (e) {
+      } catch {
         // silently skip
       }
     }

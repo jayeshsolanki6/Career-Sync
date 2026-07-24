@@ -4,12 +4,6 @@ import { calculateMatchScore, generateScoreInterpretation } from '../services/sc
 import Analysis from '../models/analysis.model.js'
 import Profile from '../models/profile.model.js'
 
-/**
- * Fetch historical scan analysis results for the current user.
- * @route GET /api/analysis/history
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
 export const getAnalysisHistoryController = async (req, res) => {
   try {
     const analyses = await Analysis.find({ userId: req.user._id }).sort({ createdAt: -1 })
@@ -25,12 +19,6 @@ export const getAnalysisHistoryController = async (req, res) => {
   }
 }
 
-/**
- * Analyze candidate resume against a job description text or file.
- * @route POST /api/analysis/upload
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
 export const uploadResumeAndJdController = async (req, res) => {
   try {
     let resumeText = null
@@ -88,17 +76,17 @@ export const uploadResumeAndJdController = async (req, res) => {
 
     await newAnalysis.save()
 
-    // Sync target role into User doc
+    // Sync target role into Profile doc if available
     const normalizedTargetRole = analysis.targetRole?.trim()
-    if (normalizedTargetRole) {
-      req.user.targetRoles = req.user.targetRoles || []
-      const hasRole = req.user.targetRoles.some(
+    if (profile && normalizedTargetRole) {
+      profile.targetRoles = profile.targetRoles || []
+      const hasRole = profile.targetRoles.some(
         (role) => role?.toLowerCase() === normalizedTargetRole.toLowerCase()
       )
       if (!hasRole) {
-        req.user.targetRoles.push(normalizedTargetRole)
+        profile.targetRoles.push(normalizedTargetRole)
+        await profile.save()
       }
-      await req.user.save()
     }
 
     return res.status(200).json({

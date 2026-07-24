@@ -18,7 +18,7 @@ const learningItemSchema = new Schema(
       default: 'To Learn'
     },
     roadmap: {
-      type: String, // To store the markdown AI generated plan
+      type: String,
       default: null
     }
   },

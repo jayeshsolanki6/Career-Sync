@@ -1,36 +1,37 @@
 # CareerSync 🎯
 
-**CareerSync** is an AI-powered resume diagnostic and ATS analytics platform designed to bridge the gap between job seekers and target job descriptions. By leveraging LLM-based document analysis, CareerSync provides candidate match scoring, ATS keyword extractions, skill gap identification, and personalized 7-day learning roadmaps.
+**CareerSync** is an AI-powered resume diagnostic and ATS analytics platform designed to bridge the gap between job seekers and target job descriptions. By leveraging LLM-based document analysis powered by Groq (`openai/gpt-oss-120b`), CareerSync provides candidate match scoring, ATS keyword extractions, sentence-level phrase rewrites, skill gap identification, and personalized 7-day learning roadmaps.
 
 ---
 
 ## 🌟 Key Features
 
 - 🎯 **LLM-Driven Match Scoring**: Evaluates candidate resumes against target job descriptions using structured AI evaluation rubrics, generating breakdown scores for **Skill Match %** and **Experience Alignment %**.
-- 📄 **Master Profile & Resume Parsing**: Automatically extracts technical skills, target roles, career summaries, and baseline resume health metrics (Action Verb Usage & Readability scores) from PDF and DOCX files.
-- 💼 **Interactive Live Job Board**: Explore live job postings with a fixed dual-column workspace, instant role filtering, and 1-click in-context job description analysis.
-- 🚀 **Skill Gap Detection & Learning Hub**: Automatically highlights priority skill gaps missing from target job descriptions and allows candidates to generate custom 7-day learning roadmaps.
-- 📊 **Analytics & Progress Tracking**: Track score progression over time with interactive Recharts graphs and maintain a history of past job analyses.
-- 🔒 **Secure Authentication**: Built-in user authentication with JWT, bcrypt password hashing, and cookie session management.
+- 📄 **Master Profile & Resume Parsing**: Automatically extracts technical skills, target roles, career summaries, and baseline resume health metrics (Action Verb Usage & Readability scores) from PDF, DOCX, and binary DOC files.
+- 💼 **Interactive Live Job Board**: Explore live job postings via JSearch API with a dual-column workspace, instant role filtering, and 1-click in-context job description analysis.
+- 🚀 **Skill Gap Detection & Learning Hub**: Automatically highlights priority skill gaps missing from target job descriptions and allows candidates to view recommended courses and generate custom 7-day learning roadmaps.
+- 📊 **Analytics & Progress Tracking**: Track match score progression over time with interactive Recharts graphs and maintain a history of past job analyses.
+- 🔒 **Secure Authentication**: Built-in user authentication with JWT, bcrypt password hashing, and secure HTTP-Only cookie session management.
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **Framework**: React 19 + Vite
+- **Framework**: React 19 + Vite 8
 - **Styling**: Tailwind CSS v4
-- **State Management**: Zustand
-- **Animations**: Framer Motion
-- **Data Visualization**: Recharts
+- **State Management**: Zustand 5
+- **Animations**: Framer Motion 12
+- **Data Visualization**: Recharts 3
 - **Icons**: Lucide React
 
 ### Backend
 - **Runtime**: Node.js + Express 5 (ES Modules)
-- **Database**: MongoDB with Mongoose ORM
-- **Authentication**: JSON Web Tokens (JWT)
-- **File Processing**: Multer, `pdf-parse`, `mammoth`
-- **AI Integration**: Groq OpenAI API (`openai/gpt-oss-120b`)
+- **Database**: MongoDB with Mongoose 9 ORM
+- **Authentication**: JSON Web Tokens (JWT in HTTP-Only Cookies) & `bcryptjs`
+- **File Processing**: Multer (In-Memory), `pdf-parse`, `mammoth`, `word-extractor`
+- **AI Integration**: Groq LLM API (`openai/gpt-oss-120b` via OpenAI SDK)
+- **Live Job API**: JSearch API via Axios
 
 ---
 
@@ -40,23 +41,23 @@
 CareerSync/
 ├── Backend/
 │   ├── src/
-│   │   ├── config/          # Database connection
-│   │   ├── controllers/     # Request handlers (Auth, Profile, Analysis, Jobs, Learning)
-│   │   ├── middlewares/     # Auth and file upload middlewares
-│   │   ├── models/          # MongoDB Schemas (User, Profile, Analysis, Job, Skill)
-│   │   ├── routes/          # Express route definitions
-│   │   ├── services/        # AI service, parsing service, score service
-│   │   ├── utils/           # Helper functions
-│   │   └── index.js         # Backend server entry point
+│   │   ├── config/          # Database connection (db.js)
+│   │   ├── controllers/     # Handlers (auth, profile, analysis, job, learning)
+│   │   ├── middlewares/     # Auth (auth.middleware.js) & Upload (upload.middleware.js)
+│   │   ├── models/          # Schemas (user.model.js, profile.model.js, analysis.model.js, learning.model.js)
+│   │   ├── routes/          # Express routes (auth, profile, analysis, job, learning)
+│   │   ├── services/        # AI service, parsing service, score service, course service, job service
+│   │   ├── utils/           # JWT token helper (utils.js)
+│   │   └── index.js         # Backend Express server entry point
 │   ├── package.json
 │   └── .env
 │
 └── Frontend/
     ├── src/
-    │   ├── components/      # Modular UI components (Analysis, Dashboard, Jobs, History, Profile)
-    │   ├── pages/           # App pages (Dashboard, AnalysisResultPage, Login, Register)
-    │   ├── services/        # Axios API client setup
-    │   ├── stores/          # Zustand state stores (useAuthStore, useAnalysisStore, useProfileStore)
+    │   ├── components/      # UI components (analysis, dashboard, jobs, learning, common, landing, history)
+    │   ├── pages/           # Pages (DashboardPage, AnalysisResultPage, AuthPage, LandingPage, NotFoundPage)
+    │   ├── services/        # Axios API client (api.js)
+    │   ├── stores/          # Zustand stores (useAuthStore, useProfileStore, useAnalysisStore, useJobStore, useLearningStore)
     │   ├── App.jsx          # React Router entry point
     │   └── main.jsx
     ├── package.json
@@ -69,8 +70,8 @@ CareerSync/
 
 ### Prerequisites
 - **Node.js**: v18.x or higher
-- **MongoDB**: Local MongoDB instance or MongoDB Atlas URI
-- **Groq API Key**: API key for accessing Groq LLM inference endpoints
+- **MongoDB**: Local MongoDB instance (`mongodb://localhost:27017/careersync`) or MongoDB Atlas URI
+- **Groq API Key**: API key for accessing Groq LLM inference endpoints (`GROQ_API_KEY`)
 
 ---
 
@@ -126,17 +127,20 @@ CareerSync/
 
 | Method | Endpoint | Description | Auth Required |
 | :--- | :--- | :--- | :---: |
-| `POST` | `/api/auth/register` | Register a new user | ❌ |
-| `POST` | `/api/auth/login` | Login user | ❌ |
-| `POST` | `/api/auth/logout` | Logout user | ❌ |
-| `GET` | `/api/profile/me` | Fetch candidate profile | ✅ |
-| `POST` | `/api/upload/profile` | Upload and parse master resume | ✅ |
-| `POST` | `/api/upload/analyze` | Analyze resume against a job description | ✅ |
-| `GET` | `/api/analysis/history` | Get past analysis history | ✅ |
-| `GET` | `/api/analysis/:id` | Get specific analysis report | ✅ |
-| `GET` | `/api/jobs` | Fetch live job listings with filters | ✅ |
-| `POST` | `/api/learning/add-skill` | Add skill to Learning Hub | ✅ |
-| `POST` | `/api/learning/roadmap` | Generate 7-day AI learning roadmap | ✅ |
-
----
-
+| `POST` | `/api/auth/signup` | Register a new user | ❌ |
+| `POST` | `/api/auth/login` | Login user and issue HTTP-only cookie | ❌ |
+| `POST` | `/api/auth/logout` | Clear auth session cookie | ❌ |
+| `GET` | `/api/auth/check` | Verify active user session | ✅ |
+| `GET` | `/api/profile` | Fetch candidate profile | ✅ |
+| `POST` | `/api/profile/upload` | Upload and parse master resume (PDF/DOC/DOCX) | ✅ |
+| `PUT` | `/api/profile` | Manually update profile skills/target roles | ✅ |
+| `POST` | `/api/upload` | Analyze resume against job description | ✅ |
+| `GET` | `/api/upload/history` | Fetch past scan history | ✅ |
+| `GET` | `/api/jobs/search` | Search live jobs via JSearch API | ✅ |
+| `GET` | `/api/jobs/details/:id` | Fetch specific job details | ✅ |
+| `POST` | `/api/learning/add` | Add skill to Learning Hub | ✅ |
+| `GET` | `/api/learning/list` | Fetch learning queue items | ✅ |
+| `POST` | `/api/learning/roadmap` | Generate 7-day AI study roadmap | ✅ |
+| `DELETE` | `/api/learning/:id` | Delete skill from learning queue | ✅ |
+| `GET` | `/api/learning/courses/:skill` | Fetch recommended courses for skill | ✅ |
+| `PATCH` | `/api/learning/:id/status` | Update skill status (To Learn / In Progress / Completed) | ✅ |

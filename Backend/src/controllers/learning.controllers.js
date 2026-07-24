@@ -4,12 +4,7 @@ import Profile from '../models/profile.model.js'
 import { generateLearningRoadmap } from '../services/learning.service.js'
 import { getCoursesForSkill } from '../services/course.service.js'
 
-/**
- * Add a new skill item to the user's learning queue.
- * @route POST /api/learning/add
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const addSkillToLearningList = async (req, res) => {
   try {
     const { skillName } = req.body
@@ -34,12 +29,7 @@ export const addSkillToLearningList = async (req, res) => {
   }
 }
 
-/**
- * Fetch all learning queue items for the authenticated user.
- * @route GET /api/learning/list
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const getLearningList = async (req, res) => {
   try {
     const items = await LearningItem.find({ userId: req.user._id }).sort({ createdAt: -1 })
@@ -49,12 +39,7 @@ export const getLearningList = async (req, res) => {
   }
 }
 
-/**
- * Generate an AI learning roadmap for a specific target skill.
- * @route POST /api/learning/roadmap
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const generateRoadmap = async (req, res) => {
   try {
     const { skillName } = req.body
@@ -101,12 +86,7 @@ export const generateRoadmap = async (req, res) => {
   }
 }
 
-/**
- * Remove a skill from the user's learning queue.
- * @route DELETE /api/learning/:id
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const removeSkillFromLearningList = async (req, res) => {
   try {
     const { id } = req.params
@@ -123,12 +103,7 @@ export const removeSkillFromLearningList = async (req, res) => {
   }
 }
 
-/**
- * Get course recommendations for a specific skill.
- * @route GET /api/learning/courses/:skill
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const getCoursesForSkillController = async (req, res) => {
   try {
     const { skill } = req.params
@@ -157,12 +132,7 @@ export const getCoursesForSkillController = async (req, res) => {
   }
 }
 
-/**
- * Update the status of a learning item (To Learn | In Progress | Completed).
- * @route PATCH /api/learning/:id/status
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const updateSkillStatus = async (req, res) => {
   try {
     const { id } = req.params

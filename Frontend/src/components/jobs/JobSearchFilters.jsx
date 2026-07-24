@@ -34,7 +34,7 @@ const JobSearchFilters = ({
   setShowFilters,
   loading,
   inputRef,
-  user,
+  profile,
   onSearch,
 }) => {
   const handleSubmit = (e) => {
@@ -126,11 +126,11 @@ const JobSearchFilters = ({
               Remote Only
             </label>
           </div>
-          {user?.targetRoles?.length > 0 && (
+          {profile?.targetRoles?.length > 0 && (
             <div className="flex flex-col gap-1 ml-auto">
               <label className="text-xs font-medium text-[#64748b]">Your Target Roles</label>
               <div className="flex gap-2 flex-wrap">
-                {user.targetRoles.map((role, i) => (
+                {profile.targetRoles.map((role, i) => (
                   <button
                     key={i}
                     type="button"

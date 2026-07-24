@@ -1,7 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { Briefcase, X } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { useAuthStore } from '../../stores/useAuthStore'
 import { useProfileStore } from '../../stores/useProfileStore'
 import { useJobStore } from '../../stores/useJobStore'
 import JobSearchFilters from '../jobs/JobSearchFilters'
@@ -13,7 +12,6 @@ import JobAnalysis from '../jobs/JobAnalysis'
  * JobBoard Dashboard component orchestrating job search, list, detail, and fit analysis views using useJobStore.
  */
 const JobBoard = () => {
-  const user = useAuthStore((state) => state.user)
   const profile = useProfileStore((state) => state.profile)
 
   const query = useJobStore((state) => state.query)
@@ -45,10 +43,10 @@ const JobBoard = () => {
   const inputRef = useRef(null)
 
   useEffect(() => {
-    if (user?.targetRoles?.[0] && query === 'Software Developer') {
-      setQuery(user.targetRoles[0])
+    if (profile?.targetRoles?.[0] && query === 'Software Developer') {
+      setQuery(profile.targetRoles[0])
     }
-  }, [user, query, setQuery])
+  }, [profile, query, setQuery])
 
   return (
     <motion.div
@@ -84,7 +82,7 @@ const JobBoard = () => {
           setShowFilters={setShowFilters}
           loading={loading}
           inputRef={inputRef}
-          user={user}
+          profile={profile}
           onSearch={handleSearch}
         />
       </div>

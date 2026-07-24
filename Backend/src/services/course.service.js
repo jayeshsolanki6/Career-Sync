@@ -8,10 +8,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const datasetPath = join(__dirname, '../../files/courses_dataset.json');
 const dataset = JSON.parse(readFileSync(datasetPath, 'utf-8'));
 
-/**
- * Build a normalized lookup map for fast skill → courses resolution.
- * Handles case-insensitive matching and explicit aliases from the dataset.
- */
+
 const buildSkillMap = (courses) => {
   const map = new Map();
 
@@ -34,11 +31,7 @@ const buildSkillMap = (courses) => {
 
 const skillMap = buildSkillMap(dataset.courses);
 
-/**
- * Get courses for a single skill name. Case-insensitive + alias matching.
- * @param {string} skillName
- * @returns {{ skill_name: string, levels: object } | null}
- */
+
 export const getCoursesForSkill = (skillName) => {
   if (!skillName) return null;
 

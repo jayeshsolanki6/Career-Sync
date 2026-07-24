@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { ArrowLeft, CheckCircle, Tag, Sparkles, Check, AlertCircle } from 'lucide-react'
-import { analysisAPI, learningAPI } from '../services/api'
+import { learningAPI } from '../services/api'
 import { useAnalysisStore } from '../stores/useAnalysisStore'
 import Sidebar from '../components/dashboard/Sidebar'
 import ScoreRing from '../components/analysis/ScoreRing'

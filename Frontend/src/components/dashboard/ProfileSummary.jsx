@@ -12,8 +12,6 @@ const ProfileSummary = ({ profile }) => {
 
   if (!profile) return null
 
-  const experienceYears = profile.experienceYears ?? 0
-
   return (
     <div className="bg-white rounded-xl border border-[#e2e8f0] overflow-hidden shadow-xs transition-all">
       {/* Header Bar */}
@@ -62,11 +60,6 @@ const ProfileSummary = ({ profile }) => {
                     <span className="text-xs font-bold uppercase tracking-wider text-[#0f172a] font-display flex items-center gap-1.5">
                       <Sparkles size={13} className="text-[#0f172a]" /> Career Overview
                     </span>
-                    {experienceYears > 0 && (
-                      <span className="text-xs font-semibold text-[#0f172a] bg-white px-3 py-0.5 rounded-full border border-[#e2e8f0]">
-                        {experienceYears} {experienceYears === 1 ? 'Year' : 'Years'} Experience
-                      </span>
-                    )}
                   </div>
                   <p className="text-xs sm:text-sm text-[#334155] leading-relaxed font-normal">
                     {profile.experienceSummary}

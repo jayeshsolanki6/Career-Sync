@@ -12,18 +12,6 @@ const jsearchClient = axios.create({
   },
 });
 
-/**
- * Search for jobs using JSearch API
- * @param {Object} options
- * @param {string} options.query        - Search query (e.g. "React Developer")
- * @param {string} [options.location]   - Location filter (e.g. "New York")
- * @param {string} [options.datePosted] - Filter: all | today | 3days | week | month
- * @param {string} [options.jobType]    - Filter: fulltime | parttime | contractor | intern
- * @param {string} [options.remoteOnly] - "true" | "false"
- * @param {number} [options.page]       - Page number (default: 1)
- * @param {number} [options.numPages]   - Number of pages to fetch (default: 1)
- * @returns {Promise<Object>}
- */
 export const searchJobs = async ({
   query,
   location = '',
@@ -56,9 +44,7 @@ export const searchJobs = async ({
   };
 };
 
-/**
- * Get full details for a specific job by ID
- */
+
 export const getJobDetails = async (jobId) => {
   if (!jobId) throw new Error('Job ID is required.');
 
@@ -72,9 +58,7 @@ export const getJobDetails = async (jobId) => {
   return normalizeJob(job);
 };
 
-/**
- * Normalize raw JSearch job object to a cleaner schema
- */
+
 const normalizeJob = (job) => ({
   id: job.job_id,
   title: job.job_title,

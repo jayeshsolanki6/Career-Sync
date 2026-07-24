@@ -2,12 +2,7 @@ import bcrypt from 'bcryptjs'
 import User from '../models/user.model.js'
 import { generateToken } from '../utils/utils.js'
 
-/**
- * Register a new user account.
- * @route POST /api/auth/signup
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const signup = async (req, res) => {
   const { email, fullName, password } = req.body
 
@@ -57,12 +52,7 @@ export const signup = async (req, res) => {
   }
 }
 
-/**
- * Authenticate an existing user and set session token.
- * @route POST /api/auth/login
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const login = async (req, res) => {
   const { email, password } = req.body
 
@@ -91,12 +81,7 @@ export const login = async (req, res) => {
   }
 }
 
-/**
- * Clear authentication token cookie and logout user.
- * @route POST /api/auth/logout
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const logout = (req, res) => {
   try {
     res.cookie('JWT', '', {
@@ -109,12 +94,7 @@ export const logout = (req, res) => {
   }
 }
 
-/**
- * Check authentication status of current request context.
- * @route GET /api/auth/check
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const checkAuth = async (req, res) => {
   try {
     res.status(200).json({

@@ -1,8 +1,6 @@
 import { searchJobs, getJobDetails } from '../services/job.service.js';
 
-/**
- * GET /api/jobs/search?query=...&location=...&datePosted=...&jobType=...&remoteOnly=...&page=...
- */
+
 export const searchJobsController = async (req, res) => {
   try {
     const {
@@ -39,9 +37,7 @@ export const searchJobsController = async (req, res) => {
   }
 };
 
-/**
- * GET /api/jobs/:jobId
- */
+
 export const getJobDetailsController = async (req, res) => {
   try {
     const { jobId } = req.params;

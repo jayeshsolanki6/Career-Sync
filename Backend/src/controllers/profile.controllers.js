@@ -2,12 +2,7 @@ import Profile from '../models/profile.model.js'
 import { extractProfileFromResume } from '../services/profile.service.js'
 import { extractResumeText } from '../services/upload.service.js'
 
-/**
- * Extract text from uploaded resume, run AI profile extraction, and upsert user profile.
- * @route POST /api/profile/upload
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const uploadProfileController = async (req, res) => {
   try {
     const resumeFile = req.files?.resume?.[0]
@@ -32,22 +27,12 @@ export const uploadProfileController = async (req, res) => {
         resumeText,
         resumeFileName: resumeFile.originalname || null,
         skills: extracted.skills || [],
-        experienceYears: extracted.experienceYears ?? 0,
         experienceSummary: extracted.experienceSummary || null,
         targetRoles: extracted.targetRoles || [],
         resumeHealth: extracted.resumeHealth || null,
-        lastUpdated: new Date(),
       },
       { upsert: true, new: true }
     )
-
-    // 4. Sync targetRoles onto User document
-    if (extracted.targetRoles?.length) {
-      const userRoles = req.user.targetRoles || []
-      const merged = [...new Set([...userRoles, ...extracted.targetRoles])]
-      req.user.targetRoles = merged
-      await req.user.save()
-    }
 
     return res.status(200).json({
       message: 'Profile created / updated successfully.',
@@ -59,12 +44,7 @@ export const uploadProfileController = async (req, res) => {
   }
 }
 
-/**
- * Fetch current user profile.
- * @route GET /api/profile
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const getProfileController = async (req, res) => {
   try {
     const profile = await Profile.findOne({ userId: req.user._id }).select('-resumeText')
@@ -77,12 +57,7 @@ export const getProfileController = async (req, res) => {
   }
 }
 
-/**
- * Update skills, target roles, or experience summary manually.
- * @route PUT /api/profile
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
+
 export const updateProfileController = async (req, res) => {
   try {
     const { skills, targetRoles, experienceSummary } = req.body
@@ -91,7 +66,6 @@ export const updateProfileController = async (req, res) => {
     if (Array.isArray(skills)) updates.skills = skills
     if (Array.isArray(targetRoles)) updates.targetRoles = targetRoles
     if (experienceSummary !== undefined) updates.experienceSummary = experienceSummary
-    updates.lastUpdated = new Date()
 
     const profile = await Profile.findOneAndUpdate(
       { userId: req.user._id },
@@ -101,11 +75,6 @@ export const updateProfileController = async (req, res) => {
 
     if (!profile) {
       return res.status(404).json({ message: 'Profile not found. Please upload your resume first.' })
-    }
-
-    if (Array.isArray(targetRoles)) {
-      req.user.targetRoles = targetRoles
-      await req.user.save()
     }
 
     return res.status(200).json({ message: 'Profile updated.', data: profile })

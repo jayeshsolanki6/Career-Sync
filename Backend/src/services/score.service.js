@@ -1,7 +1,4 @@
-/**
- * Formats the LLM-generated score object directly.
- * Performs ZERO calculations — uses the raw scores provided by the LLM response.
- */
+
 export function calculateMatchScore(analysis) {
   const scoreObj = typeof analysis?.score === 'object' ? analysis.score : {};
   const overall = typeof scoreObj.overall === 'number' ? scoreObj.overall : (typeof analysis?.score === 'number' ? analysis.score : 0);
