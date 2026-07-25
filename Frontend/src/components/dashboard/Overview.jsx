@@ -10,11 +10,12 @@ import RecentScans from './RecentScans'
 import ProfileSummary from './ProfileSummary'
 import ResumeUploadZone from './ResumeUploadZone'
 
-/**
- * Dashboard Overview section displaying readiness metrics, profile summary, score charts, and recent scans using useAnalysisStore.
- * @param {Object} props
- * @param {Function} props.onNavigate - Navigation handler to switch dashboard tabs
- */
+function capitalizeFirstLetter(string) {
+  if (!string) return '';
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+
 const Overview = ({ onNavigate }) => {
   const user = useAuthStore((state) => state.user)
   const profile = useProfileStore((state) => state.profile)
@@ -65,7 +66,7 @@ const Overview = ({ onNavigate }) => {
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto">
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-[#0f172a] font-display">
-            Welcome, {user?.fullName?.split(' ')[0] || 'User'}! 👋
+            Welcome, {capitalizeFirstLetter(user?.fullName?.split(' ')[0]) || 'User'}! 👋
           </h1>
           <p className="text-[#64748b] text-sm mt-1 font-normal">Let's start by running your first resume analysis.</p>
         </div>
@@ -112,7 +113,7 @@ const Overview = ({ onNavigate }) => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-[#0f172a] font-display">
-            Welcome back, {user?.fullName?.split(' ')[0] || 'User'} 👋
+            Welcome back, {capitalizeFirstLetter(user?.fullName?.split(' ')[0]) || 'User'} 👋
           </h1>
           <p className="text-[#64748b] text-xs mt-0.5">Here's your career readiness snapshot.</p>
         </div>

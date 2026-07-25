@@ -39,7 +39,7 @@ const Hero = () => {
   const [selectedRole, setSelectedRole] = useState(sampleRoles[0])
 
   return (
-    <section className="relative pt-16 pb-20 lg:pt-10 lg:pb-14 bg-white overflow-hidden">
+    <section className="relative pt-20 pb-20 lg:pt-16 lg:pb-20 bg-white overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
