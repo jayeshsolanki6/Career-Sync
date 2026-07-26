@@ -2,9 +2,9 @@ import { useEffect, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { BookOpen, Bot } from 'lucide-react'
 import { useLearningStore } from '../../stores/useLearningStore'
-import SkillSidebar from '../learning/SkillSidebar'
-import CourseList from '../learning/CourseList'
-import StudyPlanView from '../learning/StudyPlanView'
+import SkillSidebar from './SkillSidebar'
+import CourseList from './CourseList'
+import StudyPlanView from './StudyPlanView'
 
 /**
  * LearningSkills component connected directly to useLearningStore Zustand store.
@@ -82,25 +82,29 @@ const LearningSkills = () => {
 
   if (loadingList) {
     return (
-      <div className="flex gap-6">
-        <div className="w-80 space-y-3">
+      <div className="flex gap-6 flex-1 w-full">
+        <div className="w-80 space-y-3 shrink-0">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="h-14 bg-gray-100 rounded-xl animate-pulse" />
           ))}
         </div>
-        <div className="flex-1 h-64 bg-gray-100 rounded-xl animate-pulse" />
+        <div className="flex-1 bg-gray-100 rounded-xl animate-pulse min-h-[300px]" />
       </div>
     )
   }
 
   return (
-    <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="max-w-7xl mx-auto">
-      <div className="mb-6">
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="flex-1 min-h-0 flex flex-col w-full overflow-hidden"
+    >
+      <div className="mb-6 shrink-0">
         <h1 className="text-2xl font-bold text-[#0f172a] font-display">Learning Hub</h1>
         <p className="text-[#64748b] text-sm mt-1">Track your skill development with personalized courses and AI study plans.</p>
       </div>
 
-      <div className="flex gap-6 items-start">
+      <div className="flex flex-col lg:flex-row gap-6 flex-1 min-h-0 overflow-hidden">
         <SkillSidebar
           skills={learningList}
           selectedItem={selectedItem}
@@ -114,17 +118,17 @@ const LearningSkills = () => {
           inputRef={inputRef}
         />
 
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 flex flex-col min-h-0 overflow-hidden">
           {!selectedItem ? (
-            <div className="flex flex-col items-center justify-center py-24 bg-white rounded-xl border border-dashed border-[#e2e8f0] text-center">
+            <div className="flex flex-col items-center justify-center flex-1 bg-white rounded-xl border border-dashed border-[#e2e8f0] text-center p-8 py-16">
               <BookOpen size={40} className="text-[#94a3b8] mb-4" />
               <h3 className="text-base font-bold text-[#0f172a] font-display mb-1">Select a skill</h3>
               <p className="text-sm text-[#64748b]">Choose a skill from the left to view courses and study plans.</p>
             </div>
           ) : (
-            <div className="bg-white rounded-xl border border-[#e2e8f0] shadow-xs overflow-hidden">
+            <div className="bg-white rounded-xl border border-[#e2e8f0] shadow-xs overflow-hidden flex-1 flex flex-col min-h-0">
               {/* Skill header */}
-              <div className="px-6 py-5 border-b border-[#e2e8f0] bg-white">
+              <div className="px-6 py-5 border-b border-[#e2e8f0] bg-white shrink-0">
                 <h2 className="text-2xl font-bold text-[#0f172a] font-display mb-3">{selectedItem.skillName}</h2>
                 <div className="w-full h-2 bg-[#e2e8f0] rounded-full overflow-hidden mb-1.5">
                   <div
@@ -142,8 +146,8 @@ const LearningSkills = () => {
               </div>
 
               {/* Tabs */}
-              <div className="px-6 pt-3 border-b border-[#e2e8f0]">
-                <div className="flex gap-1">
+              <div className="px-6 pt-3 border-b border-[#e2e8f0] shrink-0 bg-white">
+                <div className="flex gap-1 overflow-x-auto">
                   {[
                     { key: 'courses', label: 'Courses', icon: BookOpen },
                     { key: 'plan', label: 'Study Plan', icon: Bot },
@@ -151,7 +155,7 @@ const LearningSkills = () => {
                     <button
                       key={t.key}
                       onClick={() => setActiveTab(t.key)}
-                      className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold transition-all cursor-pointer border-b-2 ${
+                      className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold transition-all cursor-pointer border-b-2 whitespace-nowrap ${
                         activeTab === t.key
                           ? 'text-[#0f172a] border-[#0f172a]'
                           : 'text-[#64748b] border-transparent hover:text-[#0f172a]'
@@ -164,7 +168,7 @@ const LearningSkills = () => {
               </div>
 
               {/* Content */}
-              <div className="p-6 max-h-[60vh] overflow-y-auto">
+              <div className="p-6 overflow-y-auto flex-1 min-h-0">
                 {activeTab === 'courses' ? (
                   <CourseList
                     courses={courses}

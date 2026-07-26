@@ -60,10 +60,11 @@ const getPlatformColor = (platform) => {
 }
 
 export const CourseCard = ({ course, level }) => {
-  const config = levelConfig[level]
+  const config = levelConfig[level] || levelConfig.intermediate
+  const platformName = course.platform || 'Online'
   return (
     <motion.a
-      href={course.url}
+      href={course.url || '#'}
       target="_blank"
       rel="noopener noreferrer"
       className="block group"
@@ -78,12 +79,14 @@ export const CourseCard = ({ course, level }) => {
               <h4 className="text-sm font-bold text-[#0f172a] font-display group-hover:underline transition-colors leading-snug">
                 {course.title}
               </h4>
-              <p className="text-xs text-[#64748b] mt-1.5 leading-relaxed line-clamp-2">
-                {course.description}
-              </p>
+              {course.description && (
+                <p className="text-xs text-[#64748b] mt-1.5 leading-relaxed line-clamp-2">
+                  {course.description}
+                </p>
+              )}
               <div className="flex items-center flex-wrap gap-2 mt-3">
-                <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-semibold ${getPlatformColor(course.platform)}`}>
-                  <Monitor size={10} /> {course.platform}
+                <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-semibold ${getPlatformColor(platformName)}`}>
+                  <Monitor size={10} /> {platformName}
                 </span>
                 {course.duration && (
                   <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-[#f8fafc] text-[#64748b] border border-[#e2e8f0]">
@@ -124,26 +127,28 @@ const CourseList = ({ courses, loading, activeLevel, setActiveLevel }) => {
 
   return (
     <>
-      <div className="flex gap-1 p-1 bg-gray-100 rounded-xl mb-5">
-        {Object.entries(levelConfig).map(([key, cfg]) => {
-          const Icon = cfg.icon
-          const count = courses?.levels?.[key]?.length || 0
-          const isActive = activeLevel === key
-          return (
-            <button
-              key={key}
-              onClick={() => setActiveLevel(key)}
-              className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                isActive ? `bg-white shadow-sm ${cfg.text} ring-1 ${cfg.ring}` : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              <Icon size={13} /> {cfg.label}
-              <span className={`ml-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold ${isActive ? cfg.badge : 'bg-gray-200 text-gray-500'}`}>
-                {count}
-              </span>
-            </button>
-          )
-        })}
+      <div className="overflow-x-auto pb-1 mb-4">
+        <div className="flex gap-1 p-1 bg-gray-100 rounded-xl min-w-max">
+          {Object.entries(levelConfig).map(([key, cfg]) => {
+            const Icon = cfg.icon
+            const count = courses?.levels?.[key]?.length || 0
+            const isActive = activeLevel === key
+            return (
+              <button
+                key={key}
+                onClick={() => setActiveLevel(key)}
+                className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
+                  isActive ? `bg-white shadow-sm ${cfg.text} ring-1 ${cfg.ring}` : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                <Icon size={13} /> {cfg.label}
+                <span className={`ml-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold ${isActive ? cfg.badge : 'bg-gray-200 text-gray-500'}`}>
+                  {count}
+                </span>
+              </button>
+            )
+          })}
+        </div>
       </div>
 
       <AnimatePresence mode="wait">

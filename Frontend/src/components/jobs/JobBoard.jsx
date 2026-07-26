@@ -3,10 +3,10 @@ import { Briefcase, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useProfileStore } from '../../stores/useProfileStore'
 import { useJobStore } from '../../stores/useJobStore'
-import JobSearchFilters from '../jobs/JobSearchFilters'
-import JobList from '../jobs/JobList'
-import JobDetail from '../jobs/JobDetail'
-import JobAnalysis from '../jobs/JobAnalysis'
+import JobSearchFilters from './JobSearchFilters'
+import JobList from './JobList'
+import JobDetail from './JobDetail'
+import JobAnalysis from './JobAnalysis'
 
 /**
  * JobBoard Dashboard component orchestrating job search, list, detail, and fit analysis views using useJobStore.
@@ -53,8 +53,7 @@ const JobBoard = () => {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25 }}
-      className="flex flex-col gap-4"
-      style={{ height: 'calc(100vh - 48px)' }}
+      className="flex-1 min-h-0 flex flex-col gap-4 overflow-hidden"
     >
       {/* Header */}
       <div className="shrink-0">

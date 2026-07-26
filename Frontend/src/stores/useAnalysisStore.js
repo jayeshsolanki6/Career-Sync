@@ -9,11 +9,18 @@ const computeAnalytics = (history) => {
   if (!history || !history.length) return null
   const sorted = [...history].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
   const scores = sorted.map(getScoreVal)
-  const scoreTimeline = sorted.map((item) => ({
-    name: new Date(item.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-    score: getScoreVal(item),
-  }))
-  const recentAnalyses = [...sorted].reverse().slice(0, 3)
+  const scoreTimeline = sorted.map((item, index) => {
+    const d = new Date(item.createdAt)
+    const dateLabel = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+    const timeLabel = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
+    return {
+      name: `${dateLabel}, ${timeLabel}`,
+      displayDate: dateLabel,
+      score: getScoreVal(item),
+      summary: item.shortSummary || item.jobTitle || 'Analysis',
+    }
+  })
+  const recentAnalyses = [...sorted].reverse().slice(0, 4)
 
   return {
     scoreTimeline,
@@ -25,10 +32,6 @@ const computeAnalytics = (history) => {
   }
 }
 
-/**
- * Combined Zustand store for all Analysis domain features:
- * History, Reports, Dashboard Overview Metrics, and New Analysis Workspace execution.
- */
 export const useAnalysisStore = create((set, get) => ({
   // --- History & Overview State ---
   history: [],

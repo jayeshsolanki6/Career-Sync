@@ -31,7 +31,7 @@ app.use('/api/learning', learningRoutes);
 app.use('/api/jobs', jobRoutes);
 app.use('/api/profile', profileRoutes);
 
+await connectDB();
 app.listen(PORT, () => {
-    connectDB();
     console.log(`Server started on PORT : ${PORT}.`);
 })

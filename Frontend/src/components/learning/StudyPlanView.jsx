@@ -56,11 +56,11 @@ const StudyPlanView = ({ roadmapData, taskCompletion, progress, onTaskToggle, on
 
       {/* Timeline */}
       <div className="relative space-y-0">
-        {roadmapData.plan.map((day, di) => {
+        {(roadmapData?.plan || []).map((day, di) => {
           const dayTasks = day.tasks || []
           const dayDone = dayTasks.filter((_, ti) => taskCompletion[`${di}-${ti}`]).length
           const allDone = dayTasks.length > 0 && dayDone === dayTasks.length
-          const isLast = di === roadmapData.plan.length - 1
+          const isLast = di === (roadmapData.plan.length - 1)
 
           return (
             <div key={di} className="flex gap-4">
@@ -70,22 +70,22 @@ const StudyPlanView = ({ roadmapData, taskCompletion, progress, onTaskToggle, on
                 }`}>
                   {allDone ? '✓' : di + 1}
                 </div>
-                {!isLast && <div className={`w-0.5 flex-1 mt-1 mb-1 ${allDone ? 'bg-emerald-300' : 'bg-[#e2e8f0]'}`} />}
+                {!isLast && <div className={`w-0.5 flex-1 ${allDone ? 'bg-emerald-300' : 'bg-[#e2e8f0]'}`} />}
               </div>
 
               <div className="flex-1 pb-5">
-                <div className={`p-4 rounded-xl border transition-all ${allDone ? 'bg-emerald-50/50 border-emerald-200' : 'bg-white border-[#e2e8f0]'}`}>
+                <div className={`p-4 rounded-xl border transition-all ${allDone ? 'bg-emerald-50/50 border-emerald-200' : 'bg-white border-[#e2e8f0] hover:border-[#cbd5e1]'}`}>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-[#64748b]">{day.day}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-[#64748b]">{day.day || `Day ${di + 1}`}</span>
                     <span className="text-[10px] font-semibold text-[#64748b]">{dayDone}/{dayTasks.length} done</span>
                   </div>
                   <h4 className="text-sm font-bold text-[#0f172a] font-display mb-0.5">{day.title}</h4>
-                  <p className="text-xs text-[#64748b] mb-3">{day.focus}</p>
+                  {day.focus && <p className="text-xs text-[#64748b] mb-3">{day.focus}</p>}
                   <div className="space-y-2">
                     {dayTasks.map((task, ti) => {
                       const checked = !!taskCompletion[`${di}-${ti}`]
                       return (
-                        <label key={ti} className="flex items-start gap-2.5 cursor-pointer group">
+                        <label key={ti} className="flex items-start gap-2.5 cursor-pointer group select-none">
                           <input
                             type="checkbox"
                             checked={checked}
@@ -101,7 +101,7 @@ const StudyPlanView = ({ roadmapData, taskCompletion, progress, onTaskToggle, on
                   </div>
                   {day.resource && (
                     <div className="mt-3 pt-3 border-t border-dashed border-[#e2e8f0]">
-                      <p className="text-[10px] font-semibold text-[#64748b] uppercase tracking-wide mb-1">📚 Recommended</p>
+                      <p className="text-[10px] font-semibold text-[#64748b] uppercase tracking-wide mb-1">📚 Recommended Resource</p>
                       <p className="text-xs text-[#0f172a] font-medium">{day.resource}</p>
                     </div>
                   )}

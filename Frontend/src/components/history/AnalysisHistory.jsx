@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { RefreshCw } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useAnalysisStore } from '../../stores/useAnalysisStore'
-import HistoryList from '../history/HistoryList'
+import HistoryList from './HistoryList'
 
 /**
  * AnalysisHistory component connected directly to useAnalysisStore Zustand store.

@@ -24,7 +24,7 @@ const ProgressRing = ({ progress, size = 40, stroke = 3.5 }) => {
 }
 
 const SkillSidebar = ({ skills, selectedItem, onSelect, onDelete, prioritySkills, onAdd, addingSkill, searchQuery, setSearchQuery, inputRef }) => {
-  const getPriority = (name) => prioritySkills.some(s => s.toLowerCase() === name.toLowerCase())
+  const getPriority = (name) => prioritySkills?.some(s => s?.toLowerCase() === name?.toLowerCase()) || false
 
   const getProgress = (item) => {
     if (!item?.roadmap) return 0
@@ -57,7 +57,7 @@ const SkillSidebar = ({ skills, selectedItem, onSelect, onDelete, prioritySkills
   }
 
   return (
-    <div className="w-80 shrink-0 flex flex-col gap-3">
+    <div className="w-full lg:w-80 shrink-0 flex flex-col gap-3 min-h-0">
       <form onSubmit={handleAdd} className="flex gap-2">
         <div className="relative flex-1">
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94a3b8]" />
@@ -73,7 +73,7 @@ const SkillSidebar = ({ skills, selectedItem, onSelect, onDelete, prioritySkills
         <button
           type="submit"
           disabled={addingSkill || !searchQuery.trim()}
-          className="flex items-center gap-1 px-3 py-2.5 bg-[#0f172a] text-white text-sm font-medium rounded-lg hover:bg-[#1e293b] transition-colors disabled:opacity-60 cursor-pointer"
+          className="flex items-center gap-1 px-3.5 py-2.5 bg-[#0f172a] text-white text-sm font-medium rounded-lg hover:bg-[#1e293b] transition-colors disabled:opacity-60 cursor-pointer shrink-0"
         >
           {addingSkill ? <Loader2 size={14} className="animate-spin" /> : <Plus size={14} />}
           Add
@@ -81,13 +81,13 @@ const SkillSidebar = ({ skills, selectedItem, onSelect, onDelete, prioritySkills
       </form>
 
       {skills.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-16 bg-white rounded-xl border border-dashed border-[#e2e8f0] text-center">
+        <div className="flex flex-col items-center justify-center py-16 bg-white rounded-xl border border-dashed border-[#e2e8f0] text-center p-6">
           <Sparkles size={32} className="text-[#94a3b8] mb-3" />
           <h3 className="text-sm font-bold text-[#0f172a] font-display mb-1">No skills yet</h3>
           <p className="text-xs text-[#64748b] max-w-[180px]">Add skills to start building your learning path.</p>
         </div>
       ) : (
-        <div className="flex flex-col gap-2 overflow-y-auto">
+        <div className="flex flex-col gap-2 overflow-y-auto flex-1 min-h-0 pr-0.5">
           <AnimatePresence>
             {skills.map(item => {
               const prog = getProgress(item)
@@ -124,8 +124,10 @@ const SkillSidebar = ({ skills, selectedItem, onSelect, onDelete, prioritySkills
                       </p>
                     </div>
                     <button
+                      type="button"
+                      aria-label="Delete skill"
                       onClick={e => { e.stopPropagation(); onDelete(item._id) }}
-                      className="opacity-0 group-hover:opacity-100 text-gray-400 hover:text-red-500 transition-all p-1 cursor-pointer"
+                      className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 focus:opacity-100 text-gray-400 hover:text-red-500 transition-all p-1 cursor-pointer rounded"
                     >
                       <Trash2 size={14} />
                     </button>

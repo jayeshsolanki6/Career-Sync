@@ -7,8 +7,8 @@ import { useAnalysisStore } from '../../stores/useAnalysisStore'
 import StatsGrid from './StatsGrid'
 import ScoreChart from './ScoreChart'
 import RecentScans from './RecentScans'
-import ProfileSummary from './ProfileSummary'
-import ResumeUploadZone from './ResumeUploadZone'
+import ProfileSummary from '../profile/ProfileSummary'
+import ResumeUploadZone from '../profile/ResumeUploadZone'
 
 function capitalizeFirstLetter(string) {
   if (!string) return '';
@@ -32,16 +32,16 @@ const Overview = ({ onNavigate }) => {
 
   if (loading) {
     return (
-      <div className="space-y-6 max-w-7xl mx-auto animate-pulse">
+      <div className="flex flex-col gap-6 max-w-7xl mx-auto animate-pulse flex-1 w-full">
         <div className="h-8 bg-gray-100 rounded-xl w-64" />
         <div className="grid grid-cols-4 gap-4">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="h-28 bg-gray-100 rounded-xl" />
           ))}
         </div>
-        <div className="grid grid-cols-3 gap-6">
-          <div className="col-span-2 h-64 bg-gray-100 rounded-xl" />
-          <div className="h-64 bg-gray-100 rounded-xl" />
+        <div className="grid grid-cols-3 gap-6 flex-1">
+          <div className="col-span-2 bg-gray-100 rounded-xl min-h-[256px]" />
+          <div className="bg-gray-100 rounded-xl min-h-[256px]" />
         </div>
       </div>
     )
@@ -107,7 +107,7 @@ const Overview = ({ onNavigate }) => {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25 }}
-      className="space-y-4 max-w-7xl mx-auto"
+      className="flex flex-col gap-4 max-w-7xl mx-auto flex-1 min-h-0 w-full"
     >
       {/* Header */}
       <div className="flex items-center justify-between">
@@ -137,14 +137,14 @@ const Overview = ({ onNavigate }) => {
       />
 
       {/* Chart + Recent Scans */}
-      <div className="grid lg:grid-cols-12 gap-4">
-        <div className="lg:col-span-8 bg-white rounded-xl border border-[#e2e8f0] shadow-xs p-4">
+      <div className="grid lg:grid-cols-12 gap-4 flex-1 min-h-0">
+        <div className="lg:col-span-8 bg-white rounded-xl border border-[#e2e8f0] shadow-xs p-4 flex flex-col min-h-[280px]">
           <p className="text-[11px] font-bold uppercase tracking-wide text-[#64748b] mb-3">Score Progression</p>
-          <div className="h-48 sm:h-52">
+          <div className="flex-1 min-h-0">
             <ScoreChart data={scoreTimeline} />
           </div>
         </div>
-        <div className="lg:col-span-4 bg-white rounded-xl border border-[#e2e8f0] shadow-xs p-4">
+        <div className="lg:col-span-4 bg-white rounded-xl border border-[#e2e8f0] shadow-xs p-4 min-h-[280px]">
           <RecentScans analyses={recentAnalyses} onViewAll={() => onNavigate('history')} />
         </div>
       </div>

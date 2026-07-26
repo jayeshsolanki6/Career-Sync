@@ -30,8 +30,8 @@ const RecentScans = ({ analyses = [], onViewAll }) => {
           View All <ChevronRight size={13} />
         </button>
       </div>
-      <div className="space-y-2 flex-1">
-        {analyses.slice(0, 3).map((item) => {
+      <div className="flex flex-col justify-evenly flex-1">
+        {analyses.slice(0, 4).map((item) => {
           const scoreStyle = getScoreStyle(item.score)
           const date = new Date(item.createdAt).toLocaleDateString('en-US', {
             month: 'short',
