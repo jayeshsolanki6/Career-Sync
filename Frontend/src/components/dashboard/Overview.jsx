@@ -63,7 +63,7 @@ const Overview = ({ onNavigate }) => {
 
   if (!history.length) {
     return (
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto">
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto w-full">
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-[#0f172a] font-display">
             Welcome, {capitalizeFirstLetter(user?.fullName?.split(' ')[0]) || 'User'}! 👋

@@ -1,9 +1,6 @@
 import { create } from 'zustand'
 import { jobsAPI, uploadAPI } from '../services/api'
 
-/**
- * Zustand store managing Live Job Board search, filters, pagination, and AI fit analysis.
- */
 export const useJobStore = create((set, get) => ({
   query: 'Software Developer',
   location: '',

@@ -47,8 +47,6 @@ const extractText = async (file) => {
   throw new Error("Unsupported file format");
 };
 
-
-
 export const extractResumeText = async (file) => {
   return extractText(file);
 };
